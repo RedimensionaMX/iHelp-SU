@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 <div class="row">
   <label>Filtrar por clave o tipo</label>
   <input type="text" id="myInput" onkeyup="filtrarPorSucuarsal()" placeholder="Filtrar por clave de sucursal.." title="Type in a name">
@@ -35,13 +28,13 @@
          <th width='5%'>Suc</th>
          <th width='8%'>Tipo</th>
          <th width='8%'>Periodo</th>
-         <th width='8%'>Fecha</th>
+         <th width='10%'>Fecha</th>
          <th width='10%'>Nota</th>
 
-         <th width='5%'>Orden</th>
+         <th width='8%'>Orden</th>
          <th width='10%'>Importe</th>
-         <th width='10%'>Equipo</th>
-         <th width='10%'>Servicio/producto</th>
+         <!-- <th width='10%'>Equipo</th> -->
+         <th width='30%'>Servicio/producto</th>
          <th width='10%'>Forma de pago</th> 
           <th width='10%'>Observaciones</th>         
 
@@ -56,7 +49,7 @@ foreach ($cierredemes as $item) {
     
     //echo "<td>" . $item['sucursal_id'] . "</td>";
     //print_r($item);
-    if(substr($item['num_orden'], 0, 2) === "VH"){
+    if(substr($item['num_orden'], 0, 2) === "VM"){
     	echo "<td>VM2</td>";	
     }else{
     	echo "<td>" . substr($item['num_orden'], 0, 2) . 1 . "</td>";
@@ -69,7 +62,7 @@ foreach ($cierredemes as $item) {
  
     echo "<td>" . $item['num_orden'] . "</td>";
     echo "<td style='text-align:right'>" . number_format($item['importe'],2) . "</td>";
-    echo "<td>" . $item['descripcion_tipo'] . "</td>";
+    //echo "<td>" . $item['descripcion_tipo'] . "</td>";
     echo "<td>" . $item['descripcion_servicios'] . "</td>";
     echo "<td>" . ucfirst(strtolower($item['forma_de_pago'])) . "</td>";    
        echo "<td>" . $item['observaciones'] . "</td>";    

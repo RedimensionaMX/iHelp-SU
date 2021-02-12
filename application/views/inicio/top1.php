@@ -115,8 +115,20 @@ if ($this->session->userdata('username')=="")
                                     <li><a href="/catalogo/index.php/reportes/accesoriosmespropiasresumen" title="Entradas y salidas por mes">Accesorios <b>MES RESUMEN</b></a></li>
                                 </ul>
                             </li>
+                            <li><a href="#" title="Propias">Propias <b>Reparados</b></a>
+                                <ul>
+                                    <li><a href="/catalogo/index.php/reportes/equiposreparadospropiasat" title="Reparaciones de área técnica">Área Técnica</a></li>
+                                    <li><a href="/catalogo/index.php/reportes/equiposreparadospropiasac" title="Reparaciones de área comercial">Area Comercial</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" title="Propias">Propias <b>Comunicados</b></a>
+                                <ul>
+                                    <li><a href="/catalogo/index.php/reportes/comunicadospropias" title="Comunicados de área comercial">Área Comercial</a></li>
+                                </ul>
+                            </li>
                             <li><a href="/catalogo/index.php/reportes/equiposEsperaRefaccionPropias" title="Equipos en Espera de Refaccion">Propias <b>Espera de Refaccion</b></a></li>
                             <li><a href="/catalogo/index.php/reportes/equiposLaboratorioPropias" title="Equipos En Laboratorio">Propias <b>En Laboratorio</b></a></li>
+                            <li><a href="/catalogo/index.php/reportes/devolucionesPendientesPropias" title="Devoluciones Pendientes">Propias <b>Devoluciones Pendientes</b></a></li>
                             <li><a href="#" title="Franquicias">Franquicias<b> Equipos Recibidos</b></a>
                                 <ul>
                                     <li><a href="/catalogo/index.php/reportes/recibidosdiafranquicias" title="Equipos Recibidos Dia Franquicias">Recibidos <b>HOY DETALLE</b></a></li>
@@ -141,8 +153,20 @@ if ($this->session->userdata('username')=="")
                                     <li><a href="/catalogo/index.php/reportes/accesoriosmesfranquiciasresumen" title="Entradas y salidas por mes">Accesorios <b>MES RESUMEN</b></a></li>
                                 </ul>
                             </li>
+                            <li><a href="#" title="Franquicias">Franquicias <b>Reparados</b></a>
+                                <ul>
+                                    <li><a href="/catalogo/index.php/reportes/equiposreparadosfranquiciasat" title="Reparaciones de área técnica">Área Técnica</a></li>
+                                    <li><a href="/catalogo/index.php/reportes/equiposreparadosfranquiciasac" title="Reparaciones de área comercial">Area Comercial</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" title="Franquicias">Franquicias <b>Comunicados</b></a>
+                                <ul>
+                                    <li><a href="/catalogo/index.php/reportes/comunicadosfranquicias" title="Comunicados de área comercial">Área Comercial</a></li>
+                                </ul>
+                            </li>
                             <li><a href="/catalogo/index.php/reportes/equiposEsperaRefaccionFranquicias" title="Equipos en Espera de Refaccion">Franquicias <b>Espera de Refaccion</b></a></li>
 							<li><a href="/catalogo/index.php/reportes/equiposLaboratorioFranquicias" title="Equipos En Laboratorio">Franquicias <b>En Laboratorio</b></a></li>
+							<li><a href="/catalogo/index.php/reportes/devolucionesPendientesFranquicias" title="Devoluciones Pendientes">Franquicias <b>Devoluciones Pendientes</b></a></li>
                             <li><a href="#" title="Culiacán"><b>Culiacán</b></a>
                                 <ul>
                                     <li><a href="/catalogo/index.php/reportes/recibidosdiaculiacan" title="Equipos Dia Suc Gestionadas">Hoy Recibidos</a>
@@ -240,12 +264,19 @@ if ($this->session->userdata('username')=="")
                                 </ul>
                             </li>
                             <li><a href="/catalogo/index.php/reportes/cierredemesvarios" title="Entradas y salidas por mes">Ventas por Sucursal y Fecha</a></li>
+                            <li><a href="#" title="Supervisión">Supervisión</b></a>
+                                <ul>
+                                    <li><a href="/catalogo/index.php/reportes/supervision" title="Supervisión de ordenes generales">Ordenes Generales</a></li>
+                                    <li><a href="/catalogo/index.php/reportes/supervisionactivas" title="Supervisión de ordenes activas">Ordenes Activas</a></li>
+                                </ul>
+                            </li>
                             <!--<li><a href="/catalogo/index.php/reportes/accesoriosVariables" title="Entradas y salidas por mes">Venta Accesorios por Sucursal y Fecha</a></li>-->
-							<li><a href="/catalogo/index.php/reportes/supervision" title="Entradas y salidas por mes">Supervisión Ordenes</a></li>
+							<!-- <li><a href="/catalogo/index.php/reportes/supervision" title="Entradas y salidas por mes">Supervisión Ordenes</a></li> -->
                             <li ><a href="#" title="Remisiones">Otros
                                 <ul>
                                     <li><a href="/catalogo/index.php/reportesadministracion/listadoremisiones" title="Reporte de remisiones">Remisiones por fechas</a></li>
                                     <li><a href="/catalogo/index.php/reportesadministracion/entradassalidaspormes" title="Entradas y salidas por mes">Reporte de entradas y salidas por mes</a></li>
+                                    <li><a href="/catalogo/index.php/reportes/equiposreparadospordia" title="Equipos recibidos por día">Equipos reparados por día</a></li>
                                 </ul>
                             </li>
                         </ul>

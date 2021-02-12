@@ -64,10 +64,17 @@ class Registroaccionesmodel extends CI_Model {
       return $c;
     }
 
-
-
-    
-
-
+    function get_usuariosat_dropdown($seleccionados){
+      $resultado2 = [];
+      for ($i=0; $i < sizeof($seleccionados); $i++) {
+        $qry = " SELECT distinct(usuario) from usuarios where nivel = '2' and sucursal_id = '". $seleccionados[$i] ."';";
+        $arr = $this->db->query($qry);
+        $guard = $arr->result_array();
+        $resultado2  = array_merge($resultado2, $guard);
+      }
+      //$resultado2 = array_values(array_unique($resultado2));
+      print_r($resultado2);
+      return $resultado2;
+    }
 }
 ?>

@@ -6,7 +6,7 @@ if ( ! function_exists('sucursales_con_indices'))
 
 function sucursales_con_indices(){
     //$bases=array(0=>"XA1",1=>"XC1",2=>"XU1",3=>"CL1",4=>"OZ1",5=>"VM1",6=>"VA1",7=>"VB1",8=>"PA1",9=>"PR1",10=>"CAT");
-    $bases=array(0=>"XA1",1=>"XC1",2=>"XU1",3=>"CL1",4=>"OZ1",5=>"VM1",6=>"VA1",7=>"VB1",8=>"PA1",9=>"PR1",10=>"MI2",11=>"CAT",12=>"MG1",13=>"CS1",14=>"CQ1",15=>"TX1",16=>"CP1");
+    $bases=array(0=>"XA1",1=>"XC1",2=>"XU1",3=>"CL1",4=>"OZ1",5=>"VM1",6=>"VA1",7=>"VB1",8=>"PA1",9=>"PR1",10=>"MI2",11=>"CAT",12=>"MG1",13=>"CS1",14=>"CQ1",15=>"TX1",16=>"CP1",17=>"VR1");
     return $bases;
 }
 }
@@ -16,7 +16,7 @@ if ( ! function_exists('sucursales_catalogo_con_indices'))
 {
 function sucursales_catalogo_con_indices(){
     //$bases=array(0=>"XA1",1=>"XC1",2=>"XU1",3=>"CL1",4=>"OZ1",5=>"VM1",6=>"VA1",7=>"VB1",8=>"PA1",9=>"PR1",10=>"CAT");
-    $bases=array(0=>"XA1",1=>"XC1",2=>"XU1",3=>"CL1",4=>"OZ1",5=>"VM1",6=>"VA1",7=>"VB1",8=>"PA1",9=>"PR1",10=>"MI2",11=>"CAT",12=>"MG1",13=>"CS1",14=>"CQ1",15=>"TX1",16=>"CP1");
+    $bases=array(0=>"XA1",1=>"XC1",2=>"XU1",3=>"CL1",4=>"OZ1",5=>"VM1",6=>"VA1",7=>"VB1",8=>"PA1",9=>"PR1",10=>"MI2",11=>"CAT",12=>"MG1",13=>"CS1",14=>"CQ1",15=>"TX1",16=>"CP1",17=>"VR1");
     return $bases;
 }
 }
@@ -41,6 +41,7 @@ function sucursales_nombres_dd(){
           ,"PA1"=>"Puebla Animas"
 		  ,"VB1"=>"Veracruz Bolívar"
           ,"CP1"=>"Coatepec"
+          ,"VR1"=>"Veracruz Riviera"
     	  ,"MI2"=>"Xalapa Pruebas");
         return $bases;
 

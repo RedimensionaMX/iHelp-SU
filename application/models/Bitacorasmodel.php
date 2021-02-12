@@ -105,8 +105,56 @@ class Bitacorasmodel extends CI_Model {
 
         return $fecha_a_diagnosticar;
     }
-  
 
-    
+    function get_bitacorasdetalleequipo($equipo_id) {
+        $guion = '/';
+        $anio = date("Y");
+        $mes =  date("m");
+        $dia =  date("d");
+        $fecha = $anio.$guion.$mes.$guion.$dia;
+        if($equipo_id != ''){
+            $arr = ( $this->db->query("select b.estatus,b.fecha,b.hora,b.usuario_id,b.equipo_id,u.usuario from bitacoras b inner join usuarios u on b.usuario_id=u.id where b.fecha = '".$fecha."' and u.usuario = '".$equipo_id."' and b.estatus = 'Reparado' order by b.fecha,b.hora,b.id") );
+        }else{
+            $arr = ( $this->db->query("select b.estatus,b.fecha,b.hora,b.usuario_id,b.equipo_id,u.usuario from bitacoras b inner join usuarios u on b.usuario_id=u.id where b.fecha = '".$fecha."' and b.estatus = 'Reparado' order by b.fecha,b.hora,b.id") );
+        }
+        $bitacoras = $arr->result_array();
+        return $bitacoras;
+    }
+
+    function get_equiposreparados($equipo_id) {
+        $guion = '/';
+        $anio = date("Y");
+        $mes =  date("m");
+        $dia =  date("d");
+        $fecha = $anio.$guion.$mes.$guion.$dia;
+        if($equipo_id != ''){
+            $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.fecha >= '01/01/2020' and b.estatus = 'Reparado' and u.usuario = '".$equipo_id."'group by b.fecha,u.usuario, e.num_orden order by b.fecha desc, u.usuario") );
+        }else{
+            $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.fecha >= '01/01/2020' and b.estatus = 'Reparado' group by b.fecha,u.usuario, e.num_orden order by b.fecha desc, u.usuario") );
+        }
+        $bitacoras = $arr->result_array();
+        return $bitacoras;
+    }
+
+    function get_equiposreparadossucursales($usuario,$sucursales,$usuarios) {
+        $guion = '/';
+        $anio = date("Y");
+        $mes =  date("m");
+        $dia =  date("d");
+        $resultado2 = [];
+        $fecha = $anio.$guion.$mes.$guion.$dia;
+            if($usuario == ""){
+                for ($i=0; $i < sizeof($usuarios); $i++) {
+                    $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.fecha >= '01/01/2020' and b.estatus = 'Reparado' and u.usuario = '".$usuarios[$i]."' group by b.fecha,u.usuario, e.num_orden order by b.fecha desc, u.usuario") );
+                    $guard = $arr->result_array();
+                    $resultado2  = array_merge($resultado2, $guard);
+                }
+            }else{
+                $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.fecha >= '01/01/2020' and b.estatus = 'Reparado' and u.usuario = '".$usuario."' group by b.fecha,u.usuario, e.num_orden order by b.fecha desc, u.usuario") );
+                $guard = $arr->result_array();
+                $resultado2  = array_merge($resultado2, $guard);
+            }
+        return $resultado2;
+    }
 }
 ?>
