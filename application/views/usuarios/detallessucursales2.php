@@ -62,10 +62,10 @@ $(function () {
 				foreach ($result as $item) {
 					echo "<tr>";
           echo "<td align='center'>" . $item['id'] . "</td>";
-					echo "<td align='center'><a href='/index.php/usuarios/modificar/" . $item['usuario'] . "'>" . $item['usuario'] . "</a></td>";
+					echo "<td align='center'><a href='/catalogo/index.php/usuarios/modificar/" . $item['usuario'] . "'>" . $item['usuario'] . "</a></td>";
 					echo "<td align='center'>" . $item['nombre'] . "</td>";
-					echo "<td align='center'><a href='/index.php/usuarios/editarsucursal/".$item['usuario']."/".$item['sucursales']."'>" . $item['sucursales'] . "</td>";
-					echo "<td align='center'><a href='/index.php/usuarios/eliminarsucursal/" . $item['usuario'] . "/".$item['sucursales']."'><img src='/images/ico_eliminar.png'></a></td>";		
+					echo "<td align='center'><a href='/catalogo/index.php/usuarios/editarsucursal/".$item['usuario']."/".$item['sucursales']."'>" . $item['sucursales'] . "</td>";
+					echo "<td align='center'><a href='/catalogo/index.php/usuarios/eliminarsucursal/" . $item['usuario'] . "/".$item['sucursales']."'><img src='/images/ico_eliminar.png'></a></td>";		
 
 					echo "</tr>";	
 				} 
@@ -73,7 +73,7 @@ $(function () {
 		</tbody>
 	</table>
 	<div>
-		<a class="button button-primary" href="/index.php/usuarios/agregarsucursal/<?php echo $sucursal ?>">Agregar sucursal</a></div>
+		<a class="button button-primary" href="/catalogo/index.php/usuarios/agregarsucursal/<?php echo $sucursal ?>">Agregar sucursal</a></div>
 	</div>
 
 	<script type="text/javascript" src="jquery-latest.js"></script>

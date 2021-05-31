@@ -89,6 +89,8 @@ if ($this->session->userdata('username')=="")
                             <li><a href="/catalogo/index.php/usuarios" title="Usuarios">Lista de Usuarios</a></li>
                         </ul>
                     </li>
+                    <li><a href="/catalogo/index.php/precios" title="Precios"><img src="/catalogo/images/ico_precios.png"><span class='mnuNav1'>Precios</a></a>
+                    </li>
                     <li><a href="#" title="Reportes del sistema"><img src="/images/ico_mnu_reportes1.png"><span class='mnuNav1'>Reportes</span></a>
                         <ul>
                             <li><a href="#" title="Propias">Propias<b> Equipos Recibidos</b></a>
@@ -113,6 +115,8 @@ if ($this->session->userdata('username')=="")
                                     <li><a href="/catalogo/index.php/reportes/accesoriosdiapropiasresumen" title="Entradas y salidas por mes">Accesorios <b>HOY RESUMEN</b></a></li>
                                     <li><a href="/catalogo/index.php/reportes/accesoriosmespropias" title="Entradas y salidas por mes">Accesorios <b>MES DETALLE</b></a></li>
                                     <li><a href="/catalogo/index.php/reportes/accesoriosmespropiasresumen" title="Entradas y salidas por mes">Accesorios <b>MES RESUMEN</b></a></li>
+                                    <li><a href="/catalogo/index.php/reportes/accesoriosPorSucursalPorMes" title="Entradas y salidas por mes">Accesorios por <b>Sucursal y Mes</b></a></li>
+
                                 </ul>
                             </li>
                             <li><a href="#" title="Propias">Propias <b>Reparados</b></a>

@@ -2,46 +2,33 @@
 	$("a#regresar").attr('href', '/index.php/inicio/clientes');
 	$('#titulo').html('Lista de clientes');
 
-   
 $(function () {
-   $("#ddsucursal").change(function() {
-      //top.location.href=window.location.href +'index/' + $("#ddsucursal").val();
-      //top.location.href='/index.php/clientes/index/2/' + $("#ddsucursal").val();
-
-      //var slice3 = str.split('/')[8]
+  $("#ddsucursal").change(function() {
       var str = window.location.href;
       var name2 = str.split('/')[5]
-      //alert(name2);
       if (name2 != "index"){
         top.location.href=window.location.href + '/index/0/' + $("#ddsucursal").val();
       }else{
           top.location.href='/index.php/usuarios/index/0/'  + $("#ddsucursal").val();
-      } 
-   });
+      }
+  });
 
-   $("#ddusuario").change(function() {
-      //top.location.href=window.location.href +'index/' + $("#ddsucursal").val();
-      //top.location.href='/index.php/clientes/index/2/' + $("#ddsucursal").val();
-
-      //var slice3 = str.split('/')[8]
-      var str = window.location.href;
-      var name2 = str.split('/')[5]
-      //alert(name2);
-      if (name2 != "index"){
-        top.location.href=window.location.href + '/index/1/' + $("#ddusuario").val();
-      }else{
-          top.location.href='/index.php/usuarios/index/1/'  + $("#ddusuario").val();
-      } 
-   });
+  $("#ddusuario").change(function() {
+    var str = window.location.href;
+    var name2 = str.split('/')[5]
+    if (name2 != "index"){
+      top.location.href=window.location.href + '/index/1/' + $("#ddusuario").val();
+    }else{
+        top.location.href='/index.php/usuarios/index/1/'  + $("#ddusuario").val();
+    }
+  });
 });
 </script>
-<?php echo form_open('usuarios/index');
-// base_url(uri_string());  
-?>
+<?php echo form_open('usuarios/index');?>
 <div align="center">
   <div align="center" style="height:50px">
     Seleccionar usuario: <?php echo form_dropdown("usuario",$usuarios,$usuario,"id='ddusuario'"); ?>
-  </div>    
+  </div>
   <div align="center" style="height:50px">
     Seleccionar sucursal: <?php echo form_dropdown("sucursal",$sucursales,$sucursal,"id='ddsucursal'"); ?>
   </div>
@@ -62,18 +49,17 @@ $(function () {
 				foreach ($result as $item) {
 					echo "<tr>";
 
-					echo "<td align='center'><a href='/index.php/usuarios/modificar/" . $item['usuario'] . "'>" . $item['usuario'] . "</a></td>";
+					echo "<td align='center'><a href='/catalogo/index.php/usuarios/modificar/" . $item['usuario'] . "'>" . $item['usuario'] . "</a></td>";
 					echo "<td align='center'>" . $item['nombre'] . "</td>";
-					echo "<td align='center'><a href='/index.php/usuarios/index/1/".$item['usuario']."'>" . $item['sucursales'] . "</td>";
-					echo "<td align='center'><a href='/index.php/usuarios/eliminar/" . $item['usuario'] . "'><img src='/images/ico_eliminar.png'></a></td>";		
-
-					echo "</tr>";	
+					echo "<td align='center'><a href='/catalogo/index.php/usuarios/index/1/".$item['usuario']."'>" . $item['sucursales'] . "</td>";
+					echo "<td align='center'><a href='/catalogo/index.php/usuarios/eliminar/" . $item['usuario'] . "'><img src='/images/ico_eliminar.png'></a></td>";
+					echo "</tr>";
 				} 
 			?>
 		</tbody>
 	</table>
 	<div>
-		<a class="button button-primary" href="/index.php/usuarios/agregar">Agregar usuario</a></div>
+		<a class="button button-primary" href="/catalogo/index.php/usuarios/agregar">Agregar usuario</a></div>
 	</div>
 
 	<script type="text/javascript" src="jquery-latest.js"></script>
@@ -109,7 +95,7 @@ $(function () {
               "sortAscending":  ": activate to sort column ascending",
               "sortDescending": ": activate to sort column descending"
           }
-      }               
+      }
     });
   });
   window.onload = function(){
@@ -124,7 +110,7 @@ $(function () {
     document.getElementById('desde').value=ano+"-"+mes+"-"+dia;
     document.getElementById('hasta').value=ano+"-"+mes+"-"+dia;
   }
-  $("#datatabla").tablesorter(); 
+  $("#datatabla").tablesorter();
   function cambioFormatoFecha(texto){
     return texto.replace(/^(\d{4})-(\d{2})-(\d{2})$/g,'$3/$2/$1');
   }
@@ -148,7 +134,7 @@ $(function () {
           } else {
             tr[i].style.display = "none";
           }
-        }       
+        }
       }
     } else {
       for (i = 0; i < tr.length; i++) {
@@ -165,7 +151,7 @@ $(function () {
           } else {
             tr[i].style.display = "none";
           }
-        }       
+        }
       }
     }
   }else{
@@ -174,12 +160,12 @@ $(function () {
   }
 }
 
-function filtrarCombos(){ 
+function filtrarCombos(){
   var table = document.getElementById("datatabla");
   var tr = table.getElementsByTagName("tr");
   if(!$('#activa').prop('checked') && !$('#concluida').prop('checked') && !$('#cancelada').prop('checked') ){
     for (i = 0; i < tr.length; i++) {
-      tr[i].style.display = "";            
+      tr[i].style.display = "";
     }
   } else {
     for (i = 0; i < tr.length; i++) {
@@ -192,7 +178,7 @@ function filtrarCombos(){
         } else {
             tr[i].style.display = "none";
         }
-      }       
+      }
     }
   }
 }

@@ -55,12 +55,12 @@
 	<?php
   		if ($this->session->userdata('nivel')==1) 	{
   	?>
-			<div class="row">
+			<!-- <div class="row">
 				<a class="button button-primary" href="/index.php/servicios/agregar">Agregar servicio</a>
 			</div>
 			<div class="row">
 				<a class="button button-primary" href="/index.php/servicios/pdf">Imprimir</a>
-			</div>
+			</div> -->
 	<?php } ?>
 </div>
 
