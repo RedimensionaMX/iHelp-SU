@@ -1,49 +1,36 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Tipos extends CI_Controller {
+    public function __construct(){
+		parent::__construct();
+		$this->output->enable_profiler(FALSE);
+	}
 
-	
-    public function __construct()
-       {
-            parent::__construct();
-			$this->output->enable_profiler(FALSE);
-           
-       }	 
-
-
-     public function sincronizar() {
-     	$this->load->model("Tiposclasesequiposmodel");
-     	$this->Tiposclasesequiposmodel->sincronizar_bds();
-     }  
-
-	 
-	public function index()
-	{		
+    public function index(){
 		$this->load->model("Tiposclasesequiposmodel");
         $this->load->library('pagination');
         $lim = $this->uri->segment(3,'0');
-		
 		//$arr = ( $this->db->query('select * from tipos limit ' . $lim . ',100'));
-
 		//$tipos = $this->Tiposclasesequiposmodel->get_tipos_where_str("",$lim,100);
 		if ($this->uri->segment(3,'')=='')
 			$tipos = $this->Tiposclasesequiposmodel->get_tipos();
 		else
 			$tipos = $this->Tiposclasesequiposmodel->get_tipos_de_clase($this->uri->segment(3));
-
 	    //$data['result'] = ($arr->result_array());
 	    $data['result'] = $tipos;
 	    $data['clases'] = $this->Tiposclasesequiposmodel->get_clases_dropdown();
 	    $data['clases']['NE'] = "Seleccionar clase para ver sus tipos";
 		$data['clase'] = $this->uri->segment(3,'NE');
-		
-		$this->load->view('inicio/top1'); 
-		$this->load->view('tipos/tiposindex',$data); 
-		$this->load->view('inicio/bottom1'); 
-		 
-		
+		$this->load->view('inicio/top1');
+		$this->load->view('tipos/tiposindex',$data);
+		$this->load->view('inicio/bottom1');
 	}
-	
+
+	public function sincronizar() {
+		$this->load->model("Tiposclasesequiposmodel");
+		$this->Tiposclasesequiposmodel->sincronizar_bds();
+	}
+
 	public function subtiposjson()
 	{		
         

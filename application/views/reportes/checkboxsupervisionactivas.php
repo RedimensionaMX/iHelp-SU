@@ -55,30 +55,17 @@
         <input type="checkbox" name="TX1" value="TX1">Tuxpan(TX1)</br>
     </div>
 </div>
-
-    <!--<div class="three columns">
-        <input type="checkbox" name="PR1" value="PR1">  Poza Rica(PR1)</br>
+<div class="row">
+    <div class="three columns">
+        <input type="checkbox" name="VF1" value="VF1">Framboyanes(VF1)</br>
     </div>
     <div class="three columns">
-        <input type="checkbox" name="VM1" value="VM1">  Villa Morett(VM1)</br>
+        <input type="checkbox" name="CO1" value="CO1">Colima(CO1)</br>
     </div>
     <div class="three columns">
-      <input type="checkbox" name="VM2" value="VM2">  Villa Deportiva(VM2)</br>
-	</div>
-    </div>-->
-<!--<div class="row">
-    <div class="three columns">
-        <input type="checkbox" name="MI2" value="MI2">  Xalapa Pruebas(MI2)</br>
+        <input type="checkbox" name="PC1" value="PC1">Pachuca(PC1)</br>
     </div>
-    <div class="three columns">
-        <input type="checkbox" name="PA1" value="PA1">  Puebla Animas(PA1)</br>
-    </div>
-    <div class="three columns">
-        <input type="checkbox" name="VB1" value="VB1">  Veracruz Bolívar(VB1)</br>
-    </div>
-    <div class="six columns"></div>
-   
-</div>-->
+</div>
 <div class="row"></div>
 <div class="row">
     <br><center><button type="submit" class="btn btn-primary" style="background-color:#047c79; color:#FFFFFF;">Descargar</button></center><br>
@@ -98,6 +85,9 @@
         $("input[name='PR1']").prop('checked', $(this).prop("checked"));
         $("input[name='CS1']").prop('checked', $(this).prop("checked"));
         $("input[name='TX1']").prop('checked', $(this).prop("checked"));
+        $("input[name='VF1']").prop('checked', $(this).prop("checked"));
+        $("input[name='CO1']").prop('checked', $(this).prop("checked"));
+        $("input[name='PC1']").prop('checked', $(this).prop("checked"));
     });
 </script>
 
@@ -106,6 +96,7 @@
         $("input[name='CZ1']").prop('checked', $(this).prop("checked"));
         $("input[name='CL1']").prop('checked', $(this).prop("checked"));
         $("input[name='OZ1']").prop('checked', $(this).prop("checked"));
+        $("input[name='TX1']").prop('checked', $(this).prop("checked"));
         $("input[name='VA1']").prop('checked', $(this).prop("checked"));
         $("input[name='XA1']").prop('checked', $(this).prop("checked"));
         $("input[name='XC1']").prop('checked', $(this).prop("checked"));
@@ -114,9 +105,11 @@
 	$("#franquicias").change(function () {
         $("input[name='PR1']").prop('checked', $(this).prop("checked"));
         $("input[name='CS1']").prop('checked', $(this).prop("checked"));
-        $("input[name='TX1']").prop('checked', $(this).prop("checked"));
         $("input[name='VR1']").prop('checked', $(this).prop("checked"));
         $("input[name='VM2']").prop('checked', $(this).prop("checked"));
+        $("input[name='VF1']").prop('checked', $(this).prop("checked"));
+        $("input[name='CO1']").prop('checked', $(this).prop("checked"));
+        $("input[name='PC1']").prop('checked', $(this).prop("checked"));
     });
 	$("#noGestionadas").change(function () {
         $("input[name='VM1']").prop('checked', $(this).prop("checked"));

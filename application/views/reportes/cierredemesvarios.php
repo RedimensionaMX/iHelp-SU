@@ -1,72 +1,68 @@
 <div class="row">
   <label>Filtrar por clave o tipo</label>
   <input type="text" id="myInput" onkeyup="filtrarPorSucuarsal()" placeholder="Filtrar por clave de sucursal.." title="Type in a name">
-  
   <input type="text" id="myInputTipo" onkeyup="filtrarPorTipo()" placeholder="Filtrar por tipo.." title="Type in a name">
-
   <label>Filtrar por rango de días</label><br>
   <div class ="row">
-  <input type="checkbox" name="efectivo" value="efectivo" id="efectivo">  Efectivo 
-  <input type="checkbox" name="tarjeta" value="tarjeta" id="tarjeta">      Tarjeta 
-  <input type="checkbox" name="transferencia" value="transferencia" id="transferencia">      Transferencia
-  <input type="checkbox" name="sinespecificar" value="sinespecificar" id="sinespecificar">      Sin especificar
+    <input type="checkbox" name="efectivo" value="efectivo" id="efectivo">Efectivo
+    <input type="checkbox" name="tarjeta" value="tarjeta" id="tarjeta">Tarjeta
+    <input type="checkbox" name="transferencia" value="transferencia" id="transferencia">Transferencia
+    <input type="checkbox" name="sinespecificar" value="sinespecificar" id="sinespecificar">Sin especificar
   </div>
-  
   <input type="number" id="dia1" name="dia1" placeholder="Desde.."  min="1" max="31" >
-  
   <input type="number" id="dia2" name="dia2" placeholder="Hasta.." min="1" max="31">
-  
-  <input type="button" onclick="filtrarPorFecha()" value="Filtrar"  style="background-color:#047c79; color:#FFFFFF;"> 
-
-  
-
-<div class="row">
-<div align="center">
-<table width="100%" id="datatabla" class="cell-border stripe compact hover">
-    <thead>
-<tr>
-         <th width='5%'>Suc</th>
-         <th width='8%'>Tipo</th>
-         <th width='8%'>Periodo</th>
-         <th width='10%'>Fecha</th>
-         <th width='10%'>Nota</th>
-
-         <th width='8%'>Orden</th>
-         <th width='10%'>Importe</th>
-         <!-- <th width='10%'>Equipo</th> -->
-         <th width='30%'>Servicio/producto</th>
-         <th width='10%'>Forma de pago</th> 
-          <th width='10%'>Observaciones</th>         
-
-</tr>
-</thead>
-<tbody>
-<?php
-
-
-foreach ($cierredemes as $item) {
-    echo "<tr>";
+  <input type="button" onclick="filtrarPorFecha()" value="Filtrar"  style="background-color:#047c79; color:#FFFFFF;">
+  <div class="row">
+    <div align="center">
+      <table width="100%" id="datatabla" class="cell-border stripe compact hover">
+          <thead>
+            <tr>
+              <th width='5%'>Suc</th>
+              <th width='8%'>Tipo</th>
+              <th width='8%'>Periodo</th>
+              <th width='10%'>Fecha</th>
+              <th width='10%'>Nota</th>
+              <th width='8%'>Orden</th>
+              <th width='10%'>Importe</th>
+              <th width='30%'>Servicio/producto</th>
+              <th width='10%'>Forma de pago</th>
+              <th width='10%'>Observaciones</th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php
+foreach ($cierredemes as $key=>$item) {
+  // $nota = array();
+  // $precio = array();
+  // $nota[$key] = $item['numero_remision'];
+  // $precio[$key] = $item['importe'];
+  //   if($key>0){
+  //     $valor = $key-1;
+  //     echo $valor;
+  //     print_r($nota[$key]);
+  //     if($nota[$key] = $nota[$key-1]){
+  //       echo "REPETIDO";
+  //       continue;
+  //     }else{
+        echo "<tr>";
+        if(substr($item['num_orden'], 0, 2) === "VM"){
+          echo "<td>VM2</td>";
+        }else{
+          echo "<td>" . substr($item['num_orden'], 0, 2) . 1 . "</td>";
+        }
+        echo "<td>" . $item['descripcion_tipo'] . "</td>";
+        echo "<td>" . $item['periodo'] . "</td>";
+        echo "<td>" . $item['fecha'] . "</td>";
+        echo "<td>" . $item['numero_remision'] . "</td>";
+        echo "<td>" . $item['num_orden'] . "</td>";
+        echo "<td style='text-align:right'>" . number_format($item['importe'],2) . "</td>";
+        //echo "<td>" . $item['descripcion_tipo'] . "</td>";
+        echo "<td>" . $item['descripcion_servicios'] . "</td>";
+        echo "<td>" . ucfirst(strtolower($item['forma_de_pago'])) . "</td>";    
+          echo "<td>" . $item['observaciones'] . "</td>";    
+        echo "</tr>";
+      
     
-    //echo "<td>" . $item['sucursal_id'] . "</td>";
-    //print_r($item);
-    if(substr($item['num_orden'], 0, 2) === "VM"){
-    	echo "<td>VM2</td>";	
-    }else{
-    	echo "<td>" . substr($item['num_orden'], 0, 2) . 1 . "</td>";
-    }
-
-    echo "<td>" . $item['descripcion_tipo'] . "</td>";
-    echo "<td>" . $item['periodo'] . "</td>";
-    echo "<td>" . $item['fecha'] . "</td>";
-    echo "<td>" . $item['numero_remision'] . "</td>";
- 
-    echo "<td>" . $item['num_orden'] . "</td>";
-    echo "<td style='text-align:right'>" . number_format($item['importe'],2) . "</td>";
-    //echo "<td>" . $item['descripcion_tipo'] . "</td>";
-    echo "<td>" . $item['descripcion_servicios'] . "</td>";
-    echo "<td>" . ucfirst(strtolower($item['forma_de_pago'])) . "</td>";    
-       echo "<td>" . $item['observaciones'] . "</td>";    
-    echo "</tr>";
 
 }
 ?>
@@ -318,7 +314,7 @@ function prueba(){
              //alert("entra2");
             tr[i].style.display = "none";
           }
-        }       
+        }
       }
 
     }else{

@@ -17,9 +17,12 @@ class Registroacciones extends CI_Controller {
         	$mes = $_POST['mes'];
         else $mes = date("m");
 
-        if (isset($_POST['dia']))
-        	$dia = $_POST['dia'];
-		else $dia = date("d");
+    //     if (isset($_POST['dia'])){
+    //     	$dia = $_POST['dia'];
+    //     }else{
+				// $mes = date("m");
+				// $dia = date("d");
+    //     }
 
 		$usuario = $this->uri->segment(3,'');
 		
@@ -29,16 +32,24 @@ class Registroacciones extends CI_Controller {
 			$wh = "";
 		}
 		
-		$result = $this->Registroaccionesmodel->consulta_por_dia($anio,$mes,$dia,$wh);
+		$result = $this->Registroaccionesmodel->consulta_por_mes($anio,$mes,$wh);
+		// if (isset($_POST['dia'])){
+
+		// 		$result = $this->Registroaccionesmodel->consulta_por_dia($anio,$mes,$dia,$wh);
+
+		// 	}else{
+		// 		$result = $this->Registroaccionesmodel->consulta_por_mes($anio,$mes,$wh);
+		// 	}
 		$result['result'] = $result;
 		$result['anio'] = $anio;
 		$result['mes'] = $mes;
-		$result['dia'] = $dia;
+		// $result['dia'] = $dia;
 		
 
 		$result['usuarios'] = $this->Registroaccionesmodel->get_usuarios_dropdown();
 		$result['usuarios']['NE'] = "Seleccionar usuarios";
 		$result['usuario'] = $this->uri->segment(3,'NE');
+		//print_r($result);
 		$this->load->view("inicio/top1");
 		$this->load->view("registroacciones/registroindex",$result);
 		$this->load->view("inicio/bottom1");

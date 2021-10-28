@@ -42,6 +42,7 @@
                     <th width='20%'>Fecha</th>
                     <th width='20%'>Usuario</th>
                     <th width='20%'>No. Orden</th>
+                    <th width='20%'>Equipo</th>
                 </tr>
             </thead>
             <tbody>
@@ -53,6 +54,7 @@
                     // echo "<td>" . $bitacora['proceso'] . "</td>";
                     echo "<td align='center'>" . $bitacora['usuario'] . "</td>";
                     echo "<td align='center'>" . $bitacora['num_orden'] . "</td>";
+                    echo "<td align='center'>" . $bitacora['tipo'] . "</td>";
                     echo "</tr>";
                 }
             ?>

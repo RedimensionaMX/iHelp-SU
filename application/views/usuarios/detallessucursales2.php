@@ -28,7 +28,7 @@ $(function () {
       var name2 = str.split('/')[5]
       //alert(name2);
       if (name2 != "index"){
-        top.location.href=window.location.href + '/index/1/' + $("#ddusuario").val();
+        top.location.href=window.location.href + '../../' + $("#ddusuario").val();
       }else{
           top.location.href='/index.php/usuarios/index/1/'  + $("#ddusuario").val();
       } 

@@ -5,7 +5,7 @@ if ( ! function_exists('fecha_actual_mysql'))
     function fecha_actual_mysql()
     {
     	//$fa = date("Y-m-d");
-    	$fa = date("Y-m-d", strtotime());
+    	$fa = date("Y-m-d", strtotime('-1 hour'));
         return $fa;
     }   
 

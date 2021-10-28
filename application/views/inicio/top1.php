@@ -14,14 +14,15 @@ if ($this->session->userdata('username')=="")
             echo " - " . $this->session->userdata('sucursal');
         }?></title>
 
-        <!-- Estilos -->
-        <link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700|Titillium+Web:400,700' rel='stylesheet' type='text/css'>
+<!-- Estilos -->
+<link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700|Titillium+Web:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/normalize.css">
         <link rel="stylesheet" href="/css/skeleton.css">
         <link rel="stylesheet" href="/css/style1.css" type="text/css">
         <link rel=stylesheet href="/js/datePicker.css" type="text/css">
-        <link rel=stylesheet href="/css/cupertino/jquery-ui.css" type="text/css">
-        <link rel=stylesheet href="/css/themes/cupertino/jquery.ui.all.css" type="text/css">
+        <!-- <link rel=stylesheet href="/css/cupertino/jquery-ui.css" type="text/css"> -->
+        <!-- <LINK REL=StyleSheet HREF="/css/jquery-ui.css" TYPE="text/css"> -->
+        <!-- <link rel=stylesheet href="/css/themes/cupertino/jquery.ui.all.css" type="text/css"> -->
 
         <!-- DataTables CSS -->
         <link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.css">
@@ -29,6 +30,7 @@ if ($this->session->userdata('username')=="")
         <!-- jQuery -->
         <script type="text/javascript" src="/js/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" src="/js/jquery-ui.js"></script>
+        
 
         <!-- Required plugins -->
         <script type="text/javascript" src="/js/date.js"></script>
@@ -39,10 +41,14 @@ if ($this->session->userdata('username')=="")
 
         <!-- jquery.datePicker.js -->
         <script type="text/javascript" src="/js/jquery.datePicker.js"></script>
+		<script type="text/javascript" src="/js/jquery.validate.js"></script>
         <script type="text/javascript" src="/js/thickbox.js"></script>
         <link rel="stylesheet" href="/js/thickbox.css" type="text/css" media="screen" />
         <link rel="stylesheet" href="/css/dropdown-menu.css" />
         <script type="text/javascript" src="/js/dropdown-menu.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+        
+        
 
         <script type="text/javascript" charset="utf-8">
             $(function(){
@@ -87,6 +93,9 @@ if ($this->session->userdata('username')=="")
                             <li><a href="/catalogo/index.php/articulos" title="Lista de precios de accesorios">Lista de Accesorios</a></li>
                             <li><a href="/catalogo/index.php/paquetes" title="Lista de precios de paquetes">Lista de Paquetes</a></li>
                             <li><a href="/catalogo/index.php/usuarios" title="Usuarios">Lista de Usuarios</a></li>
+                            <li><a href="/catalogo/index.php/android/tipos" title="Usuarios">Lista de Equipos Android</a></li>
+                            <li><a href="/catalogo/index.php/egresos/index" title="Lista de Egresos">Lista de Egresos</a></li>
+                            <li><a href="/catalogo/index.php/prospectos" title="Usuarios">Lista de Prospectos</a></li>
                         </ul>
                     </li>
                     <li><a href="/catalogo/index.php/precios" title="Precios"><img src="/catalogo/images/ico_precios.png"><span class='mnuNav1'>Precios</a></a>
@@ -125,6 +134,7 @@ if ($this->session->userdata('username')=="")
                                     <li><a href="/catalogo/index.php/reportes/equiposreparadospropiasac" title="Reparaciones de área comercial">Area Comercial</a></li>
                                 </ul>
                             </li>
+                            <li><a href="/catalogo/index.php/reportes/equiposReajuste" title="Equipos en Reajuste">Propias <b>Reajuste</b></a></li>
                             <li><a href="#" title="Propias">Propias <b>Comunicados</b></a>
                                 <ul>
                                     <li><a href="/catalogo/index.php/reportes/comunicadospropias" title="Comunicados de área comercial">Área Comercial</a></li>
@@ -163,6 +173,7 @@ if ($this->session->userdata('username')=="")
                                     <li><a href="/catalogo/index.php/reportes/equiposreparadosfranquiciasac" title="Reparaciones de área comercial">Area Comercial</a></li>
                                 </ul>
                             </li>
+                            <li><a href="/catalogo/index.php/reportes/equiposReajusteFr" title="Equipos en Reajuste">Franquicias <b>Reajuste</b></a></li>
                             <li><a href="#" title="Franquicias">Franquicias <b>Comunicados</b></a>
                                 <ul>
                                     <li><a href="/catalogo/index.php/reportes/comunicadosfranquicias" title="Comunicados de área comercial">Área Comercial</a></li>
@@ -191,6 +202,30 @@ if ($this->session->userdata('username')=="")
                                     <li><a href="/catalogo/index.php/reportes/cierredemesculiacan" title="Entradas y salidas por mes">Mes Entregados</a>
                                         <ul>
                                             <li><a href="/catalogo/index.php/reportes/cierredemesculiacanprueba" title="Equipos Recibidos Dia Suc Propias">Resumen</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="#" title="Riviera Veracruzana"><b>Framboyanes</b></a>
+                                <ul>
+                                    <li><a href="/catalogo/index.php/reportes/recibidosdiaframboyanes" title="Equipos Dia Framboyanes">Hoy Recibidos</a>
+                                        <ul>
+                                            <li><a href="/catalogo/index.php/reportes/recibidosdiaframboyanesprueba" title="Equipos Recibidos Dia Framboyanes">Resumen</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/catalogo/index.php/reportes/equiposdiaframboyanes" title="Equipos Hoy Framboyanes">Hoy Entregados</a>
+                                        <ul>
+                                            <li><a href="/catalogo/index.php/reportes/equiposdiaframboyanesprueba" title="Equipos Recibidos Dia Framboyanes">Resumen</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/catalogo/index.php/reportes/recibidosmesframboyanes" title="Entradas y salidas por mes">Mes Recibidos</a>
+                                        <ul>
+                                            <li><a href="/catalogo/index.php/reportes/recibidosmesframboyanesprueba" title="Equipos Recibidos Dia Framboyanes">Resumen</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/catalogo/index.php/reportes/cierredemesframboyanes" title="Entradas y salidas por mes">Mes Entregados</a>
+                                        <ul>
+                                            <li><a href="/catalogo/index.php/reportes/cierredemesframboyanesprueba" title="Equipos Recibidos Dia Suc Propias">Resumen</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -301,6 +336,7 @@ if ($this->session->userdata('username')=="")
                             <li><a href="/catalogo/index.php/reportes/cierredemes" title="Entradas y salidas por mes">Cierre de mes</a></li>
                             <li><a href="/catalogo/index.php/reportes/cierredemesvarios" title="Entradas y salidas por mes">Cierre de mes varios</a></li>
                             <li><a href="/catalogo/index.php/reportes/recibidosdiapozarica" title="Equipos Dia Suc Gestionadas">Exportar cierre de mes</a></li>
+                            <li><a href="/catalogo/index.php/egresos/index" title="Egresos del Mes">Egresos del mes</a></li>
                         </ul>
                     </li>
                 </ul>

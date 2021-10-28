@@ -4,7 +4,7 @@
   <div class="six columns">Clave de equipo:</div>
   <div class="six columns">
     <?php
-      if ($clase!="") 
+      if ($clase!="")
         echo $clase;
       else
         echo form_input("clase",$clase); ?></div>
@@ -12,14 +12,14 @@
   <div class="row" style="height:80px">
     <div class="six columns">Descripci&oacute;n:</div>
     <div>
-      <?php //echo form_input("estatus",(isset($estatus) ? $estatus : "")); 
-  	    echo form_input("descripcion",$descripcion);
-	      if ($clase!="") { 
-	        echo form_hidden("accion", "u");
-		      echo form_hidden("clase",$clase);
-	      } else {
-			    echo form_hidden("accion", "i");
-		    }
+      <?php //echo form_input("estatus",(isset($estatus) ? $estatus : ""));
+        echo form_input("descripcion",$descripcion);
+        if ($clase!="") {
+          echo form_hidden("accion", "u");
+          echo form_hidden("clase",$clase);
+        } else {
+          echo form_hidden("accion", "i");
+        }
       ?>
     </div>
   </div>

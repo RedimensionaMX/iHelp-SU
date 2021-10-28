@@ -1,12 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-
 $active_group = 'default';
 $query_builder = TRUE;
-
-
-
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
@@ -28,4 +23,49 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
-
+$db['catalogos'] = array(
+	'dsn'	=> '',
+	'hostname' => 'localhost',
+	'username' => 'SYSDBA',
+	'password' => 'muy2500',
+	'database' => 'IDOCTOR',
+//	'username' => 'idoctorh_sist',
+//	'password' => 'idoc2012',
+	'dbdriver' => 'ibase',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	'db_debug' => TRUE,
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);
+$db['android'] = array(
+	'dsn'	=> '',
+	'hostname' => 'localhost',
+	'username' => 'SYSDBA',
+	'password' => 'muy2500',
+	'database' => 'IDOCTORPRUEBA',
+//	'username' => 'idoctorh_sist',
+//	'password' => 'idoc2012',
+	'dbdriver' => 'ibase',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	'db_debug' => TRUE,
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);

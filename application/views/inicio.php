@@ -39,7 +39,7 @@
   <div>
     <?php echo form_open('inicio/valida'); ?>
     <div style="height:30px"></div>
-    <div class="row" align="center"><h3>Módulo de Catálogos y Administración</h3></div><!--- row -->
+    <div class="row" align="center"><h3>Superusuario</h3></div><!--- row -->
       <div class="row">
         <div class="six columns" align="right">Usuario:</div>
         <div class="six columns"><?php echo form_input("usuario",""); ?></div>

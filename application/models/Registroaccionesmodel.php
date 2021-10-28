@@ -54,6 +54,12 @@ class Registroaccionesmodel extends CI_Model {
       return $arr->result_array(); 
     }
 
+    function consulta_por_mes($a = 0, $m = 0, $wh = "") {
+      $arr = $this->db->query("select * from registroacciones where EXTRACT(YEAR from fecha_hora)=" . $a . 
+            " and EXTRACT(MONTH FROM fecha_hora)=" . $m . " " .$wh);
+      return $arr->result_array(); 
+    }
+
     function get_usuarios_dropdown(){
       $arrt = ( $this->db->query('SELECT usuario FROM USUARIOS where nivel <>-1 order by usuario'));
       $usuarios = ($arrt->result_array());       

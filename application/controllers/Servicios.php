@@ -1,74 +1,49 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Servicios extends CI_Controller {
-
-	
-    public function __construct()
-       {
-            parent::__construct();
-			$this->output->enable_profiler(FALSE);
-           
-       }	
-
-	public function clase()
-	{
-		
-        $this->load->model('Serviciosmodel');
-		
-	    $data['result'] = $this->Serviciosmodel->get_servicios_por_clase($this->uri->segment(3));
-				
-
-	     $this->load->view('inicio/top1'); 
-		 $this->load->view('servicios/serviciosindex',$data); 
-		 $this->load->view('inicio/bottom1');
-    }         
-
-	 
-	public function index()
-	{
-		$busca_nombre = "";
-        $wh = "";	
-
-		if (count($_POST)>0) { 
-			     $wh = " where (1=1) ";
-			
-			  if ((isset($_POST['busca_descripcion'])) && ($_POST['busca_descripcion']!="")) 
-				  $wh .= " and (descripcion like '" . $_POST['busca_descripcion'] . "%')";	
-			   if ((isset($_POST['clase']))) {
-				  $wh .= " and ((clase='" . $_POST['clase'] . "') or (clase like '%" . $_POST['clase'] . " %'))";
-				  if ($_POST['clase']=='')
-				     $wh = " where (clase is null) or (clase='')";				 
-			   }	  
-				 				
-        $this->load->model('Serviciosmodel');
-		
-	    $data['result'] = $this->Serviciosmodel->get_servicios_where($wh);
-				
-        $this->load->model('Clasesmodel');
-
-		$registro['clases'] = $this->Clasesmodel->get_clases_dropdown_todas();	
-		$data['clase'] = (isset($_POST['clase']) ? $_POST['clase'] : "");
-
-	     $this->load->view('inicio/top1'); 
-		 $this->load->view('servicios/serviciosindex',$data); 
-		 $this->load->view('inicio/bottom1'); 
-  	    }
-		else {
-	    $registro = array();
-
-        $this->load->model('Clasesmodel');
-
-		$registro['clases'] = $this->Clasesmodel->get_clases_dropdown_todas();					 
-
-	     $this->load->view('inicio/top1'); 
-		 $this->load->view('servicios/seleccionarclase',$registro); 
-		 $this->load->view('inicio/bottom1'); 
-	
-		}	
-		 
-		
+    public function __construct(){
+		parent::__construct();
+		$this->output->enable_profiler(FALSE);
 	}
-	
+
+	public function clase(){
+        $this->load->model('Serviciosmodel');
+		$data['result'] = $this->Serviciosmodel->get_servicios_por_clase($this->uri->segment(3));
+		$this->load->view('inicio/top1');
+		$this->load->view('servicios/serviciosindex',$data);
+		$this->load->view('inicio/bottom1');
+    }
+
+	public function index(){
+		$busca_nombre = "";
+        $wh = "";
+		if (count($_POST)>0) {
+			$wh = " where (1=1) ";
+			if ((isset($_POST['busca_descripcion'])) && ($_POST['busca_descripcion']!=""))
+				$wh .= " and (descripcion like '" . $_POST['busca_descripcion'] . "%')";
+				if ((isset($_POST['clase']))) {
+					$wh .= " and ((clase='" . $_POST['clase'] . "') or (clase like '%" . $_POST['clase'] . " %'))";
+					if ($_POST['clase']=='')
+						$wh = " where (clase is null) or (clase='')";
+				}
+			$this->load->model('Serviciosmodel');
+			$data['result'] = $this->Serviciosmodel->get_servicios_where($wh);
+			$this->load->model('Clasesmodel');
+			$registro['clases'] = $this->Clasesmodel->get_clases_dropdown_todas();
+			$data['clase'] = (isset($_POST['clase']) ? $_POST['clase'] : "");
+			$this->load->view('inicio/top1');
+			$this->load->view('servicios/serviciosindex',$data);
+			$this->load->view('inicio/bottom1');
+		} else {
+			$registro = array();
+			$this->load->model('Clasesmodel');
+			$registro['clases'] = $this->Clasesmodel->get_clases_dropdown_todas();
+			$this->load->view('inicio/top1');
+			$this->load->view('servicios/seleccionarclase',$registro);
+			$this->load->view('inicio/bottom1');
+		}
+	}
+
 	public function agregar() {
 
 		$registro = array(
