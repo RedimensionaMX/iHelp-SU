@@ -1446,7 +1446,7 @@ class Reportes extends CI_Controller {
     //Solo si el usuario se encuentra logueado
     if ($this->session->userdata('nivel')==1) {
       //Variables de la sucursal por consultar
-      $sucursales_seleccionadas = ['CZ1', 'CL1', 'OZ1', 'TX1', 'VA1', 'XA1', 'XC1', 'XU1'];
+      $sucursales_seleccionadas = ['CZ1', 'CL1', 'OZ1', 'PR1', 'TX1', 'VA1', 'XA1', 'XC1', 'XU1'];
       if(empty($sucursales_seleccionadas)){
         $data['result'] = $this->Equiposmodel->get_supervision_sucursales(0);
         //Carga de las vistas
@@ -1473,7 +1473,7 @@ class Reportes extends CI_Controller {
     //Solo si el usuario se encuentra logueado
     if ($this->session->userdata('nivel')==1) {
       //Variables de la sucursal por consultar
-      $sucursales_seleccionadas = ['CZ1', 'CL1', 'OZ1', 'TX1', 'VA1', 'XA1', 'XC1', 'XU1'];
+      $sucursales_seleccionadas = ['CZ1', 'CL1', 'OZ1', 'PR1', 'TX1', 'VA1', 'XA1', 'XC1', 'XU1'];
       if(empty($sucursales_seleccionadas)){
         $data['result'] = $this->Equiposmodel->get_supervision_sucursales(0);
         //Carga de las vistas
@@ -1729,7 +1729,7 @@ class Reportes extends CI_Controller {
     //Solo si el usuario se encuentra logueado
     if ($this->session->userdata('nivel')==1) {
       //Variables de la sucursal por consultar
-      $sucursales_seleccionadas = ['CZ1', 'CL1', 'OZ1', 'TX1', 'VA1', 'XA1', 'XC1', 'XU1'];
+      $sucursales_seleccionadas = ['CZ1', 'CL1', 'OZ1', 'PR1', 'TX1', 'VA1', 'XA1', 'XC1', 'XU1'];
       if(empty($sucursales_seleccionadas)){
         $data['result'] = $this->Equiposmodel->get_supervision_sucursales(0);
         //Carga de las vistas
@@ -1754,7 +1754,7 @@ class Reportes extends CI_Controller {
     $this->load->model("equipos/Equiposmodel");
     $this->load->library('pagination');
     if ($this->session->userdata('nivel')==1) {
-      $sucursales_seleccionadas = ['CZ1', 'CL1', 'OZ1', 'TX1', 'VA1', 'XA1', 'XC1', 'XU1'];
+      $sucursales_seleccionadas = ['CZ1', 'CL1', 'OZ1', 'PR1', 'TX1', 'VA1', 'XA1', 'XC1', 'XU1'];
       if(empty($sucursales_seleccionadas)){
         $data['result'] = $this->Equiposmodel->get_supervision_sucursales(0);
         $this->load->view('inicio/top1');
