@@ -24,11 +24,10 @@ class Reportes extends CI_Controller {
       $sucursales_seleccionadas[0] = "CO1";
       $sucursales_seleccionadas[1] = "CS1";
       $sucursales_seleccionadas[2] = "PC1";
-      $sucursales_seleccionadas[3] = "PR1";
-      $sucursales_seleccionadas[4] = "VM1";
-      $sucursales_seleccionadas[5] = "VM2";
-      $sucursales_seleccionadas[6] = "VR1";
-      $sucursales_seleccionadas[7] = "VF1";
+      $sucursales_seleccionadas[3] = "VM1";
+      $sucursales_seleccionadas[4] = "VM2";
+      $sucursales_seleccionadas[5] = "VR1";
+      $sucursales_seleccionadas[6] = "VF1";
       //Obtención de la fecha actual en sistema
       $anio = date("Y");
       $mes =  date("m");
@@ -38,7 +37,7 @@ class Reportes extends CI_Controller {
       //Carga de las vistas
       $this->load->view('inicio/top1');
       //Carga de la vista y paso de datos (Vista, Datos)
-      $this->load->view("reportes/cierredemesvariosprueba",$data);
+      $this->load->view("reportes/cierredemesvarios",$data);
       $this->load->view('inicio/bottom1');
     }
   }
@@ -54,11 +53,10 @@ class Reportes extends CI_Controller {
       $sucursales_seleccionadas[0] = "CO1";
       $sucursales_seleccionadas[1] = "CS1";
       $sucursales_seleccionadas[2] = "PC1";
-      $sucursales_seleccionadas[3] = "PR1";
-      $sucursales_seleccionadas[4] = "VM1";
-      $sucursales_seleccionadas[5] = "VM2";
-      $sucursales_seleccionadas[6] = "VR1";
-      $sucursales_seleccionadas[7] = "VF1";
+      $sucursales_seleccionadas[3] = "VM1";
+      $sucursales_seleccionadas[4] = "VM2";
+      $sucursales_seleccionadas[5] = "VR1";
+      $sucursales_seleccionadas[6] = "VF1";
       //Obtención de la fecha actual en sistema
       $anio = date("Y");
       $mes =  date("m");
@@ -149,11 +147,10 @@ class Reportes extends CI_Controller {
       $sucursales_seleccionadas[0] = "CO1";
       $sucursales_seleccionadas[1] = "CS1";
       $sucursales_seleccionadas[2] = "PA1";
-      $sucursales_seleccionadas[3] = "PR1";
-      $sucursales_seleccionadas[4] = "VM1";
-      $sucursales_seleccionadas[5] = "VM2";
-      $sucursales_seleccionadas[6] = "VR1";
-      $sucursales_seleccionadas[7] = "VF1";
+      $sucursales_seleccionadas[3] = "VM1";
+      $sucursales_seleccionadas[4] = "VM2";
+      $sucursales_seleccionadas[5] = "VR1";
+      $sucursales_seleccionadas[6] = "VF1";
       //Obtención de la fecha actual en sistema
       $anio = date("Y");
       $mes =  date("m");
@@ -179,11 +176,10 @@ class Reportes extends CI_Controller {
       $sucursales_seleccionadas[0] = "CO1";
       $sucursales_seleccionadas[1] = "CS1";
       $sucursales_seleccionadas[2] = "PC1";
-      $sucursales_seleccionadas[3] = "PR1";
-      $sucursales_seleccionadas[4] = "VM1";
-      $sucursales_seleccionadas[5] = "VM2";
-      $sucursales_seleccionadas[6] = "VR1";
-      $sucursales_seleccionadas[7] = "VF1";
+      $sucursales_seleccionadas[3] = "VM1";
+      $sucursales_seleccionadas[4] = "VM2";
+      $sucursales_seleccionadas[5] = "VR1";
+      $sucursales_seleccionadas[6] = "VF1";
       //Obtención de la fecha actual en sistema
       $anio = date("Y");
       $mes =  date("m");
@@ -1078,11 +1074,11 @@ class Reportes extends CI_Controller {
   public function equiposreparadosfranquiciasac(){
     $this->load->model("Bitacorasmodel");
     $this->load->model("Registroaccionesmodel");
-    $sucursales_seleccionadas = ['CO1','CS1', 'PC1', 'PR1', 'VM1', 'VM2', 'VR1'.'VF1'];
-    $usuario = $this->uri->segment(3,'4');
-    $usuarios = ['hefziba','Jaqueline','marianaRdgz','ccastillejos',''];
+    $sucursales_seleccionadas = ['CO1','CS1', 'PC1', 'VM1', 'VM2', 'VR1'.'VF1'];
+    $usuario = $this->uri->segment(3,'3');
+    $usuarios = ['Jaqueline','marianaRdgz','ccastillejos',''];
 		$registro['bitacoras'] = $this->Bitacorasmodel->get_equiposreparadossucursales($usuarios[$usuario],$sucursales_seleccionadas,$usuarios);
-    $registro['usuarios'] = ['hefziba','Jaqueline','marianaRdgz','ccastillejos'];
+    $registro['usuarios'] = ['Jaqueline','marianaRdgz','ccastillejos'];
 		$registro['usuarios']['NE'] = "Seleccionar usuarios";
     $registro['usuario'] = $this->uri->segment(3,'NE');
     $this->load->view('inicio/top1');
@@ -1093,11 +1089,11 @@ class Reportes extends CI_Controller {
   public function equiposreparadosfranquiciasat(){
     $this->load->model("Bitacorasmodel");
     $this->load->model("Registroaccionesmodel");
-    $sucursales_seleccionadas = ['CO1','CS1', 'PC1', 'PR1', 'VM1', 'VM2', 'VR1','VF1'];
-    $usuario = $this->uri->segment(3,'6');
-    $usuarios = ['andresM', 'angeln', 'gibrang', 'miguelmontoya','alejandrovasconcelos','StingC',''];
+    $sucursales_seleccionadas = ['CO1','CS1', 'PC1', 'VM1', 'VM2', 'VR1','VF1'];
+    $usuario = $this->uri->segment(3,'5');
+    $usuarios = ['andresM', 'gibrang', 'miguelmontoya','alejandrovasconcelos','StingC',''];
     $registro['bitacoras'] = $this->Bitacorasmodel->get_equiposreparadossucursales($usuarios[$usuario],$sucursales_seleccionadas,$usuarios);
-    $registro['usuarios'] = ['andresM', 'angeln', 'gibrang', 'miguelmontoya','alejandrovasconcelos','StingC'];
+    $registro['usuarios'] = ['andresM', 'gibrang', 'miguelmontoya','alejandrovasconcelos','StingC'];
 		$registro['usuarios']['NE'] = "Seleccionar usuarios";
     $registro['usuario'] = $this->uri->segment(3,'NE');
     $this->load->view('inicio/top1');
