@@ -1169,10 +1169,10 @@ class Reportes extends CI_Controller {
     $this->load->model("Bitacorasmodel");
     $this->load->model("Registroaccionesmodel");
     $sucursales_seleccionadas = [];
-    $usuario = $this->uri->segment(3,'8');
-    $usuarios = ['XA1', 'XC1', 'XU1', 'VA1', 'CZ1', 'CL1', 'OZ1', 'TX1', ''];
+    $usuario = $this->uri->segment(3,'9');
+    $usuarios = ['XA1', 'XC1', 'XU1', 'VA1', 'CZ1', 'CL1', 'OZ1', 'TX1','PR1', ''];
 		$registro['bitacoras'] = $this->Bitacorasmodel->get_equiposreajustesucursalespropias($usuarios[$usuario],$sucursales_seleccionadas,$usuarios);
-    $registro['usuarios'] = ['XA1', 'XC1', 'XU1', 'VA1', 'CZ1', 'CL1', 'OZ1', 'TX1'];
+    $registro['usuarios'] = ['XA1', 'XC1', 'XU1', 'VA1', 'CZ1', 'CL1', 'OZ1', 'TX1','PR1'];
 		$registro['usuarios']['NE'] = "Seleccionar sucursal";
     $registro['usuario'] = $this->uri->segment(3,'NE');
     $this->load->view('inicio/top1');
