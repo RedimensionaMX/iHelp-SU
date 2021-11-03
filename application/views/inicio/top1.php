@@ -1,21 +1,22 @@
 <?php
-//Restricciones de acceso a usuarios no registrados
-if ($this->session->userdata('session_id')===FALSE)
-    redirect('/');
-if ($this->session->userdata('username')=="")
-    redirect('/');
+    //Restricciones de acceso a usuarios no registrados
+    if ($this->session->userdata('session_id')===FALSE)
+        redirect('/');
+    if ($this->session->userdata('username')=="")
+        redirect('/');
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>iHelp - iDoctor<?php if ($this->session->userdata('sucursal')!="") {
-            echo " - " . $this->session->userdata('sucursal');
-        }?></title>
-
-<!-- Estilos -->
-<link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700|Titillium+Web:400,700' rel='stylesheet' type='text/css'>
+        <title>iHelp - iDoctor
+            <?php if ($this->session->userdata('sucursal')!="") {
+                echo " - " . $this->session->userdata('sucursal');
+            }?>
+        </title>
+        <!-- Estilos -->
+        <link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700|Titillium+Web:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/normalize.css">
         <link rel="stylesheet" href="/css/skeleton.css">
         <link rel="stylesheet" href="/css/style1.css" type="text/css">
@@ -30,7 +31,6 @@ if ($this->session->userdata('username')=="")
         <!-- jQuery -->
         <script type="text/javascript" src="/js/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" src="/js/jquery-ui.js"></script>
-        
 
         <!-- Required plugins -->
         <script type="text/javascript" src="/js/date.js"></script>
@@ -47,8 +47,6 @@ if ($this->session->userdata('username')=="")
         <link rel="stylesheet" href="/css/dropdown-menu.css" />
         <script type="text/javascript" src="/js/dropdown-menu.min.js"></script>
         <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-        
-        
 
         <script type="text/javascript" charset="utf-8">
             $(function(){
@@ -230,7 +228,7 @@ if ($this->session->userdata('username')=="")
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="#" title="Poza Rica"><b>Poza Rica</b></a>
+                            <!-- <li><a href="#" title="Poza Rica"><b>Poza Rica</b></a>
                                 <ul>
                                     <li><a href="/catalogo/index.php/reportes/recibidosdiapozarica" title="Equipos Dia Suc Gestionadas">Hoy Recibidos</a>
                                         <ul>
@@ -253,7 +251,7 @@ if ($this->session->userdata('username')=="")
                                         </ul>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> -->
                             <li><a href="#" title="Riviera Veracruzana"><b>Riviera V.</b></a>
                                 <ul>
                                     <li><a href="/catalogo/index.php/reportes/recibidosdiariviera" title="Equipos Dia Suc Gestionadas">Hoy Recibidos</a>
