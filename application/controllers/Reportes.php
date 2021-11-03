@@ -745,11 +745,10 @@ class Reportes extends CI_Controller {
 			$sucursales_seleccionadas[0] = "CO1";
 			$sucursales_seleccionadas[1] = "CS1";
 			$sucursales_seleccionadas[2] = "PC1";
-			$sucursales_seleccionadas[3] = "PR1";
-			$sucursales_seleccionadas[4] = "VM1";
-			$sucursales_seleccionadas[5] = "VM2";
-			$sucursales_seleccionadas[6] = "VR1";
-			$sucursales_seleccionadas[7] = "VF1";
+			$sucursales_seleccionadas[3] = "VM1";
+			$sucursales_seleccionadas[4] = "VM2";
+			$sucursales_seleccionadas[5] = "VR1";
+			$sucursales_seleccionadas[6] = "VF1";
 			//Obtención de la fecha actual en sistema
 			$anio = date("Y");
 			$mes = 	date("m");
@@ -2181,11 +2180,10 @@ class Reportes extends CI_Controller {
 			$sucursales_seleccionadas[0] = "CO1";
 			$sucursales_seleccionadas[1] = "CS1";
 			$sucursales_seleccionadas[2] = "PC1";
-			$sucursales_seleccionadas[3] = "PR1";
-			$sucursales_seleccionadas[4] = "VM1";
-			$sucursales_seleccionadas[5] = "VM2";
-			$sucursales_seleccionadas[6] = "VR1";
-			$sucursales_seleccionadas[7] = "VF1";
+			$sucursales_seleccionadas[3] = "VM1";
+			$sucursales_seleccionadas[4] = "VM2";
+			$sucursales_seleccionadas[5] = "VR1";
+			$sucursales_seleccionadas[6] = "VF1";
       //Obtención de la fecha actual en sistema
 			$anio = date("Y");
 			$mes = 	date("m");
@@ -2243,11 +2241,10 @@ class Reportes extends CI_Controller {
       $sucursales_seleccionadas[0] = "CO1";
       $sucursales_seleccionadas[1] = "CS1";
       $sucursales_seleccionadas[2] = "PC1";
-      $sucursales_seleccionadas[3] = "PR1";
-      $sucursales_seleccionadas[4] = "VM1";
-      $sucursales_seleccionadas[5] = "VM2";
-      $sucursales_seleccionadas[6] = "VR1";
-      $sucursales_seleccionadas[7] = "VF1";
+      $sucursales_seleccionadas[3] = "VM1";
+      $sucursales_seleccionadas[4] = "VM2";
+      $sucursales_seleccionadas[5] = "VR1";
+      $sucursales_seleccionadas[6] = "VF1";
       $anio = date("Y");
       $mes =  date("m");
       $dia =  date("d");
@@ -2271,11 +2268,10 @@ class Reportes extends CI_Controller {
 			$sucursales_seleccionadas[0] = "CO1";
 			$sucursales_seleccionadas[1] = "CS1";
 			$sucursales_seleccionadas[2] = "PC1";
-			$sucursales_seleccionadas[3] = "PR1";
-			$sucursales_seleccionadas[4] = "VM1";
-			$sucursales_seleccionadas[5] = "VM2";
-			$sucursales_seleccionadas[6] = "VR1";
-			$sucursales_seleccionadas[7] = "VF1";
+			$sucursales_seleccionadas[3] = "VM1";
+			$sucursales_seleccionadas[4] = "VM2";
+			$sucursales_seleccionadas[5] = "VR1";
+			$sucursales_seleccionadas[6] = "VF1";
       //Obtención de la fecha actual en sistema
 			$anio = date("Y");
       $mes = 	date("m");
