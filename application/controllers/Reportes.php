@@ -552,11 +552,11 @@ class Reportes extends CI_Controller {
   public function comunicadosfranquicias(){
     $this->load->model("Comunicacionesmodel");
     $this->load->model("Registroaccionesmodel");
-    $sucursales_seleccionadas = ['CO1','CS1', 'PC1', 'PR1', 'VM1', 'VM2', 'VR1','VF1'];
-    $usuario = $this->uri->segment(3,'4');
-    $usuarios = ['hefziba','Jaqueline','marianaRdgz','ccastillejos',''];
+    $sucursales_seleccionadas = ['CO1','CS1', 'PC1', 'VM1', 'VM2', 'VR1','VF1'];
+    $usuario = $this->uri->segment(3,'3');
+    $usuarios = ['Jaqueline','marianaRdgz','ccastillejos',''];
     $registro['comunicados'] = $this->Comunicacionesmodel->get_comunicados_sucursales($usuarios[$usuario],$sucursales_seleccionadas,$usuarios);
-    $registro['usuarios'] = ['hefziba', 'ivonnemtz','Jaqueline','marianaRdgz','ccastillejos'];
+    $registro['usuarios'] = ['ivonnemtz','Jaqueline','marianaRdgz','ccastillejos'];
 		$registro['usuarios']['NE'] = "Seleccionar usuarios";
     $registro['usuario'] = $this->uri->segment(3,'NE');
     $this->load->view('inicio/top1');
