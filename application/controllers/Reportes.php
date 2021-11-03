@@ -571,11 +571,11 @@ class Reportes extends CI_Controller {
   public function comunicadospropias(){
     $this->load->model("Comunicacionesmodel");
     $this->load->model("Registroaccionesmodel");
-    $sucursales_seleccionadas = ['XA1', 'XC1', 'XU1', 'VA1', 'CZ2', 'CL1', 'OZ1', 'TX1'];
-    $usuario = $this->uri->segment(3,'10');
-    $usuarios = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod', 'ivonnemtz', 'paulaortiz','victorelizondo','dianasanchez',''];
+    $sucursales_seleccionadas = ['XA1', 'XC1', 'XU1', 'VA1', 'CZ2', 'CL1', 'OZ1', 'TX1','PR1'];
+    $usuario = $this->uri->segment(3,'11');
+    $usuarios = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod','hefziba', 'ivonnemtz', 'paulaortiz','victorelizondo','dianasanchez',''];
     $registro['comunicados'] = $this->Comunicacionesmodel->get_comunicados_sucursales($usuarios[$usuario],$sucursales_seleccionadas,$usuarios);
-    $registro['usuarios'] = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod', 'ivonnemtz', 'paulaortiz','victorelizondo','dianasanchez'];
+    $registro['usuarios'] = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod','hefziba', 'ivonnemtz', 'paulaortiz','victorelizondo','dianasanchez'];
 		$registro['usuarios']['NE'] = "Seleccionar usuarios";
     $registro['usuario'] = $this->uri->segment(3,'NE');
     $this->load->view('inicio/top1');
