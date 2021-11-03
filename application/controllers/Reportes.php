@@ -963,7 +963,7 @@ class Reportes extends CI_Controller {
 		//Solo si el usuario se encuentra logueado
 		if ($this->session->userdata('nivel')==1) {
 		  //Variables de la sucursal por consultar
-      $sucursales_seleccionadas = ['CZ1', 'CL1', 'OZ1', 'VA1', 'XA1', 'XC1', 'XU1','TX1'];
+      $sucursales_seleccionadas = ['CZ1', 'CL1', 'OZ1', 'VA1', 'XA1', 'XC1', 'XU1','TX1','PR1'];
       if(empty($sucursales_seleccionadas)){
         $data['result'] = $this->Equiposmodel->get_registrosEsperaRefaccion(0);
         //Carga de las vistas
