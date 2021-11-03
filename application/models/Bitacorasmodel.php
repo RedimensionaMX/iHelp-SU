@@ -165,11 +165,11 @@ class Bitacorasmodel extends CI_Model {
         $resultado2 = [];
         $fecha = $anio.$guion.$mes.$guion.$dia;
             if($usuario == ""){
-                $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.fecha >= '01/01/2020' and b.estatus = 'Reajuste' and e.sucursal_id IN ('XA1', 'XC1', 'XU1', 'VA1', 'CZ1', 'CL1', 'OZ1', 'TX1') group by b.fecha,u.usuario, e.num_orden, e.tipo order by b.fecha desc, u.usuario") );
+                $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.fecha >= '01/01/2020' and b.estatus = 'Reajuste' and e.sucursal_id IN ('XA1', 'XC1', 'XU1', 'VA1', 'CZ1', 'CL1', 'OZ1', 'TX1','PR1') group by b.fecha,u.usuario, e.num_orden, e.tipo order by b.fecha desc, u.usuario") );
                 $guard = $arr->result_array();
                 $resultado2  = array_merge($resultado2, $guard);
             }else{
-                $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.fecha >= '01/01/2020' and b.estatus = 'Reajuste' and e.sucursal_id  IN ('XA1', 'XC1', 'XU1', 'VA1', 'CZ1', 'CL1', 'OZ1', 'TX1') and e.sucursal_id = '".$usuario."' group by b.fecha,u.usuario, e.num_orden, e.tipo order by b.fecha desc, u.usuario") );
+                $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.fecha >= '01/01/2020' and b.estatus = 'Reajuste' and e.sucursal_id  IN ('XA1', 'XC1', 'XU1', 'VA1', 'CZ1', 'CL1', 'OZ1', 'TX1','PR1') and e.sucursal_id = '".$usuario."' group by b.fecha,u.usuario, e.num_orden, e.tipo order by b.fecha desc, u.usuario") );
                 $guard = $arr->result_array();
                 $resultado2  = array_merge($resultado2, $guard);
             }
@@ -184,11 +184,11 @@ class Bitacorasmodel extends CI_Model {
         $resultado2 = [];
         $fecha = $anio.$guion.$mes.$guion.$dia;
             if($usuario == ""){
-                $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.fecha >= '01/01/2020' and b.estatus = 'Reajuste' and e.sucursal_id IN ('CO1','CS1', 'PC1', 'PR1', 'VM1', 'VM2', 'VR1','VF1') group by b.fecha,u.usuario, e.num_orden, e.tipo order by b.fecha desc, u.usuario") );
+                $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.fecha >= '01/01/2020' and b.estatus = 'Reajuste' and e.sucursal_id IN ('CO1','CS1', 'PC1', 'VM1', 'VM2', 'VR1','VF1') group by b.fecha,u.usuario, e.num_orden, e.tipo order by b.fecha desc, u.usuario") );
                 $guard = $arr->result_array();
                 $resultado2  = array_merge($resultado2, $guard);
             }else{
-                $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.fecha >= '01/01/2020' and b.estatus = 'Reajuste' and e.sucursal_id  IN ('CO1','CS1', 'PC1', 'PR1', 'VM1', 'VM2', 'VR1','VF1') and e.sucursal_id = '".$usuario."' group by b.fecha,u.usuario, e.num_orden, e.tipo order by b.fecha desc, u.usuario") );
+                $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.fecha >= '01/01/2020' and b.estatus = 'Reajuste' and e.sucursal_id  IN ('CO1','CS1', 'PC1', 'VM1', 'VM2', 'VR1','VF1') and e.sucursal_id = '".$usuario."' group by b.fecha,u.usuario, e.num_orden, e.tipo order by b.fecha desc, u.usuario") );
                 $guard = $arr->result_array();
                 $resultado2  = array_merge($resultado2, $guard);
             }
