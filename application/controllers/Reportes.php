@@ -2243,6 +2243,7 @@ class Reportes extends CI_Controller {
       $anio = date("Y");
       $mes =  date("m");
       $dia =  date("d");
+      // $mes = '010';
       $data['cierredemes'] = $this->Equiposmodel->get_cierre_de_mes_administracion_varios($sucursales_seleccionadas, $anio, $mes);
       $data['sucursales'] = sucursales_nombres_dd();
       $this->load->view('inicio/top1');
