@@ -821,6 +821,7 @@ class Reportes extends CI_Controller {
 			$sucursales_seleccionadas[5] = "CL1";
 			$sucursales_seleccionadas[6] = "OZ1";
 			$sucursales_seleccionadas[7] = "TX1";
+			$sucursales_seleccionadas[8] = "PR1";
 			//Obtención de la fecha actual en sistema
 			$anio = date("Y");
 			$mes = 	date("m");
@@ -2211,6 +2212,7 @@ class Reportes extends CI_Controller {
 			$sucursales_seleccionadas[5] = "CL1";
 			$sucursales_seleccionadas[6] = "OZ1";
 			$sucursales_seleccionadas[7] = "TX1";
+			$sucursales_seleccionadas[8] = "PR1";
       //Obtención de la fecha actual en sistema
 			$anio = date("Y");
 			$mes = 	date("m");
@@ -2296,6 +2298,7 @@ class Reportes extends CI_Controller {
       $sucursales_seleccionadas[5] = "CL1";
       $sucursales_seleccionadas[6] = "OZ1";
       $sucursales_seleccionadas[7] = "TX1";
+      $sucursales_seleccionadas[8] = "PR1";
       $anio = date("Y");
       $mes =  date("m");
       $dia =  date("d");
@@ -2323,6 +2326,7 @@ class Reportes extends CI_Controller {
 			$sucursales_seleccionadas[5] = "CL1";
 			$sucursales_seleccionadas[6] = "OZ1";
 			$sucursales_seleccionadas[7] = "TX1";
+			$sucursales_seleccionadas[8] = "PR1";
       //Obtención de la fecha actual en sistema
 			$anio = date("Y");
       $mes = 	date("m");
