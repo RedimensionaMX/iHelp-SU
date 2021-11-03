@@ -1128,6 +1128,11 @@ function guardar_modificaciones($p) { // !!!
      	for ($i=0; $i < sizeof($seleccionados); $i++) { 
         $q = $this->db->query("select * from R_CIERRE_DE_MES_INGRESOS('" . $seleccionados[$i] . "'," . $anio . "," . $mes . ") order by numero_remision desc ");
         $a = $q->result_array();
+        for($i = 0; $i<sizeof($a);$i++){
+          if (is_null($a[$i]['numero_remision'])){
+            $a[$i]['importe'] = "-".$a[$i]['importe'];
+          }
+        }
 
         $resultado  = array_merge($resultado, $a);
       }
@@ -1582,7 +1587,7 @@ function get_accesorios_sucursales_mes_resumen($seleccionados,$anio,$mes) {
   function get_registrosDevoluciones($seleccionados) {
 		$resultado = [];
 		$guion = '-';
-		for ($i=0; $i < sizeof($seleccionados); $i++) {
+		for ($i=0; $i < sizeof($seleccionados); $i++) { 
       $qry = "select ";
       $qry .= "T1.ID, T1.ESTATUS, T1.NUM_ORDEN, T1.TIPO, T1.MODELO, T1.NUM_SERIE, T1.CAPACIDAD, T1.FECHA_RECIBIDO, T1.HORA_RECIBIDO, T1.DESCRIPCION_PROBLEMA, T1.CONDICIONES_RECEPCION_EQ, T1.NUMERO_REMISION, T1.FECHA_DE_ENTREGA, T1.CLASE, T1.SITUACION, T1.DIAGNOSTICO, T1.SUCURSAL_ID, CURRENT_DATE-T1.fecha_recibido as dias_vencidos, SUM(T2.SUBTOTAL) AS SUBTOTAL_COMPLETO  ";
       $qry .= "FROM ";
