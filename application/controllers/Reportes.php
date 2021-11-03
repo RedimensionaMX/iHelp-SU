@@ -90,6 +90,7 @@ class Reportes extends CI_Controller {
       $sucursales_seleccionadas[5] = "CL1";
       $sucursales_seleccionadas[6] = "OZ1";
       $sucursales_seleccionadas[7] = "TX1";
+      $sucursales_seleccionadas[8] = "PR1";
       //Obtención de la fecha actual en sistema
       $anio = date("Y");
       $mes =  date("m");
@@ -120,6 +121,7 @@ class Reportes extends CI_Controller {
       $sucursales_seleccionadas[5] = "CL1";
       $sucursales_seleccionadas[6] = "OZ1";
       $sucursales_seleccionadas[7] = "TX1";
+      $sucursales_seleccionadas[8] = "PR1";
       //Obtención de la fecha actual en sistema
       $anio = date("Y");
       $mes =  date("m");
@@ -213,6 +215,7 @@ class Reportes extends CI_Controller {
       $sucursales_seleccionadas[5] = "CL1";
       $sucursales_seleccionadas[6] = "OZ1";
       $sucursales_seleccionadas[7] = "TX1";
+      $sucursales_seleccionadas[8] = "PR1";
       //Obtención de la fecha actual en sistema
       $anio = date("Y");
       $mes =  date("m");
@@ -243,6 +246,7 @@ class Reportes extends CI_Controller {
       $sucursales_seleccionadas[5] = "CL1";
       $sucursales_seleccionadas[6] = "OZ1";
       $sucursales_seleccionadas[7] = "TX1";
+      $sucursales_seleccionadas[8] = "PR1";
       //Obtención de la fecha actual en sistema
       $anio = date("Y");
       $mes =  date("m");
@@ -1149,10 +1153,11 @@ class Reportes extends CI_Controller {
     $sucursales_seleccionadas[5] = "CL1";
     $sucursales_seleccionadas[6] = "OZ1";
     $sucursales_seleccionadas[7] = "TX1";
-    $usuario = $this->uri->segment(3,'9');
-    $usuarios = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod', 'ivonnemtz', 'paulaortiz','albanyacosta',''];
+    $sucursales_seleccionadas[8] = "PR1";
+    $usuario = $this->uri->segment(3,'10');
+    $usuarios = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod', 'ivonnemtz', 'paulaortiz','albanyacosta','hefziba',''];
 		$registro['bitacoras'] = $this->Bitacorasmodel->get_equiposreparadossucursales($usuarios[$usuario],$sucursales_seleccionadas,$usuarios);
-    $registro['usuarios'] = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod', 'ivonnemtz', 'paulaortiz','albanyacosta'];
+    $registro['usuarios'] = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod', 'ivonnemtz', 'paulaortiz','albanyacosta','hefziba'];
 		$registro['usuarios']['NE'] = "Seleccionar usuarios";
     $registro['usuario'] = $this->uri->segment($usuarios[$usuario],'NE');
     $this->load->view('inicio/top1');
@@ -1202,10 +1207,11 @@ class Reportes extends CI_Controller {
     $sucursales_seleccionadas[5] = "CL1";
     $sucursales_seleccionadas[6] = "OZ1";
     $sucursales_seleccionadas[7] = "TX1";
-    $usuario = $this->uri->segment(3,'10');
-    $usuarios = ['alonsoramos', 'armandoh', 'epifaniox', 'jonnareyes', 'marcosruiz', 'marioivan', 'yaquiperez','marcobueno','ricardorojo','ivonnemtz',''];
+    $sucursales_seleccionadas[8] = "PR1";
+    $usuario = $this->uri->segment(3,'11');
+    $usuarios = ['alonsoramos', 'armandoh', 'epifaniox', 'jonnareyes', 'marcosruiz', 'marioivan', 'yaquiperez','marcobueno','ricardorojo','ivonnemtz','angeln',''];
     $registro['bitacoras'] = $this->Bitacorasmodel->get_equiposreparadossucursales($usuarios[$usuario],$sucursales_seleccionadas,$usuarios);
-    $registro['usuarios'] = ['alonsoramos', 'armandoh', 'epifaniox', 'jonnareyes', 'marcosruiz', 'marioivan', 'yaquiperez','marcobueno','ricardorojo','ivonnemtz'];
+    $registro['usuarios'] = ['alonsoramos', 'armandoh', 'epifaniox', 'jonnareyes', 'marcosruiz', 'marioivan', 'yaquiperez','marcobueno','ricardorojo','ivonnemtz','angeln'];
 		$registro['usuarios']['NE'] = "Seleccionar usuarios";
     $registro['usuario'] = $this->uri->segment(3,'NE');
     $this->load->view('inicio/top1');
