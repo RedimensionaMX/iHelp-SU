@@ -1342,7 +1342,7 @@ class Reportes extends CI_Controller {
     //Solo si el usuario se encuentra logueado
     if ($this->session->userdata('nivel')==1) {
       //Variables de la sucursal por consultar
-      $sucursales_seleccionadas = ['CO1','CS1', 'PC1', 'PR1', 'VM1', 'VM2', 'VR1','VF1'];
+      $sucursales_seleccionadas = ['CO1','CS1', 'PC1', 'VM1', 'VM2', 'VR1','VF1'];
       if(empty($sucursales_seleccionadas)){
         $data['result'] = $this->Equiposmodel->get_supervision_sucursales(0);
         //Carga de las vistas
@@ -1369,7 +1369,7 @@ class Reportes extends CI_Controller {
     //Solo si el usuario se encuentra logueado
     if ($this->session->userdata('nivel')==1) {
       //Variables de la sucursal por consultar
-      $sucursales_seleccionadas = ['CO1', 'CS1', 'PC1', 'PR1', 'VM1', 'VM2', 'VR1','VF1'];
+      $sucursales_seleccionadas = ['CO1', 'CS1', 'PC1', 'VM1', 'VM2', 'VR1','VF1'];
       if(empty($sucursales_seleccionadas)){
         $data['result'] = $this->Equiposmodel->get_supervision_sucursales(0);
         //Carga de las vistas
@@ -1679,7 +1679,7 @@ class Reportes extends CI_Controller {
     //Solo si el usuario se encuentra logueado
     if ($this->session->userdata('nivel')==1) {
       //Variables de la sucursal por consultar
-      $sucursales_seleccionadas = ['CO1','CS1', 'PC1', 'PR1', 'VM1', 'VM2', 'VR1','VF1'];
+      $sucursales_seleccionadas = ['CO1','CS1', 'PC1', 'VM1', 'VM2', 'VR1','VF1'];
       if(empty($sucursales_seleccionadas)){
         $data['result'] = $this->Equiposmodel->get_supervision_sucursales(0);
         //Carga de las vistas
@@ -1708,7 +1708,7 @@ class Reportes extends CI_Controller {
     //Solo si el usuario se encuentra logueado
     if ($this->session->userdata('nivel')==1) {
       //Variables de la sucursal por consultar
-      $sucursales_seleccionadas = ['CO1','CS1', 'PC1', 'PR1', 'VM1', 'VM2', 'VR1','VF1'];
+      $sucursales_seleccionadas = ['CO1','CS1', 'PC1', 'VM1', 'VM2', 'VR1','VF1'];
       if(empty($sucursales_seleccionadas)){
         $data['result'] = $this->Equiposmodel->get_supervision_sucursales(0);
         //Carga de las vistas
