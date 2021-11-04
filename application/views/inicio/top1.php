@@ -206,6 +206,30 @@ if ($this->session->userdata('username')=="")
                                     </li>
                                 </ul>
                             </li>
+                            <li><a href="#" title="Coyoacán"><b>Coyoacán</b></a>
+                                <ul>
+                                    <li><a href="/catalogo/index.php/reportes/recibidosdiacoyoacan" title="Equipos Dia Suc Gestionadas">Hoy Recibidos</a>
+                                        <ul>
+                                            <li><a href="/catalogo/index.php/reportes/recibidosdiacoyoacanprueba" title="Equipos Recibidos Dia Suc Propias">Resumen</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/catalogo/index.php/reportes/equiposdiacoyoacan" title="Equipos Hoy Suc Gestionadas">Hoy Entregados</a>
+                                        <ul>
+                                            <li><a href="/catalogo/index.php/reportes/equiposdiacoyoacanprueba" title="Equipos Recibidos Dia Suc Propias">Resumen</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/catalogo/index.php/reportes/recibidosmescoyoacan" title="Entradas y salidas por mes">Mes Recibidos</a>
+                                        <ul>
+                                            <li><a href="/catalogo/index.php/reportes/recibidosmescoyoacanprueba" title="Equipos Recibidos Dia Suc Propias">Resumen</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/catalogo/index.php/reportes/cierredemescoyoacan" title="Entradas y salidas por mes">Mes Entregados</a>
+                                        <ul>
+                                            <li><a href="/catalogo/index.php/reportes/cierredemescoyoacanprueba" title="Equipos Recibidos Dia Suc Propias">Resumen</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
                             <li><a href="#" title="Riviera Veracruzana"><b>Framboyanes</b></a>
                                 <ul>
                                     <li><a href="/catalogo/index.php/reportes/recibidosdiaframboyanes" title="Equipos Dia Framboyanes">Hoy Recibidos</a>
