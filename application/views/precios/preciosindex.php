@@ -18,7 +18,7 @@
     <table width="100%" id="datatabla" class="cell-border stripe compact hover">
         <thead>
             <tr>
-                <th style="width:80px">ID</th>
+                <th style="width: 20%;">ID</th>
                 <th>Descripci&oacute;n</th>
                 <th>Costo</th>
                 <th>Clase</th>
@@ -28,16 +28,16 @@
         <?php
         foreach ($result as $item) {
             echo "<tr>";
-            if ($this->session->userdata('nivel')==1) 	
+            if ($this->session->userdata('nivel')==1)
                 echo "<td>" . $item['id'] . "</td>";
-            else 
-                echo "<td>" . $item['id'] . "</td>"; 
-                $descripcion = $item['descripcion'];
-                $descripcion = str_replace("[P]", "<span color='#f00'>(Paquete)</span>", $descripcion);
-                echo "<td>" . $descripcion . "</td>";
-                $costo = $item['costo'];
-                echo "<td align='right'>" . number_format($costo, 2, '.', ',')  . "</td>";
-                echo "<td>" . $item['clase'] . "</td>";
+            else
+                echo "<td>" . $item['id'] . "</td>";
+            $descripcion = $item['descripcion'];
+            $descripcion = str_replace("[P]", "<span color='#f00'>(Paquete)</span>", $descripcion);
+            echo "<td>" . $descripcion . "</td>";
+            $costo = $item['costo'];
+            echo "<td align='right'>" . number_format($costo, 2, '.', ',')  . "</td>";
+            echo "<td>" . $item['clase'] . "</td>";
             echo "</tr>";
         }
         ?>
