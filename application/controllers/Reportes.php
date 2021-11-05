@@ -2307,8 +2307,11 @@ class Reportes extends CI_Controller {
       $sucursales_seleccionadas[8] = "PR1";
       $anio = date("Y");
       $mes =  date("m");
+      // $mes = 10;
       $dia =  date("d");
+      // print_r($sucursales_seleccionadas);
       $data['cierredemes'] = $this->Equiposmodel->get_cierre_de_mes_administracion_varios($sucursales_seleccionadas, $anio, $mes);
+      // print_r($data['cierredemes']);
       $data['sucursales'] = sucursales_nombres_dd();
       $this->load->view('inicio/top1');
       $this->load->view("reportes/cierredemesvarios",$data);

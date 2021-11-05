@@ -1128,9 +1128,11 @@ function guardar_modificaciones($p) { // !!!
      	for ($i=0; $i < sizeof($seleccionados); $i++) { 
         $q = $this->db->query("select * from R_CIERRE_DE_MES_INGRESOS('" . $seleccionados[$i] . "'," . $anio . "," . $mes . ") order by numero_remision desc ");
         $a = $q->result_array();
-        for($i = 0; $i<sizeof($a);$i++){
-          if (is_null($a[$i]['numero_remision'])){
-            $a[$i]['importe'] = "-".$a[$i]['importe'];
+        // print_r(sizeof($a));
+        for($j = 0; $j<sizeof($a);$j++){
+          // print_r($i);
+          if (is_null($a[$j]['numero_remision'])){
+            $a[$j]['importe'] = "-".$a[$j]['importe'];
           }
         }
 
