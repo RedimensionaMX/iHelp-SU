@@ -157,6 +157,25 @@ class Bitacorasmodel extends CI_Model {
         return $resultado2;
     }
 
+    function get_equiposreparadossucursalesmes($usuario,$sucursales,$usuarios) {
+        $guion = '/';
+        $anio = date("Y");
+        $mes =  date("m");
+        $resultado2 = [];
+            if($usuario == ""){
+                for ($i=0; $i < sizeof($usuarios); $i++) {
+                    $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.estatus = 'Reparado' and Extract(Month From b.fecha) = " . $mes . " and Extract(Year From b.fecha) = " . $anio . "  and u.usuario = '".$usuarios[$i]."' group by b.fecha,u.usuario, e.num_orden, e.tipo order by b.fecha desc, u.usuario") );
+                    $guard = $arr->result_array();
+                    $resultado2  = array_merge($resultado2, $guard);
+                }
+            }else{
+                $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.estatus = 'Reparado' and Extract(Month From b.fecha) = " . $mes . " and Extract(Year From b.fecha) = " . $anio . " and u.usuario = '".$usuario."' group by b.fecha,u.usuario, e.num_orden, e.tipo order by b.fecha desc, u.usuario") );
+                $guard = $arr->result_array();
+                $resultado2  = array_merge($resultado2, $guard);
+            }
+        return $resultado2;
+    }
+
     function get_equiposreajustesucursalespropias($usuario,$sucursales,$usuarios) {
         $guion = '/';
         $anio = date("Y");

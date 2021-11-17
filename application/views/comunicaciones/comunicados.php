@@ -12,7 +12,11 @@
                 if(name1 == "comunicadospropias"){
                     top.location.href='../' + 'comunicadospropias/' + $("#ddusuario").val();
                 }else{
-                    top.location.href='../' + 'comunicadosfranquicias/' + $("#ddusuario").val();
+                    if(name1 == "comunicadosfranquicias"){
+                        top.location.href='../' + 'comunicadosfranquicias/' + $("#ddusuario").val();
+                    }else{
+                        top.location.href='../' + 'comunicadospropiasmes/' + $("#ddusuario").val();
+                    }
                 }
             }
         });

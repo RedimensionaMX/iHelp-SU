@@ -5,7 +5,7 @@
             var name1 = str.split('/')[6];
             //alert(name1);
             var name2 = str.split('/')[7];
-            //alert(name2);
+            // alert(name2);
             if (name2 === undefined){
                 top.location.href=window.location.href + '/'+  $("#ddusuario").val();
             }else{
@@ -18,7 +18,11 @@
                         if(name1 == "equiposreparadosfranquiciasat"){
                             top.location.href='../' + 'equiposreparadosfranquiciasat/' + $("#ddusuario").val();
                         }else{
-                            top.location.href='../' + 'equiposreparadosfranquiciasac/' + $("#ddusuario").val();
+                            if(name1 == "equiposreparadospropiasatmes"){
+                                top.location.href='../' + 'equiposreparadospropiasatmes/' + $("#ddusuario").val();
+                            }else{
+                                top.location.href='../' + 'equiposreparadospropiasacmes/' + $("#ddusuario").val();
+                            }
                         }
                     }
                 }

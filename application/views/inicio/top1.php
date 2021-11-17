@@ -130,19 +130,37 @@ if ($this->session->userdata('username')=="")
                             </li>
                             <li><a href="#" title="Propias">Propias <b>Reparados</b></a>
                                 <ul>
-                                    <li><a href="/catalogo/index.php/reportes/equiposreparadospropiasat" title="Reparaciones de área técnica">Área Técnica</a></li>
-                                    <li><a href="/catalogo/index.php/reportes/equiposreparadospropiasac" title="Reparaciones de área comercial">Area Comercial</a></li>
+                                    <li><a href="/catalogo/index.php/reportes/equiposreparadospropiasatmes" title="Reparaciones de área técnica">Área Técnica <b>MES</b></a></li>
+                                    <li><a href="/catalogo/index.php/reportes/equiposreparadospropiasat" title="Reparaciones de área técnica">Área Técnica <b>TODOS</b></a></li>
+                                    <li><a href="/catalogo/index.php/reportes/equiposreparadospropiasac" title="Reparaciones de área comercial">Area Comercial <b>TODOS</b></a></li>
                                 </ul>
                             </li>
                             <li><a href="/catalogo/index.php/reportes/equiposReajuste" title="Equipos en Reajuste">Propias <b>Reajuste</b></a></li>
                             <li><a href="#" title="Propias">Propias <b>Comunicados</b></a>
                                 <ul>
-                                    <li><a href="/catalogo/index.php/reportes/comunicadospropias" title="Comunicados de área comercial">Área Comercial</a></li>
+                                    <li><a href="/catalogo/index.php/reportes/comunicadospropias" title="Comunicados de área comercial">Área Comercial <b>MES</b></a></li>
+                                    <li><a href="/catalogo/index.php/reportes/comunicadospropias" title="Comunicados de área comercial">Área Comercial <b>TODOS</b></a></li>
                                 </ul>
                             </li>
                             <li><a href="/catalogo/index.php/reportes/equiposEsperaRefaccionPropias" title="Equipos en Espera de Refaccion">Propias <b>Espera de Refaccion</b></a></li>
                             <li><a href="/catalogo/index.php/reportes/equiposLaboratorioPropias" title="Equipos En Laboratorio">Propias <b>En Laboratorio</b></a></li>
                             <li><a href="/catalogo/index.php/reportes/devolucionesPendientesPropias" title="Devoluciones Pendientes">Propias <b>Devoluciones Pendientes</b></a></li>
+                            <li><a href="/catalogo/index.php/reportes/seguimientopropias" title="Propias">Propias<b> Seguimiento Especial</b></a>
+                                <!-- <ul>
+                                    <li><a href="/catalogo/index.php/reportes/recibidosdiapropias" title="Equipos Recibidos Dia Suc Propias">Recibidos <b>HOY DETALLE</b></a></li>
+                                    <li><a href="/catalogo/index.php/reportes/recibidosdiapropiasresumen" title="Equipos Recibidos Dia Suc Propias">Recibidos<b> HOY RESUMEN</b> </a></li>
+                                    <li><a href="/catalogo/index.php/reportes/recibidosmespropias" title="Equipos Recibidos Dia Suc Propias">Recibidos <b>MES DETALLE</b></a></li>
+                                    <li><a href="/catalogo/index.php/reportes/recibidosmespropiasprueba" title="Equipos Recibidos Dia Suc Propias">Recibidos <b>MES RESUMEN</b></a></li>
+                                </ul> -->
+                            </li>
+                            <li><a href="#" title="Propias">Propias <b>Ventas</b> Buen Fin</a>
+                                <ul>
+                                    <li><a href="/catalogo/index.php/reportes/ventasbuenfin2020" title="Ventas Buen Fin 2020">Ventas <b>BF2020 DETALLE</b></a></li>
+                                    <li><a href="/catalogo/index.php/reportes/ventasbuenfin2020resumen" title="Ventas Buen Fin 2020">Ventas <b>BF2020 RESUMEN</b></a></li>
+                                    <li><a href="/catalogo/index.php/reportes/ventasbuenfin2019" title="Ventas Buen Fin 2019">Ventas <b>BF2019 DETALLE</b></a></li>
+                                    <li><a href="/catalogo/index.php/reportes/ventasbuenfin2019resumen" title="Ventas Buen Fin 2019">Ventas <b>BF2019 RESUMEN</b></a></li>
+                                </ul>
+                            </li>
                             <li><a href="#" title="Franquicias">Franquicias<b> Equipos Recibidos</b></a>
                                 <ul>
                                     <li><a href="/catalogo/index.php/reportes/recibidosdiafranquicias" title="Equipos Recibidos Dia Franquicias">Recibidos <b>HOY DETALLE</b></a></li>
@@ -182,6 +200,7 @@ if ($this->session->userdata('username')=="")
                             <li><a href="/catalogo/index.php/reportes/equiposEsperaRefaccionFranquicias" title="Equipos en Espera de Refaccion">Franquicias <b>Espera de Refaccion</b></a></li>
 							<li><a href="/catalogo/index.php/reportes/equiposLaboratorioFranquicias" title="Equipos En Laboratorio">Franquicias <b>En Laboratorio</b></a></li>
 							<li><a href="/catalogo/index.php/reportes/devolucionesPendientesFranquicias" title="Devoluciones Pendientes">Franquicias <b>Devoluciones Pendientes</b></a></li>
+                            <li><a href="/catalogo/index.php/reportes/seguimientofranquicias" title="Seguimiento Especial Franquicias">Franquicias<b> Seguimiento Especial</b></a>
                             <li><a href="#" title="Culiacán"><b>Culiacán</b></a>
                                 <ul>
                                     <li><a href="/catalogo/index.php/reportes/recibidosdiaculiacan" title="Equipos Dia Suc Gestionadas">Hoy Recibidos</a>

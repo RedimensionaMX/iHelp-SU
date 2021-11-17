@@ -1296,6 +1296,40 @@ function guardar_modificaciones($p) { // !!!
       return $resultado;
     }
 
+    function get_ventas_sucursales_dia_resumenbf($seleccionados,$anio,$mes,$dia) {
+      $resultado = [];
+      $guion = '-';
+      $fecha = $anio.$guion.$mes.$guion.$dia;
+      for ($i=0; $i < sizeof($seleccionados); $i++) {
+        // SUCURSAL
+        $qry = "SELECT SUCURSAL_ID AS sucursal, count(*) AS totalMovimientos , sum(IMPORTE) AS total, ";
+        //EFECTIVO - NUMERO DE NOTAS  
+        $qry .= "(SELECT count(*) AS totalMovEfectivo FROM MOVIMIENTOS ";
+        $qry .= "WHERE SUCURSAL_ID = '" . $seleccionados[$i] . "' AND FECHA = '" . $fecha . "' ";
+        $qry .= "AND SSCTA = 'EFECTIVO' ), ";
+        //EFECTIVO - MONTO TOTAL  
+        $qry .= "(SELECT sum(IMPORTE) AS totalEfectivo FROM MOVIMIENTOS ";
+        $qry .= "WHERE SUCURSAL_ID = '" . $seleccionados[$i] . "' AND FECHA = '" . $fecha . "' ";
+        $qry .= "AND SSCTA = 'EFECTIVO' ), ";
+        //NO EFECTIVO - NUMERO DE NOTAS 
+        $qry .= "(SELECT count(*) AS totalMovElectronico FROM MOVIMIENTOS ";
+        $qry .= "WHERE SUCURSAL_ID = '" . $seleccionados[$i] . "' AND FECHA = '" . $fecha . "' ";
+        $qry .= "AND SSCTA <> 'EFECTIVO' ), ";
+        // NUMERO DE NOTAS NNOO EFECTIVO Y SU IMPORTE TOTAL 
+        $qry .= "(SELECT sum(IMPORTE) AS totalElectronico FROM MOVIMIENTOS ";
+        $qry .= "WHERE SUCURSAL_ID = '" . $seleccionados[$i] . "' AND FECHA = '" . $fecha . "' ";
+        $qry .= "AND SSCTA <> 'EFECTIVO' ) ";
+        // NUMERO DE NOTAS EN TARJETA TRANSFERENCIA U OTROS Y SU IMPORTE TOTAL 
+        $qry .= "FROM MOVIMIENTOS ";
+        $qry .= "WHERE SUCURSAL_ID = '" . $seleccionados[$i] . "' AND FECHA = '" . $fecha . "' ";
+        $qry .= "GROUP BY SUCURSAL_ID "; 
+        $q = $this->db->query($qry);
+        $a = $q->result_array();
+        $resultado  = array_merge($resultado, $a);
+      }
+      return $resultado;
+    }
+
 function get_accesorios_sucursales_dia_resumen($seleccionados,$anio,$mes,$dia) {
 
       $resultado = [];
@@ -1476,28 +1510,95 @@ function get_accesorios_sucursales_mes_resumen($seleccionados,$anio,$mes) {
       $mes =  date("m");
       $dia =  date("d");
       $fecha = $anio.$guion.$mes.$guion.$dia;
-
-      //$fecha = '2020-08-26';
-      for ($i=0; $i < sizeof($seleccionados); $i++) { 
-
+      for ($i=0; $i < sizeof($seleccionados); $i++) {
         $qry = "SELECT ";
-
         $qry = "select ";
         $qry .= "T1.ID, T1.ESTATUS, T1.NUM_ORDEN, T1.TIPO, T1.MODELO, T1.NUM_SERIE, T1.CAPACIDAD, T1.FECHA_RECIBIDO, T1.HORA_RECIBIDO, T1.DESCRIPCION_PROBLEMA, T1.CONDICIONES_RECEPCION_EQ, T1.NUMERO_REMISION, T1.FECHA_DE_ENTREGA, T1.CLASE, T1.SITUACION, T1.DIAGNOSTICO, T1.SUCURSAL_ID, CURRENT_DATE-T1.fecha_recibido as dias_vencidos, SUM(T2.SUBTOTAL) AS SUBTOTAL_COMPLETO  ";
         $qry .= "FROM ";
         $qry .= "EQUIPOS T1 LEFT JOIN SERVICIOS T2 ON T1.ID=T2.EQUIPO_ID ";
         $qry .= "WHERE ";
-        $qry .= "T1.SUCURSAL_ID = '" . $seleccionados[$i] . "' AND ";  
-        $qry .= "T1.FECHA_RECIBIDO = '".$fecha."' ";  
+        $qry .= "T1.SUCURSAL_ID = '" . $seleccionados[$i] . "' AND ";
+        $qry .= "T1.FECHA_RECIBIDO = '".$fecha."' ";
         $qry .= "GROUP BY T1.NUM_ORDEN, T1.ID, T1.ESTATUS, T1.TIPO, T1.MODELO, T1.NUM_SERIE, T1.CAPACIDAD, T1.FECHA_RECIBIDO, T1.HORA_RECIBIDO,  T1.DESCRIPCION_PROBLEMA, T1.CONDICIONES_RECEPCION_EQ, T1.NUMERO_REMISION, T1.FECHA_DE_ENTREGA, T1.CLASE, T1.SITUACION, T1.DIAGNOSTICO, T1.SUCURSAL_ID;";
-
-        //print_r($qry);
-        
         $arr = $this->db->query($qry);
         $guard = $arr->result_array();
         $resultado  = array_merge($resultado, $guard);
      }
         return $resultado;
+    }
+
+    function get_ventasbf2020($seleccionados) {
+      $resultado = [];
+      $guion = '-';
+      $anio = '2020';
+      $mes =  '11';
+      $dia =  '16';
+      $fecha = $anio.$guion.$mes.$guion.$dia;
+      for ($i=0; $i < sizeof($seleccionados); $i++) {
+        $qry = "SELECT ";
+        $qry = "select ";
+        $qry .= "T1.ID, T1.ESTATUS, T1.NUM_ORDEN, T1.TIPO, T1.MODELO, T1.NUM_SERIE, T1.CAPACIDAD, T1.FECHA_RECIBIDO, T1.HORA_RECIBIDO, T1.DESCRIPCION_PROBLEMA, T1.CONDICIONES_RECEPCION_EQ, T1.NUMERO_REMISION, T1.FECHA_DE_ENTREGA, T1.CLASE, T1.SITUACION, T1.DIAGNOSTICO, T1.SUCURSAL_ID, CURRENT_DATE-T1.fecha_recibido as dias_vencidos, SUM(T2.SUBTOTAL) AS SUBTOTAL_COMPLETO  ";
+        $qry .= "FROM ";
+        $qry .= "EQUIPOS T1 LEFT JOIN SERVICIOS T2 ON T1.ID=T2.EQUIPO_ID ";
+        $qry .= "WHERE ";
+        $qry .= "T1.SUCURSAL_ID = '" . $seleccionados[$i] . "' AND ";
+        $qry .= "T1.FECHA_RECIBIDO = '".$fecha."' ";
+        $qry .= "GROUP BY T1.NUM_ORDEN, T1.ID, T1.ESTATUS, T1.TIPO, T1.MODELO, T1.NUM_SERIE, T1.CAPACIDAD, T1.FECHA_RECIBIDO, T1.HORA_RECIBIDO,  T1.DESCRIPCION_PROBLEMA, T1.CONDICIONES_RECEPCION_EQ, T1.NUMERO_REMISION, T1.FECHA_DE_ENTREGA, T1.CLASE, T1.SITUACION, T1.DIAGNOSTICO, T1.SUCURSAL_ID;";
+        $arr = $this->db->query($qry);
+        $guard = $arr->result_array();
+        $resultado  = array_merge($resultado, $guard);
+      }
+        return $resultado;
+    }
+
+    function get_ventasbf2019($seleccionados) {
+      $resultado = [];
+      $guion = '-';
+      $anio = '2019';
+      $mes =  '11';
+      $dia =  '18';
+      $fecha = $anio.$guion.$mes.$guion.$dia;
+      for ($i=0; $i < sizeof($seleccionados); $i++) {
+        $qry = "SELECT ";
+        $qry = "select ";
+        $qry .= "T1.ID, T1.ESTATUS, T1.NUM_ORDEN, T1.TIPO, T1.MODELO, T1.NUM_SERIE, T1.CAPACIDAD, T1.FECHA_RECIBIDO, T1.HORA_RECIBIDO, T1.DESCRIPCION_PROBLEMA, T1.CONDICIONES_RECEPCION_EQ, T1.NUMERO_REMISION, T1.FECHA_DE_ENTREGA, T1.CLASE, T1.SITUACION, T1.DIAGNOSTICO, T1.SUCURSAL_ID, CURRENT_DATE-T1.fecha_recibido as dias_vencidos, SUM(T2.SUBTOTAL) AS SUBTOTAL_COMPLETO  ";
+        $qry .= "FROM ";
+        $qry .= "EQUIPOS T1 LEFT JOIN SERVICIOS T2 ON T1.ID=T2.EQUIPO_ID ";
+        $qry .= "WHERE ";
+        $qry .= "T1.SUCURSAL_ID = '" . $seleccionados[$i] . "' AND ";
+        $qry .= "T1.FECHA_RECIBIDO = '".$fecha."' ";
+        $qry .= "GROUP BY T1.NUM_ORDEN, T1.ID, T1.ESTATUS, T1.TIPO, T1.MODELO, T1.NUM_SERIE, T1.CAPACIDAD, T1.FECHA_RECIBIDO, T1.HORA_RECIBIDO,  T1.DESCRIPCION_PROBLEMA, T1.CONDICIONES_RECEPCION_EQ, T1.NUMERO_REMISION, T1.FECHA_DE_ENTREGA, T1.CLASE, T1.SITUACION, T1.DIAGNOSTICO, T1.SUCURSAL_ID;";
+        $arr = $this->db->query($qry);
+        $guard = $arr->result_array();
+        $resultado  = array_merge($resultado, $guard);
+      }
+        return $resultado;
+    }
+
+
+
+    function get_facturados($seleccionados) {
+      $resultado = [];
+      $guion = '-';
+      $anio = date("Y");
+      $mes =  date("m");
+      $dia =  date("d");
+      $fecha = $anio.$guion.$mes.$guion.$dia;
+      for ($i=0; $i < sizeof($seleccionados); $i++) {
+        $qry = "SELECT ";
+        $qry = "select ";
+        $qry .= "T1.ID, T1.ESTATUS, T1.NUM_ORDEN, T1.TIPO, T1.MODELO, T1.NUM_SERIE, T1.CAPACIDAD, T1.FECHA_RECIBIDO, T1.HORA_RECIBIDO, T1.DESCRIPCION_PROBLEMA, T1.CONDICIONES_RECEPCION_EQ, T1.NUMERO_REMISION, T1.FECHA_DE_ENTREGA, T1.CLASE, T1.SITUACION, T1.DIAGNOSTICO, T1.SUCURSAL_ID, CURRENT_DATE-T1.fecha_recibido as dias_vencidos, SUM(T2.SUBTOTAL) AS SUBTOTAL_COMPLETO  ";
+        $qry .= "FROM ";
+        $qry .= "EQUIPOS T1 LEFT JOIN SERVICIOS T2 ON T1.ID=T2.EQUIPO_ID ";
+        $qry .= "WHERE ";
+        $qry .= "T1.SUCURSAL_ID = '" . $seleccionados[$i] . "' AND T1.FACTURAR = 'SI' AND T1.SITUACION='A' AND EXTRACT(YEAR FROM T1.FECHA_RECIBIDO) = '".$anio."' ";
+        $qry .= "GROUP BY T1.NUM_ORDEN, T1.ID, T1.ESTATUS, T1.TIPO, T1.MODELO, T1.NUM_SERIE, T1.CAPACIDAD, T1.FECHA_RECIBIDO, T1.HORA_RECIBIDO,  T1.DESCRIPCION_PROBLEMA, T1.CONDICIONES_RECEPCION_EQ, T1.NUMERO_REMISION, T1.FECHA_DE_ENTREGA, T1.CLASE, T1.SITUACION, T1.DIAGNOSTICO, T1.SUCURSAL_ID;";
+        // print_r($qry);
+        $arr = $this->db->query($qry);
+        $guard = $arr->result_array();
+        $resultado  = array_merge($resultado, $guard);
+      }
+      return $resultado;
     }
 
     function get_recibidosdiaresumen($seleccionados) {
@@ -1747,8 +1848,6 @@ function get_accesorios_sucursales_mes_resumen($seleccionados,$anio,$mes) {
        $q = $this->db->query("select * from R_EQUIPOS_X_TURNO('" . $sucursal_id . "','" . $fecha . "'," . $turno . ")");
        $a = $q->result_array();
        return $a[0]; 
-    }    
-  
-      
+    }
 }
 ?>
