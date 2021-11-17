@@ -146,21 +146,15 @@ if ($this->session->userdata('username')=="")
                             <li><a href="/catalogo/index.php/reportes/equiposLaboratorioPropias" title="Equipos En Laboratorio">Propias <b>En Laboratorio</b></a></li>
                             <li><a href="/catalogo/index.php/reportes/devolucionesPendientesPropias" title="Devoluciones Pendientes">Propias <b>Devoluciones Pendientes</b></a></li>
                             <li><a href="/catalogo/index.php/reportes/seguimientopropias" title="Propias">Propias<b> Seguimiento Especial</b></a>
-                                <!-- <ul>
-                                    <li><a href="/catalogo/index.php/reportes/recibidosdiapropias" title="Equipos Recibidos Dia Suc Propias">Recibidos <b>HOY DETALLE</b></a></li>
-                                    <li><a href="/catalogo/index.php/reportes/recibidosdiapropiasresumen" title="Equipos Recibidos Dia Suc Propias">Recibidos<b> HOY RESUMEN</b> </a></li>
-                                    <li><a href="/catalogo/index.php/reportes/recibidosmespropias" title="Equipos Recibidos Dia Suc Propias">Recibidos <b>MES DETALLE</b></a></li>
-                                    <li><a href="/catalogo/index.php/reportes/recibidosmespropiasprueba" title="Equipos Recibidos Dia Suc Propias">Recibidos <b>MES RESUMEN</b></a></li>
-                                </ul> -->
                             </li>
-                            <li><a href="#" title="Propias">Propias <b>Ventas</b> Buen Fin</a>
+                            <!-- <li><a href="#" title="Propias">Propias <b>Ventas</b> Buen Fin</a>
                                 <ul>
                                     <li><a href="/catalogo/index.php/reportes/ventasbuenfin2020" title="Ventas Buen Fin 2020">Ventas <b>BF2020 DETALLE</b></a></li>
                                     <li><a href="/catalogo/index.php/reportes/ventasbuenfin2020resumen" title="Ventas Buen Fin 2020">Ventas <b>BF2020 RESUMEN</b></a></li>
                                     <li><a href="/catalogo/index.php/reportes/ventasbuenfin2019" title="Ventas Buen Fin 2019">Ventas <b>BF2019 DETALLE</b></a></li>
                                     <li><a href="/catalogo/index.php/reportes/ventasbuenfin2019resumen" title="Ventas Buen Fin 2019">Ventas <b>BF2019 RESUMEN</b></a></li>
                                 </ul>
-                            </li>
+                            </li> -->
                             <li><a href="#" title="Franquicias">Franquicias<b> Equipos Recibidos</b></a>
                                 <ul>
                                     <li><a href="/catalogo/index.php/reportes/recibidosdiafranquicias" title="Equipos Recibidos Dia Franquicias">Recibidos <b>HOY DETALLE</b></a></li>
@@ -201,7 +195,7 @@ if ($this->session->userdata('username')=="")
 							<li><a href="/catalogo/index.php/reportes/equiposLaboratorioFranquicias" title="Equipos En Laboratorio">Franquicias <b>En Laboratorio</b></a></li>
 							<li><a href="/catalogo/index.php/reportes/devolucionesPendientesFranquicias" title="Devoluciones Pendientes">Franquicias <b>Devoluciones Pendientes</b></a></li>
                             <li><a href="/catalogo/index.php/reportes/seguimientofranquicias" title="Seguimiento Especial Franquicias">Franquicias<b> Seguimiento Especial</b></a>
-                            <li><a href="#" title="Culiacán"><b>Culiacán</b></a>
+                            <!-- <li><a href="#" title="Culiacán"><b>Culiacán</b></a>
                                 <ul>
                                     <li><a href="/catalogo/index.php/reportes/recibidosdiaculiacan" title="Equipos Dia Suc Gestionadas">Hoy Recibidos</a>
                                         <ul>
@@ -273,30 +267,6 @@ if ($this->session->userdata('username')=="")
                                     </li>
                                 </ul>
                             </li>
-                            <!-- <li><a href="#" title="Poza Rica"><b>Poza Rica</b></a>
-                                <ul>
-                                    <li><a href="/catalogo/index.php/reportes/recibidosdiapozarica" title="Equipos Dia Suc Gestionadas">Hoy Recibidos</a>
-                                        <ul>
-                                            <li><a href="/catalogo/index.php/reportes/recibidosdiapozaricaprueba" title="Equipos Entregados Dia Suc Propias">Resumen</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="/catalogo/index.php/reportes/equiposdiapozarica" title="Equipos Hoy Suc Gestionadas">Hoy Entregados</a>
-                                        <ul>
-                                            <li><a href="/catalogo/index.php/reportes/equiposdiapozaricaprueba" title="Equipos Entregados Dia Suc Propias">Resumen</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="/catalogo/index.php/reportes/recibidosmespozarica" title="Entradas y salidas por mes">Mes Recibidos</a>
-                                        <ul>
-                                            <li><a href="/catalogo/index.php/reportes/recibidosmespozaricaprueba" title="Equipos Entregados Dia Suc Propias">Resumen</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="/catalogo/index.php/reportes/cierredemespozarica" title="Entradas y salidas por mes">Mes Entregados</a>
-                                        <ul>
-                                            <li><a href="/catalogo/index.php/reportes/cierredemespozaricaprueba" title="Equipos Entregados Dia Suc Propias">Resumen</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li> -->
                             <li><a href="#" title="Riviera Veracruzana"><b>Riviera V.</b></a>
                                 <ul>
                                     <li><a href="/catalogo/index.php/reportes/recibidosdiariviera" title="Equipos Dia Suc Gestionadas">Hoy Recibidos</a>
@@ -344,7 +314,7 @@ if ($this->session->userdata('username')=="")
                                         </ul>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> -->
                             <li><a href="/catalogo/index.php/reportes/cierredemesvarios" title="Entradas y salidas por mes">Ventas por Sucursal y Fecha</a></li>
                             <li><a href="#" title="Supervisión">Supervisión</b></a>
                                 <ul>
