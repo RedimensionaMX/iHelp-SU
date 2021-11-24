@@ -1,6 +1,5 @@
 <?php
 class Equiposmodel extends CI_Model {
-
 	function Formmodel() {
     parent::Model();
 	}
@@ -11,14 +10,13 @@ class Equiposmodel extends CI_Model {
       $fields = $this->db->list_fields('EQUIPOS');
     else
       $fields = $this->db->list_fields('equipos');
-        foreach ($fields as $field)
-          {
-           $campos[strtolower($field)] = "";
-         }
-         return $campos;
-    }
+        foreach ($fields as $field){
+          $campos[strtolower($field)] = "";
+        }
+        return $campos;
+  }
 
-   function get_campos_equipos_para_sql() {
+  function get_campos_equipos_para_sql() {
       $campos = array();
     if ($this->db->platform()=="ibase") 
       $fields = $this->db->list_fields('EQUIPOS');
@@ -1707,33 +1705,24 @@ function get_accesorios_sucursales_mes_resumen($seleccionados,$anio,$mes) {
   }
 
 	function get_registrosLaboratorio($seleccionados) {
-		
-		
 		$resultado = [];
 		$guion = '-';
-		
-		for ($i=0; $i < sizeof($seleccionados); $i++) { 
-		  $qry = "select ";
-		  $qry .= "T1.ID, T1.ESTATUS, T1.NUM_ORDEN, T1.TIPO, T1.MODELO, T1.NUM_SERIE, T1.CAPACIDAD, T1.FECHA_RECIBIDO, T1.HORA_RECIBIDO, T1.DESCRIPCION_PROBLEMA, T1.CONDICIONES_RECEPCION_EQ, T1.NUMERO_REMISION, T1.FECHA_DE_ENTREGA, T1.CLASE, T1.SITUACION, T1.DIAGNOSTICO, T1.SUCURSAL_ID, CURRENT_DATE-T1.fecha_recibido as dias_vencidos, SUM(T2.SUBTOTAL) AS SUBTOTAL_COMPLETO  ";
-		  $qry .= "FROM ";
-		  $qry .= "EQUIPOS T1 LEFT JOIN SERVICIOS T2 ON T1.ID=T2.EQUIPO_ID ";
-		  $qry .= "WHERE ";
-	      $qry .= "T1.ESTATUS_ID IN (340, 320, 350, 360) AND T1.SITUACION = 'A'  AND ";
-		  $qry .= "T1.SUCURSAL_ID = '" . $seleccionados[$i] . "' ";  
-		  $qry .= "GROUP BY T1.NUM_ORDEN, T1.ID, T1.ESTATUS, T1.TIPO, T1.MODELO, T1.NUM_SERIE, T1.CAPACIDAD, T1.FECHA_RECIBIDO, T1.HORA_RECIBIDO,  T1.DESCRIPCION_PROBLEMA, T1.CONDICIONES_RECEPCION_EQ, T1.NUMERO_REMISION, T1.FECHA_DE_ENTREGA, T1.CLASE, T1.SITUACION, T1.DIAGNOSTICO, T1.SUCURSAL_ID;";
-		
-		
-		//print_r($qry);
-		
-		  $arr = $this->db->query($qry);
-		  $guard = $arr->result_array();
-		  $resultado  = array_merge($resultado, $guard);
+		for ($i=0; $i < sizeof($seleccionados); $i++) {
+      $qry = "select ";
+      $qry .= "T1.ID, T1.ESTATUS, T1.NUM_ORDEN, T1.TIPO, T1.MODELO, T1.NUM_SERIE, T1.CAPACIDAD, T1.FECHA_RECIBIDO, T1.HORA_RECIBIDO, T1.DESCRIPCION_PROBLEMA, T1.CONDICIONES_RECEPCION_EQ, T1.NUMERO_REMISION, T1.FECHA_DE_ENTREGA, T1.CLASE, T1.SITUACION, T1.DIAGNOSTICO, T1.SUCURSAL_ID, CURRENT_DATE-T1.fecha_recibido as dias_vencidos, SUM(T2.SUBTOTAL) AS SUBTOTAL_COMPLETO  ";
+      $qry .= "FROM ";
+      $qry .= "EQUIPOS T1 LEFT JOIN SERVICIOS T2 ON T1.ID=T2.EQUIPO_ID ";
+      $qry .= "WHERE ";
+      $qry .= "T1.ESTATUS_ID IN (340, 320, 350, 360, 680) AND T1.SITUACION = 'A'  AND ";
+      $qry .= "T1.SUCURSAL_ID = '" . $seleccionados[$i] . "' ";
+      $qry .= "GROUP BY T1.NUM_ORDEN, T1.ID, T1.ESTATUS, T1.TIPO, T1.MODELO, T1.NUM_SERIE, T1.CAPACIDAD, T1.FECHA_RECIBIDO, T1.HORA_RECIBIDO,  T1.DESCRIPCION_PROBLEMA, T1.CONDICIONES_RECEPCION_EQ, T1.NUMERO_REMISION, T1.FECHA_DE_ENTREGA, T1.CLASE, T1.SITUACION, T1.DIAGNOSTICO, T1.SUCURSAL_ID;";
+      $arr = $this->db->query($qry);
+      $guard = $arr->result_array();
+      $resultado  = array_merge($resultado, $guard);
 		}
 		return $resultado;
-    }
-	
-	
-	
+  }
+
 	function get_registrosmes($seleccionados) {
 		$resultado = [];
 		$guion = '-';
