@@ -135,10 +135,16 @@ if ($this->session->userdata('username')=="")
                                     <li><a href="/catalogo/index.php/reportes/equiposreparadospropiasac" title="Reparaciones de área comercial">Area Comercial <b>TODOS</b></a></li>
                                 </ul>
                             </li>
-                            <li><a href="/catalogo/index.php/reportes/equiposReajuste" title="Equipos en Reajuste">Propias <b>Reajuste</b></a></li>
+                            <!-- <li><a href="/catalogo/index.php/reportes/equiposReajuste" title="Equipos en Reajuste">Propias <b>Reajuste</b></a></li> -->
+                            <li><a href="#" title="Propias">Propias <b>Reajuste</b></a>
+                                <ul>
+                                    <li><a href="/catalogo/index.php/reportes/equiposReajustemes" title="Comunicados de área comercial">Área Reajuste <b>MES</b></a></li>
+                                    <li><a href="/catalogo/index.php/reportes/equiposReajuste" title="Comunicados de área comercial">Área Reajuste <b>TODOS</b></a></li>
+                                </ul>
+                            </li>
                             <li><a href="#" title="Propias">Propias <b>Comunicados</b></a>
                                 <ul>
-                                    <li><a href="/catalogo/index.php/reportes/comunicadospropias" title="Comunicados de área comercial">Área Comercial <b>MES</b></a></li>
+                                    <li><a href="/catalogo/index.php/reportes/comunicadospropiasmes" title="Comunicados de área comercial">Área Comercial <b>MES</b></a></li>
                                     <li><a href="/catalogo/index.php/reportes/comunicadospropias" title="Comunicados de área comercial">Área Comercial <b>TODOS</b></a></li>
                                 </ul>
                             </li>
@@ -185,7 +191,13 @@ if ($this->session->userdata('username')=="")
                                     <li><a href="/catalogo/index.php/reportes/equiposreparadosfranquiciasac" title="Reparaciones de área comercial">Area Comercial</a></li>
                                 </ul>
                             </li>
-                            <li><a href="/catalogo/index.php/reportes/equiposReajusteFr" title="Equipos en Reajuste">Franquicias <b>Reajuste</b></a></li>
+                            <!-- <li><a href="/catalogo/index.php/reportes/equiposReajusteFr" title="Equipos en Reajuste">Franquicias <b>Reajuste</b></a></li> -->
+                            <li><a href="#" title="Franquicias">Franquicias <b>Reajuste</b></a>
+                                <ul>
+                                    <li><a href="/catalogo/index.php/reportes/equiposReajusteFrmes" title="Equipos en Reajuste">Reajuste <b>MES</b></a></li>
+                                    <li><a href="/catalogo/index.php/reportes/equiposReajusteFr" title="Equipos en Reajuste">Reajuste <b>TODOS</b></a></li>
+                                </ul>
+                            </li>
                             <li><a href="#" title="Franquicias">Franquicias <b>Comunicados</b></a>
                                 <ul>
                                     <li><a href="/catalogo/index.php/reportes/comunicadosfranquicias" title="Comunicados de área comercial">Área Comercial</a></li>

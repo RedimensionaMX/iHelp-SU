@@ -1195,6 +1195,21 @@ class Reportes extends CI_Controller {
     $this->load->view('inicio/bottom1');
   }
 
+  public function equiposReajustemes(){
+    $this->load->model("Bitacorasmodel");
+    $this->load->model("Registroaccionesmodel");
+    $sucursales_seleccionadas = [];
+    $usuario = $this->uri->segment(3,'9');
+    $usuarios = ['XA1', 'XC1', 'XU1', 'VA1', 'CZ1', 'CL1', 'OZ1', 'TX1','PR1', ''];
+		$registro['bitacoras'] = $this->Bitacorasmodel->get_equiposreajustesucursalespropiasmes($usuarios[$usuario],$sucursales_seleccionadas,$usuarios);
+    $registro['usuarios'] = ['XA1', 'XC1', 'XU1', 'VA1', 'CZ1', 'CL1', 'OZ1', 'TX1','PR1'];
+		$registro['usuarios']['NE'] = "Seleccionar sucursal";
+    $registro['usuario'] = $this->uri->segment(3,'NE');
+    $this->load->view('inicio/top1');
+    $this->load->view('equipos/reajuste',$registro);
+    $this->load->view('inicio/bottom1');
+  }
+
   public function equiposReajusteFr(){
     $this->load->model("Bitacorasmodel");
     $this->load->model("Registroaccionesmodel");
@@ -1202,6 +1217,21 @@ class Reportes extends CI_Controller {
     $usuario = $this->uri->segment(3,'9');
     $usuarios = ['CO1','CS1', 'CY1', 'PC1', 'TX1', 'VM1', 'VM2', 'VR1','VF1',''];
 		$registro['bitacoras'] = $this->Bitacorasmodel->get_equiposreajustesucursalesfranquicias($usuarios[$usuario],$sucursales_seleccionadas,$usuarios);
+    $registro['usuarios'] = ['CO1','CS1', 'CY1', 'PC1', 'TX1', 'VM1', 'VM2', 'VR1','VF1'];
+		$registro['usuarios']['NE'] = "Seleccionar sucursal";
+    $registro['usuario'] = $this->uri->segment(3,'NE');
+    $this->load->view('inicio/top1');
+    $this->load->view('equipos/reajuste',$registro);
+    $this->load->view('inicio/bottom1');
+  }
+
+  public function equiposReajusteFrmes(){
+    $this->load->model("Bitacorasmodel");
+    $this->load->model("Registroaccionesmodel");
+    $sucursales_seleccionadas = ['CO1','CS1', 'CY1', 'PC1', 'TX1', 'VM1', 'VM2', 'VR1','VF1'];
+    $usuario = $this->uri->segment(3,'9');
+    $usuarios = ['CO1','CS1', 'CY1', 'PC1', 'TX1', 'VM1', 'VM2', 'VR1','VF1',''];
+		$registro['bitacoras'] = $this->Bitacorasmodel->get_equiposreajustesucursalesfranquiciasmes($usuarios[$usuario],$sucursales_seleccionadas,$usuarios);
     $registro['usuarios'] = ['CO1','CS1', 'CY1', 'PC1', 'TX1', 'VM1', 'VM2', 'VR1','VF1'];
 		$registro['usuarios']['NE'] = "Seleccionar sucursal";
     $registro['usuario'] = $this->uri->segment(3,'NE');

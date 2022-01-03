@@ -64,7 +64,12 @@ foreach ($result as $item) {
 	echo "<td width='20%' align='center' style='background-color: ". $colorline . ";'>" . $item['fecha_recibido'] . "</td>";
 	echo "<td width='10%' align = 'center' style='background-color: ". $colorline . ";'>" . $item['dias_vencidos'] . "</td>";
 	echo "<td align = 'center' width='15%' style='background-color: ". $colorline . ";'>" . $item['num_orden'] ."</a></td>";
-	echo "<td width='20%' align='center' style='background-color: ". $colorline . ";'>" . $item['tipo'] . "</td>";
+  if($item['software']!=NULL){
+    echo "<td width='20%' align='center' style='background-color: ". $colorline . ";'>".$item['modelo']."<br></td>";
+  }else{
+      echo "<td width='20%' align='center' style='background-color: ". $colorline . ";'>" . $item['tipo'] . "<br></td>";
+  }
+	//echo "<td width='20%' align='center' style='background-color: ". $colorline . ";'>" . $item['tipo'] . "</td>";
 
 
 	if($item['situacion'] == 'A'){
