@@ -14,7 +14,7 @@
     <div class="three columns" style="text-align:right">Año:</div>
     <div class="three columns">
         <?php
-            $anios =  anios_array(2015,2021);
+            $anios =  anios_array(2015,2022);
             $anio = $this->uri->segment(3,date("Y"));
             echo form_dropdown("anios",$anios,$anio,"id='anios'");
         ?>
@@ -137,3 +137,14 @@
         $("input[name='VM2']").prop('checked', $(this).prop("checked"));
     });
 </script>
+
+
+
+
+
+
+
+
+
+
+

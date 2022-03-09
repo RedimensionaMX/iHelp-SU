@@ -139,18 +139,18 @@ class Bitacorasmodel extends CI_Model {
     function get_equiposreparadossucursales($usuario,$sucursales,$usuarios) {
         $guion = '/';
         $anio = date("Y");
-        $mes =  date("m");
+        $mes =  01;
         $dia =  date("d");
         $resultado2 = [];
         $fecha = $anio.$guion.$mes.$guion.$dia;
             if($usuario == ""){
                 for ($i=0; $i < sizeof($usuarios); $i++) {
-                    $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.fecha >= '01/01/2020' and b.estatus = 'Reparado' and u.usuario = '".$usuarios[$i]."' group by b.fecha,u.usuario, e.num_orden, e.tipo order by b.fecha desc, u.usuario") );
+                    $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo, e.software, e.modelo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.fecha >= '01/01/2020' and b.estatus = 'Reparado' and u.usuario = '".$usuarios[$i]."' group by b.fecha,u.usuario, e.num_orden, e.tipo, e.software, e.modelo order by b.fecha desc, u.usuario") );
                     $guard = $arr->result_array();
                     $resultado2  = array_merge($resultado2, $guard);
                 }
             }else{
-                $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.fecha >= '01/01/2020' and b.estatus = 'Reparado' and u.usuario = '".$usuario."' group by b.fecha,u.usuario, e.num_orden, e.tipo order by b.fecha desc, u.usuario") );
+                $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo, e.software, e.modelo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.fecha >= '01/01/2020' and b.estatus = 'Reparado' and u.usuario = '".$usuario."' group by b.fecha,u.usuario, e.num_orden, e.tipo, e.software, e.modelo order by b.fecha desc, u.usuario") );
                 $guard = $arr->result_array();
                 $resultado2  = array_merge($resultado2, $guard);
             }
@@ -164,15 +164,63 @@ class Bitacorasmodel extends CI_Model {
         $resultado2 = [];
             if($usuario == ""){
                 for ($i=0; $i < sizeof($usuarios); $i++) {
-                    $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.estatus = 'Reparado' and Extract(Month From b.fecha) = " . $mes . " and Extract(Year From b.fecha) = " . $anio . "  and u.usuario = '".$usuarios[$i]."' group by b.fecha,u.usuario, e.num_orden, e.tipo order by b.fecha desc, u.usuario") );
+                    $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo, e.software, e.modelo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.estatus = 'Reparado' and Extract(Month From b.fecha) = " . $mes . " and Extract(Year From b.fecha) = " . $anio . "  and u.usuario = '".$usuarios[$i]."' group by b.fecha,u.usuario, e.num_orden, e.tipo, e.software, e.modelo order by b.fecha desc, u.usuario") );
                     $guard = $arr->result_array();
                     $resultado2  = array_merge($resultado2, $guard);
                 }
             }else{
-                $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.estatus = 'Reparado' and Extract(Month From b.fecha) = " . $mes . " and Extract(Year From b.fecha) = " . $anio . " and u.usuario = '".$usuario."' group by b.fecha,u.usuario, e.num_orden, e.tipo order by b.fecha desc, u.usuario") );
+                $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo, e.software, e.modelo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.estatus = 'Reparado' and Extract(Month From b.fecha) = " . $mes . " and Extract(Year From b.fecha) = " . $anio . " and u.usuario = '".$usuario."' group by b.fecha,u.usuario, e.num_orden, e.tipo, e.software, e.modelo order by b.fecha desc, u.usuario") );
                 $guard = $arr->result_array();
                 $resultado2  = array_merge($resultado2, $guard);
             }
+        return $resultado2;
+    }
+
+    function get_equiposreparadossucursalesdia($usuario,$sucursales,$usuarios) {
+        $guion = '/';
+        $anio = date("Y");
+        $mes =  date("m");
+        $dia =  date("d");
+        $resultado2 = [];
+            if($usuario == ""){
+                for ($i=0; $i < sizeof($usuarios); $i++) {
+                    $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo,e.software,e.modelo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.estatus = 'Reparado' and Extract(Month From b.fecha) = " . $mes . " and Extract(Year From b.fecha) = ".$anio." and Extract(Day From b.fecha) = ".$dia." and u.usuario = '".$usuarios[$i]."' group by b.fecha,u.usuario, e.num_orden, e.tipo,e.software,e.modelo order by b.fecha desc, u.usuario") );
+                    $guard = $arr->result_array();
+                    $resultado2  = array_merge($resultado2, $guard);
+                }
+            }else{
+                $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo,e.software,e.modelo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.estatus = 'Reparado' and Extract(Month From b.fecha) = " . $mes . " and Extract(Year From b.fecha) = " . $anio . " and Extract(Day From b.fecha) = ".$dia." and u.usuario = '".$usuario."' group by b.fecha,u.usuario, e.num_orden, e.tipo,e.software,e.modelo order by b.fecha desc, u.usuario") );
+                $guard = $arr->result_array();
+                $resultado2  = array_merge($resultado2, $guard);
+            }
+        return $resultado2;
+    }
+
+    function get_equiposreparadossucursalesdiaresumen($usuarios) {
+        $guion = '/';
+        $anio = date("Y");
+        $mes =  date("m");
+        $dia =  date("d");
+        $resultado2 = [];
+        for ($i=0; $i < sizeof($usuarios); $i++) {
+            $arr = ( $this->db->query("select u.usuario, count(*) from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.estatus = 'Reparado' and Extract(Month From b.fecha) = " . $mes . " and Extract(Year From b.fecha) = ".$anio." and Extract(Day From b.fecha) = ".$dia." and u.usuario = '".$usuarios[$i]."' group by u.usuario order by u.usuario") );
+            $guard = $arr->result_array();
+            $resultado2  = array_merge($resultado2, $guard);
+        }
+        return $resultado2;
+    }
+
+    function get_equiposreparadossucursalesmesresumen($usuarios) {
+        $guion = '/';
+        $anio = date("Y");
+        $mes =  date("m");
+        $dia =  date("d");
+        $resultado2 = [];
+        for ($i=0; $i < sizeof($usuarios); $i++) {
+            $arr = ( $this->db->query("select u.usuario, count(*) from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.estatus = 'Reparado' and Extract(Month From b.fecha) = " . $mes . " and Extract(Year From b.fecha) = ".$anio." and u.usuario = '".$usuarios[$i]."' group by u.usuario order by u.usuario") );
+            $guard = $arr->result_array();
+            $resultado2  = array_merge($resultado2, $guard);
+        }
         return $resultado2;
     }
 
@@ -184,11 +232,11 @@ class Bitacorasmodel extends CI_Model {
         $resultado2 = [];
         $fecha = $anio.$guion.$mes.$guion.$dia;
             if($usuario == ""){
-                $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.fecha >= '01/01/2020' and b.estatus = 'Reajuste' and e.sucursal_id IN ('XA1', 'XC1', 'XU1', 'VA1', 'CZ1', 'CL1', 'OZ1', 'TX1','PR1') group by b.fecha,u.usuario, e.num_orden, e.tipo order by b.fecha desc, u.usuario") );
+                $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo, e.software, e.modelo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.fecha >= '01/01/2020' and b.estatus = 'Reajuste' and e.sucursal_id IN ('XA1', 'XC1', 'XU1', 'VA1', 'CZ1', 'CL1', 'OZ1', 'TX1','PR1') group by b.fecha,u.usuario, e.num_orden, e.tipo, e.software, e.modelo order by b.fecha desc, u.usuario") );
                 $guard = $arr->result_array();
                 $resultado2  = array_merge($resultado2, $guard);
             }else{
-                $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.fecha >= '01/01/2020' and b.estatus = 'Reajuste' and e.sucursal_id  IN ('XA1', 'XC1', 'XU1', 'VA1', 'CZ1', 'CL1', 'OZ1', 'TX1','PR1') and e.sucursal_id = '".$usuario."' group by b.fecha,u.usuario, e.num_orden, e.tipo order by b.fecha desc, u.usuario") );
+                $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo, e.software, e.modelo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where b.fecha >= '01/01/2020' and b.estatus = 'Reajuste' and e.sucursal_id  IN ('XA1', 'XC1', 'XU1', 'VA1', 'CZ1', 'CL1', 'OZ1', 'TX1','PR1') and e.sucursal_id = '".$usuario."' group by b.fecha,u.usuario, e.num_orden, e.tipo, e.software, e.modelo order by b.fecha desc, u.usuario") );
                 $guard = $arr->result_array();
                 $resultado2  = array_merge($resultado2, $guard);
             }
@@ -203,15 +251,59 @@ class Bitacorasmodel extends CI_Model {
         $resultado2 = [];
         $fecha = $anio.$guion.$mes.$guion.$dia;
             if($usuario == ""){
-                $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where Extract(Month From b.fecha) = " . $mes . " and Extract(Year From b.fecha) = " . $anio . " and b.estatus = 'Reajuste' and e.sucursal_id IN ('XA1', 'XC1', 'XU1', 'VA1', 'CZ1', 'CL1', 'OZ1', 'TX1','PR1') group by b.fecha,u.usuario, e.num_orden, e.tipo order by b.fecha desc, u.usuario") );
+                $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo, e.software, e.modelo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where Extract(Month From b.fecha) = " . $mes . " and Extract(Year From b.fecha) = " . $anio . " and b.estatus = 'Reajuste' and e.sucursal_id IN ('XA1', 'XC1', 'XU1', 'VA1', 'CZ1', 'CL1', 'OZ1', 'TX1','PR1') group by b.fecha,u.usuario, e.num_orden, e.tipo, e.software, e.modelo order by b.fecha desc, u.usuario") );
                 $guard = $arr->result_array();
                 $resultado2  = array_merge($resultado2, $guard);
             }else{
-                $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where Extract(Month From b.fecha) = " . $mes . " and Extract(Year From b.fecha) = " . $anio . " and b.estatus = 'Reajuste' and e.sucursal_id  IN ('XA1', 'XC1', 'XU1', 'VA1', 'CZ1', 'CL1', 'OZ1', 'TX1','PR1') and e.sucursal_id = '".$usuario."' group by b.fecha,u.usuario, e.num_orden, e.tipo order by b.fecha desc, u.usuario") );
+                $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo, e.software, e.modelo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where Extract(Month From b.fecha) = " . $mes . " and Extract(Year From b.fecha) = " . $anio . " and b.estatus = 'Reajuste' and e.sucursal_id  IN ('XA1', 'XC1', 'XU1', 'VA1', 'CZ1', 'CL1', 'OZ1', 'TX1','PR1') and e.sucursal_id = '".$usuario."' group by b.fecha,u.usuario, e.num_orden, e.tipo, e.software, e.modelo order by b.fecha desc, u.usuario") );
                 $guard = $arr->result_array();
                 $resultado2  = array_merge($resultado2, $guard);
             }
         return $resultado2;
+    }
+    
+    function get_equiposreajustesucursalespropiasdia($usuario,$sucursales,$usuarios) {
+        $guion = '/';
+        $anio = date("Y");
+        $mes = date("m");
+        $dia =  date("d");
+        $resultado2 = [];
+        $fecha = $anio.$guion.$mes.$guion.$dia;
+            if($usuario == ""){
+                $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo, e.software, e.modelo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where Extract(Day From b.fecha) = " . $dia . " and Extract(Month From b.fecha) = " . $mes . " and Extract(Year From b.fecha) = " . $anio . " and b.estatus = 'Reajuste' and e.sucursal_id IN ('XA1', 'XC1', 'XU1', 'VA1', 'CZ1', 'CL1', 'OZ1', 'TX1','PR1') group by b.fecha,u.usuario, e.num_orden, e.tipo, e.software, e.modelo order by b.fecha desc, u.usuario") );
+                $guard = $arr->result_array();
+                $resultado2  = array_merge($resultado2, $guard);
+            }else{
+                $arr = ( $this->db->query("select b.fecha,u.usuario, e.num_orden, e.tipo, e.software, e.modelo from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where Extract(day From b.fecha) = " . $dia . " and Extract(Month From b.fecha) = " . $mes . " and Extract(Year From b.fecha) = " . $anio . " and b.estatus = 'Reajuste' and e.sucursal_id  IN ('XA1', 'XC1', 'XU1', 'VA1', 'CZ1', 'CL1', 'OZ1', 'TX1','PR1') and e.sucursal_id = '".$usuario."' group by b.fecha,u.usuario, e.num_orden, e.tipo, e.software, e.modelo order by b.fecha desc, u.usuario") );
+                $guard = $arr->result_array();
+                $resultado2  = array_merge($resultado2, $guard);
+            }
+        return $resultado2;
+    }
+
+    function get_equiposreajustesucursalespropiasdiaresumen($sucursales){
+        $resultado = [];
+        $anio = date("Y");
+        $mes = date("m");
+        $dia = date("d");
+        for ($i=0; $i < sizeof($sucursales); $i++) {
+            $arr = ( $this->db->query("select e.sucursal_id,count(*) from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where Extract(Month From b.fecha) = " . $mes . " and Extract(Year From b.fecha) = " . $anio . " and Extract(Day From b.fecha) = " . $dia . " and b.estatus = 'Reajuste' and e.sucursal_id = '".$sucursales[$i]."' group by e.sucursal_id order by e.sucursal_id desc"));
+            $guard = $arr->result_array();
+            $resultado = array_merge($resultado, $guard);
+        }
+        return $resultado;
+    }
+
+    function get_equiposreajustesucursalespropiasmesresumen($sucursales){
+        $resultado = [];
+        $anio = date("Y");
+        $mes = date("m");;
+        for ($i=0; $i < sizeof($sucursales); $i++) {
+            $arr = ( $this->db->query("select e.sucursal_id,count(*) from bitacoras b inner join usuarios u on b.usuario_id=u.id inner join EQUIPOS e on b.EQUIPO_ID = e.ID where Extract(Month From b.fecha) = " . $mes . " and Extract(Year From b.fecha) = " . $anio . " and b.estatus = 'Reajuste' and e.sucursal_id = '".$sucursales[$i]."' group by e.sucursal_id order by e.sucursal_id desc"));
+            $guard = $arr->result_array();
+            $resultado = array_merge($resultado, $guard);
+        }
+        return $resultado;
     }
 
     function get_equiposreajustesucursalesfranquicias($usuario,$sucursales,$usuarios) {

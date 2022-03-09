@@ -115,5 +115,10 @@ class Egresosmodel extends CI_Model {
     $this->db->query("delete from egresos where id='" . $id . "'");
     return $result;
   }
+
+
+
+  select e.id, et.nombre as "TIPO_EGRESO", ec.nombre AS "CATEGORIA", esc.nombre as "SUBCATEGORIA", e.fecha, s1.nombre as "SEGRESO", s2.nombre AS "SAPP", e.importe, e.concepto , e.usuario_id_ingreso, e.usuario_id_autoriza, e.usuario_id_solicita, e.forma_pago, e.observaciones, u.usuario from egresos e inner join sucursales as s1 on s1.id = e.sucursal_id_egreso inner join egresos_tipo et on et.id=e.tipoegreso_id inner join egresos_categoria ec on ec.id=e.categoriaegreso_id inner join egresos_subcategoria esc on esc.id=e.subcategoriaegreso_id inner join sucursales as s2 on s2.id=e.sucursal_id_aplicacion inner join usuarios u on u.id=e.usuario_id where fecha LIKE '%2021%' order by fecha asc
+
 }
 ?>

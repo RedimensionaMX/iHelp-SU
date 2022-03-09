@@ -1,105 +1,76 @@
-
 <div style="height:30px;"></div>
 <label>Seleccione la situación</label><br>
-
   <div class ="row">
-  <input type="checkbox" name="activa" value="activa" id="activa" onclick="filtrarCombos()">  Activa 
-  <input type="checkbox" name="concluida" value="concluida" id="concluida" onclick="filtrarCombos()">      Concluida 
-  <input type="checkbox" name="cancelada" value="cancelada" id="cancelada" onclick="filtrarCombos()">      Cancelada
+    <input type="checkbox" name="activa" value="activa" id="activa" onclick="filtrarCombos()">  Activa 
+    <input type="checkbox" name="concluida" value="concluida" id="concluida" onclick="filtrarCombos()">      Concluida 
+    <input type="checkbox" name="cancelada" value="cancelada" id="cancelada" onclick="filtrarCombos()">      Cancelada
   </div>
-
-
-<label>Seleccione el rango de fechas</label><br> 
-   Desde: <input type="date" name="desde" id="desde">
-   Hasta: <input type="date" name="hasta" id="hasta">
- <input type="button" onclick="filtrarPorFechas()" value="Filtrar"  style="background-color:#047c79; color:#FFFFFF;"> 
-
-  
-
-
-<table width="100%" id="datatabla" class="cell-border stripe compact hover">
-<thead>
-<tr>
-<th>Suc</th>
-<th>Estatus</th>
-<th>Fecha recibido</th>
-<th>Días activos</th>
-<th>Num. orden</th>
-<th>Equipo</th>
-<th>Situación</th>
-<th>Subtotal</th>
-
-</tr>
-</thead>
-<tbody>
-<?php
-
-$fa = ""; $fechaadicional = "";
-foreach ($result as $item) {
-	
-	echo "<tr>";
-
-    $colorline = "";
-	
-	  if($item['dias_vencidos'] >= 10 && $item['dias_vencidos'] <= 29){ //Amarillo claro
-		$colorline="#FCF6B4";
-	  }elseif($item['dias_vencidos'] >=30  && $item['dias_vencidos'] <= 59){//Amarrilo fuerte
-		$colorline="#F6EF39";
-	  }elseif($item['dias_vencidos'] >= 60 && $item['dias_vencidos'] <= 89){ //Rojo
-		$colorline="#CD3F3F";
-	  }elseif($item['dias_vencidos'] >= 90){  //Morado
-		$colorline="#E397FF";
-	  }
-
-
-	echo "<td align='center' width='5%' style='background-color: ". $colorline . ";'><b>" . $item['sucursal_id'] . "</b>" . "</td>";
-
-
-	  if($item['estatus'] == "Listo para entrega"){
-		echo "<td style='background-color: ". $colorline . "; color:black;'><b>" . $item['estatus'] . "</b>" . "</td>";
-	  }else{
-	   echo "<td style='background-color: ". $colorline . ";'><b>" . $item['estatus'] . "</b>" . "</td>";
-	  }
-	  
-	echo "<td width='20%' align='center' style='background-color: ". $colorline . ";'>" . $item['fecha_recibido'] . "</td>";
-	echo "<td width='10%' align = 'center' style='background-color: ". $colorline . ";'>" . $item['dias_vencidos'] . "</td>";
-	echo "<td align = 'center' width='15%' style='background-color: ". $colorline . ";'>" . $item['num_orden'] ."</a></td>";
-  if($item['software']!=NULL){
-    echo "<td width='20%' align='center' style='background-color: ". $colorline . ";'>".$item['modelo']."<br></td>";
-  }else{
-      echo "<td width='20%' align='center' style='background-color: ". $colorline . ";'>" . $item['tipo'] . "<br></td>";
-  }
-	//echo "<td width='20%' align='center' style='background-color: ". $colorline . ";'>" . $item['tipo'] . "</td>";
-
-
-	if($item['situacion'] == 'A'){
-		echo "<td width='10%' align='center' style='background-color: ". $colorline . "; color:#51BF34;'>Activa</td>";
-	}elseif($item['situacion'] == 'X'){
-		echo "<td width='10%' align='center' style='background-color: ". $colorline . ";'>Cancelada</td>";
-	}elseif($item['situacion'] == 'C'){
-		echo "<td width='10%' align='center' style='background-color: ". $colorline . "; color:#4B2EDC;'>Concluida</td>";
-	}else{
-		echo "<td width='10%' align='center'>" . $item['situacion'] . "</td>";
-	}
-
-   echo "<td width='20%' align='center' style='background-color: ". $colorline . ";'>$" . number_format($item['subtotal_completo'], 2) . "</td>";
-
-
-	
-	echo "</tr>";	
-}
- 
-?>
-</tbody>
-</table>
-<div class="paginate" align="center">
-<?php
-
-echo $this->pagination->create_links();		
-		
-?>
-</div>
-
+  <label>Seleccione el rango de fechas</label><br> 
+    Desde: <input type="date" name="desde" id="desde">
+    Hasta: <input type="date" name="hasta" id="hasta">
+    <input type="button" onclick="filtrarPorFechas()" value="Filtrar"  style="background-color:#047c79; color:#FFFFFF;"> 
+    <table width="100%" id="datatabla" class="cell-border stripe compact hover">
+      <thead>
+        <tr>
+          <th>Suc</th>
+          <th>Estatus</th>
+          <th>Fecha recibido</th>
+          <th>Días act.</th>
+          <th>Num. orden</th>
+          <th>Equipo</th>
+          <th>Situación</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+          $fa = ""; $fechaadicional = "";
+          foreach ($result as $item) {
+            echo "<tr>";
+            $colorline = "";
+            if($item['dias_vencidos'] >= 10 && $item['dias_vencidos'] <= 29){ //Amarillo claro
+              $colorline="#FCF6B4";
+            }elseif($item['dias_vencidos'] >=30  && $item['dias_vencidos'] <= 59){//Amarrilo fuerte
+              $colorline="#F6EF39";
+            }elseif($item['dias_vencidos'] >= 60 && $item['dias_vencidos'] <= 89){ //Rojo
+              $colorline="#CD3F3F";
+            }elseif($item['dias_vencidos'] >= 90){  //Morado
+              $colorline="#E397FF";
+            }
+            echo "<td  width='5%' align='center' style='background-color: ". $colorline . ";'><b>" . $item['sucursal_id'] . "</b>" . "</td>";
+            if($item['estatus'] == "Listo para entrega"){
+              echo "<td width='20%' style='background-color: ". $colorline . "; color:black;'><b>" . $item['estatus'] . "</b>" . "</td>";
+            }else{
+            echo "<td width='20%' style='background-color: ". $colorline . ";'><b>" . $item['estatus'] . "</b>" . "</td>";
+            }
+            echo "<td width='10%' align='center' style='background-color: ". $colorline . ";'>" . $item['fecha_recibido'] . "</td>";
+            echo "<td width='5%' align = 'center' style='background-color: ". $colorline . ";'>" . $item['dias_vencidos'] . "</td>";
+            echo "<td width='5%' align = 'center' style='background-color: ". $colorline . ";'>" . $item['num_orden'] ."</a></td>";
+            if($item['software']!=NULL){
+              echo "<td width='20%' align='center' style='background-color: ". $colorline . ";'>".$item['software']." ".$item['modelo']."<br></td>";
+            }else{
+                echo "<td width='20%' align='center' style='background-color: ". $colorline . ";'>" . $item['tipo'] . "<br></td>";
+            }
+            if($item['situacion'] == 'A'){
+              echo "<td width='10%' align='center' style='background-color: ". $colorline . "; color:#51BF34;'>Activa</td>";
+            }elseif($item['situacion'] == 'X'){
+              echo "<td width='10%' align='center' style='background-color: ". $colorline . ";'>Cancelada</td>";
+            }elseif($item['situacion'] == 'C'){
+              echo "<td width='10%' align='center' style='background-color: ". $colorline . "; color:#4B2EDC;'>Concluida</td>";
+            }else{
+              echo "<td width='10%' align='center'>" . $item['situacion'] . "</td>";
+            }
+            echo "<td width='10%' align='center' style='background-color: ". $colorline . ";'>$" . number_format($item['subtotal_completo'], 2) . "</td>";
+            echo "</tr>";	
+          }
+        ?>
+      </tbody>
+  </table>
+  <div class="paginate" align="center">
+    <?php
+      echo $this->pagination->create_links();
+    ?>
+  </div>
 </div>
 <script type="text/javascript" src="jquery-latest.js"></script>
 <script type="text/javascript" src="jquery.tablesorter.js"></script>
@@ -113,32 +84,31 @@ $(document).ready(function() {
         ordering:true,
         info: "",
         iDisplayLength: 100,
-language:
-{
-	"emptyTable":     "No data available in table",
-    "info":           "Showing _START_ to _END_ of _TOTAL_ entries",
-    "infoEmpty":      "Showing 0 to 0 of 0 entries",
-    "infoFiltered":   "(filtered from _MAX_ total entries)",
-    "infoPostFix":    "",
-    "thousands":      ",",
-    "lengthMenu":     "Mostrar _MENU_ registros",
-    "loadingRecords": "Cargadon...",
-    "processing":     "Procesando...",
-    "search":         "Buscar:",
-    "zeroRecords":    "No hay registros",
-    "paginate": {
-        "first":      "Primero",
-        "last":       "Ultimo",
-        "next":       "Siguiente",
-        "previous":   "Anterior"
-    },
-    "aria": {
-        "sortAscending":  ": activate to sort column ascending",
-        "sortDescending": ": activate to sort column descending"
-    }
-}               
-     });
-} );
+        language: {
+          "emptyTable":     "No data available in table",
+          "info":           "Showing _START_ to _END_ of _TOTAL_ entries",
+          "infoEmpty":      "Showing 0 to 0 of 0 entries",
+          "infoFiltered":   "(filtered from _MAX_ total entries)",
+          "infoPostFix":    "",
+          "thousands":      ",",
+          "lengthMenu":     "Mostrar _MENU_ registros",
+          "loadingRecords": "Cargadon...",
+          "processing":     "Procesando...",
+          "search":         "Buscar:",
+          "zeroRecords":    "No hay registros",
+          "paginate": {
+              "first":      "Primero",
+              "last":       "Ultimo",
+              "next":       "Siguiente",
+              "previous":   "Anterior"
+          },
+          "aria": {
+              "sortAscending":  ": activate to sort column ascending",
+              "sortDescending": ": activate to sort column descending"
+          }
+        }
+      });
+    });
 
 window.onload = function(){
   var fecha = new Date(); //Fecha actual
@@ -244,10 +214,4 @@ function filtrarCombos(){
     } //Cierre del for
   }
 }
-
-
-
-
-
 </script>
-

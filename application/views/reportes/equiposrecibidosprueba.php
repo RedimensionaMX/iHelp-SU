@@ -1,11 +1,16 @@
 <?php echo form_open('reportes/recibidosdiapropias'); ?>
-
+<div style="height:30px;"></div>
+<?php if(!empty($fecha1)){?>
+<h5 align="center"><b><?php echo "Equipos recibidos entre ".$fecha2." y ".$fecha1."";?></b></h5>
+<p></p>
+<?php } ?>
 <table width="100%" id="datatabla" class="cell-border stripe compact hover">
 <thead>
 <tr>
-<th>Suc</th>
+<th>Sucursal</th>
 <th>Total #</th>
 <th>Concluídos #</th>
+<th>Concluídos %</th>
 <!--<th>Días activos</th>-->
 <th>Concluídos $</th>
 
@@ -30,6 +35,11 @@ foreach ($result as $item) {
   $suma1 =$suma1+$item['totales'];
   echo "<td width='20%' align='center'>" . $item['concluidos'] . "</td>";
 	$suma2 =$suma2+$item['concluidos'];
+  if(empty($item)){
+    echo "<td align = 'center' width='15%'>0%</a></td>";
+  }else{
+    echo "<td align = 'center' width='15%'>" . number_format($item['concluidos']/$item['totales']*100,2)."%</a></td>";
+  }
   echo "<td align = 'center' width='15%'>$" . number_format($item['sumatotal'],2)."</a></td>";
   $suma3 =$suma3+$item['sumatotal'];
   
@@ -42,6 +52,11 @@ foreach ($result as $item) {
     echo "<td></td>";
     echo "<td align = 'center' ><strong>" .$suma1. "</strong></td>";
     echo "<td align = 'center' ><strong>" .$suma2. "</strong></td>";
+    if(empty($item)){
+      echo "<td align = 'center' width='15%'>0%</a></td>";
+    }else{
+      echo "<td align = 'center' ><strong>" . number_format(($suma2/$suma1)*100,2)."%</strong></td>";
+    }
     echo "<td align = 'center' ><strong>$" . number_format($suma3,2). "</strong></td>";
     echo "</tr>";
  

@@ -54,11 +54,13 @@
                 foreach ($bitacoras as $bitacora) {
                     echo "<tr>";
                     echo "<td align='center'>" . $bitacora['fecha'] . "</td>";
-                    //echo "<td>" . $bitacora['mensaje_para_fecha_adicional'] . "<br>" . $bitacora['fecha_adicional'] . "</td>";
-                    // echo "<td>" . $bitacora['proceso'] . "</td>";
                     echo "<td align='center'>" . $bitacora['usuario'] . "</td>";
                     echo "<td align='center'>" . $bitacora['num_orden'] . "</td>";
-                    echo "<td align='center'>" . $bitacora['tipo'] . "</td>";
+                    if($bitacora['software']==""){
+                        echo "<td align='center'>" . $bitacora['tipo'] . "</td>";
+                    }else{
+                        echo "<td align='center'>" . $bitacora['software'] . " - ".$bitacora['modelo']."</td>";
+                    }
                     echo "</tr>";
                 }
             ?>

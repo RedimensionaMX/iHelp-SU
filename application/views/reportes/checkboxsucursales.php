@@ -88,7 +88,7 @@
         <input type="checkbox" name="CO1" value="CO1">Colima (CO1)</br>
     </div>
     <div class="three columns">
-        <input type="checkbox" name="CY1" value="CY1">Coyoacán (CY1)</br>
+        <input type="checkbox" name="CP1" value="CP1">Coapa (CP1)</br>
     </div>
 </div>
 <div class="row"></div>
@@ -105,7 +105,7 @@
 	$("#todos").change(function () {
         $("input[name='VM2']").prop('checked', $(this).prop("checked"));
         $("input[name='CO1']").prop('checked', $(this).prop("checked"));
-        $("input[name='CY1']").prop('checked', $(this).prop("checked"));
+        $("input[name='CP1']").prop('checked', $(this).prop("checked"));
         $("input[name='CZ1']").prop('checked', $(this).prop("checked"));
         $("input[name='CL1']").prop('checked', $(this).prop("checked"));
         $("input[name='OZ1']").prop('checked', $(this).prop("checked"));
@@ -140,7 +140,7 @@
         $("input[name='PC1']").prop('checked', $(this).prop("checked"));
         $("input[name='CO1']").prop('checked', $(this).prop("checked"));
         $("input[name='CS1']").prop('checked', $(this).prop("checked"));
-        $("input[name='CY1']").prop('checked', $(this).prop("checked"));
+        $("input[name='CP1']").prop('checked', $(this).prop("checked"));
         $("input[name='VR1']").prop('checked', $(this).prop("checked"));
         $("input[name='VM2']").prop('checked', $(this).prop("checked"));
         $("input[name='VF1']").prop('checked', $(this).prop("checked"));

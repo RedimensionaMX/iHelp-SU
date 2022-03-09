@@ -55,7 +55,7 @@ class Mensajesmodel extends CI_Model {
             //   " usuarios u on m.usuario_id=u.id " .
               // " where (usuario_destinatario_id=0) or (usuario_destinatario_id=" . $this->session->userdata('usuario_id') . ") ";
 
-$sql = "select first 15 skip " .$lim. " m.id,m.usuario_id,m.fecha,m.hora,m.mensaje, " .
+$sql = "select first 15 skip " .$lim. " m.id,m.usuario_id,m.fecha,m.hora,m.mensaje, " 
 " m.titulo,u.nombre,u.usuario,m.usuario_destinatario_id,m.leido_destinatario from mensajes m inner join  " .
 " usuarios u on m.usuario_id=u.id " .
 " where (usuario_destinatario_id=0) or (usuario_destinatario_id=" . $this->session->userdata('usuario_id') . ") ";

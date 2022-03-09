@@ -48,5 +48,53 @@ class Comunicacionesmodel extends CI_Model {
                 }
                 return $resultado;
         }
+        function get_comunicados_sucursales_mesdetalle($usuario,$sucursales,$usuarios){
+                $resultado = [];
+                $anio = date("Y");
+                $mes = date("m");
+        
+                        for ($i=0; $i < sizeof($usuarios); $i++) {
+                                $arr = ( $this->db->query("select u.usuario,count(*) FROM comunicaciones c INNER JOIN usuarios u ON (c.usuario_id = u.id) inner join equipos e on (c.equipo_id = e.id) where Extract(month From c.fecha) = " . $mes . " and Extract(year From c.fecha) = " . $anio . " and u.usuario = '". $usuarios[$i]."' GROUP BY u.usuario") );
+                                $guard = $arr->result_array();
+                                $resultado = array_merge($resultado, $guard);
+                        }
+                        //print_r($resultado);
+                                
+                
+                return $resultado;
+        }
+
+
+function get_comunicados_sucursales_dia($usuario,$sucursales,$usuarios){
+        $resultado = [];
+        $anio = date("Y");
+        $dia =  date("d");
+        $mes = date("m");
+        if($usuario == ""){
+                for ($i=0; $i < sizeof($usuarios); $i++) {
+                        $arr = ( $this->db->query("select c.fecha,c.hora,c.asunto,c.notas, c.equipo_id, u.usuario, e.num_orden FROM comunicaciones c INNER JOIN usuarios u ON (c.usuario_id = u.id) inner join equipos e on (c.equipo_id = e.id) where Extract(day From c.fecha) = " . $dia . " and Extract(month From c.fecha) = " . $mes. "and Extract(year From c.fecha) = ". $anio . " and u.usuario = '".$usuarios[$i]."' order by c.fecha,c.id") );
+                        $guard = $arr->result_array();
+                        $resultado = array_merge($resultado, $guard);
+                }
+        }else{
+                $arr = ( $this->db->query("select c.fecha,c.hora,c.asunto,c.notas, c.equipo_id, u.usuario, e.num_orden FROM comunicaciones c INNER JOIN usuarios u ON (c.usuario_id = u.id) inner join equipos e on (c.equipo_id = e.id) where Extract(day From c.fecha) = " . $dia . " and Extract(month From c.fecha) = " . $mes. "and Extract(year From c.fecha) = ". $anio . " and u.usuario = '".$usuario."' order by c.fecha,c.id") );
+                        $guard = $arr->result_array();
+                        $resultado = array_merge($resultado, $guard);
+        }
+        return $resultado;
 }
+function get_comunicados_sucursales_diadetalle($usuario,$sucursales,$usuarios){
+        $resultado = [];
+        $anio = date("Y");
+        $dia =  date("d");
+        $mes = date("m");
+        for ($i=0; $i < sizeof($usuarios); $i++) {
+                $arr = ( $this->db->query("select u.usuario,count(*) FROM comunicaciones c INNER JOIN usuarios u ON (c.usuario_id = u.id) inner join equipos e on (c.equipo_id = e.id) where Extract(day From c.fecha) = " . $dia . " and Extract(month From c.fecha) = " . $mes . " and Extract(year From c.fecha) = " . $anio . " and u.usuario = '". $usuarios[$i]."' GROUP BY u.usuario") );
+                $guard = $arr->result_array();
+                $resultado = array_merge($resultado, $guard);
+        }
+        return $resultado;
+}
+}
+
 ?>

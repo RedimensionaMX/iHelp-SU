@@ -9,7 +9,7 @@ if ($this->session->userdata('username')=="")
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>iHelp - iDoctor<?php if ($this->session->userdata('sucursal')!="") {
             echo " - " . $this->session->userdata('sucursal');
         }?></title>
@@ -108,6 +108,7 @@ if ($this->session->userdata('username')=="")
                                     <li><a href="/catalogo/index.php/reportes/recibidosdiapropiasresumen" title="Equipos Recibidos Dia Suc Propias">Recibidos<b> HOY RESUMEN</b> </a></li>
                                     <li><a href="/catalogo/index.php/reportes/recibidosmespropias" title="Equipos Recibidos Dia Suc Propias">Recibidos <b>MES DETALLE</b></a></li>
                                     <li><a href="/catalogo/index.php/reportes/recibidosmespropiasprueba" title="Equipos Recibidos Dia Suc Propias">Recibidos <b>MES RESUMEN</b></a></li>
+                                    <li><a href="/catalogo/index.php/reportes/recibidos30diaspropias" title="Equipos Recibidos Dia Suc Propias">Recibidos <b>30 DÍAS RESUMEN </b></a></li>
                                 </ul>
                             </li>
                             <li><a href="#" title="Propias">Propias <b>Ventas</b></a>
@@ -130,7 +131,10 @@ if ($this->session->userdata('username')=="")
                             </li>
                             <li><a href="#" title="Propias">Propias <b>Reparados</b></a>
                                 <ul>
-                                    <li><a href="/catalogo/index.php/reportes/equiposreparadospropiasatmes" title="Reparaciones de área técnica">Área Técnica <b>MES</b></a></li>
+                                    <li><a href="/catalogo/index.php/reportes/equiposreparadospropiasatdia" title="Reparaciones de área técnica">Área Técnica <b>HOY DETALLE</b></a></li>
+                                    <li><a href="/catalogo/index.php/reportes/equiposreparadospropiasatdiaresumen" title="Reparaciones de área técnica">Área Técnica <b>HOY RESUMEN</b></a></li>
+                                    <li><a href="/catalogo/index.php/reportes/equiposreparadospropiasatmes" title="Reparaciones de área técnica">Área Técnica <b>MES DETALLE</b></a></li>
+                                    <li><a href="/catalogo/index.php/reportes/equiposreparadospropiasatmesresumen" title="Reparaciones de área técnica">Área Técnica <b>MES RESUMEN</b></a></li>
                                     <li><a href="/catalogo/index.php/reportes/equiposreparadospropiasat" title="Reparaciones de área técnica">Área Técnica <b>TODOS</b></a></li>
                                     <li><a href="/catalogo/index.php/reportes/equiposreparadospropiasac" title="Reparaciones de área comercial">Area Comercial <b>TODOS</b></a></li>
                                 </ul>
@@ -138,13 +142,19 @@ if ($this->session->userdata('username')=="")
                             <!-- <li><a href="/catalogo/index.php/reportes/equiposReajuste" title="Equipos en Reajuste">Propias <b>Reajuste</b></a></li> -->
                             <li><a href="#" title="Propias">Propias <b>Reajuste</b></a>
                                 <ul>
-                                    <li><a href="/catalogo/index.php/reportes/equiposReajustemes" title="Comunicados de área comercial">Área Reajuste <b>MES</b></a></li>
+                                    <li><a href="/catalogo/index.php/reportes/equiposReajustedia" title="Comunicados de área comercial">Área Reajuste <b>HOY DETALLE</b></a></li>
+                                    <li><a href="/catalogo/index.php/reportes/equiposReajustediaresumen" title="Comunicados de área comercial">Área Reajuste <b>HOY RESUMEN</b></a></li>
+                                    <li><a href="/catalogo/index.php/reportes/equiposReajustemes" title="Comunicados de área comercial">Área Reajuste <b>MES DETALLE</b></a></li>
+                                    <li><a href="/catalogo/index.php/reportes/equiposReajustemesresumen" title="Comunicados de área comercial">Área Reajuste <b>MES RESUMEN</b></a></li>
                                     <li><a href="/catalogo/index.php/reportes/equiposReajuste" title="Comunicados de área comercial">Área Reajuste <b>TODOS</b></a></li>
                                 </ul>
                             </li>
                             <li><a href="#" title="Propias">Propias <b>Comunicados</b></a>
                                 <ul>
-                                    <li><a href="/catalogo/index.php/reportes/comunicadospropiasmes" title="Comunicados de área comercial">Área Comercial <b>MES</b></a></li>
+                                <li><a href="/catalogo/index.php/reportes/comunicadospropiasdia" title="Comunicados de área comercial">Área Comercial <b>HOY DETALLE</b></a></li>
+                                <li><a href="/catalogo/index.php/reportes/comunicadospropiasdiaresumen" title="Comunicados de área comercial">Área Comercial <b>HOY RESUMEN</b></a></li>
+                                    <li><a href="/catalogo/index.php/reportes/comunicadospropiasmes" title="Comunicados de área comercial">Área Comercial <b>MES DETALLE</b></a></li>
+                                    <li><a href="/catalogo/index.php/reportes/comunicadospropiasmesresumen" title="Comunicados de área comercial">Área Comercial <b>MES RESUMEN</b></a></li>
                                     <li><a href="/catalogo/index.php/reportes/comunicadospropias" title="Comunicados de área comercial">Área Comercial <b>TODOS</b></a></li>
                                 </ul>
                             </li>

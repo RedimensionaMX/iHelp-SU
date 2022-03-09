@@ -14,7 +14,7 @@
     <div class="three columns" style="text-align:right">Año:</div>
     <div class="three columns">
         <?php
-            $anios =  anios_array(2015,2021);
+            $anios =  anios_array(2015,2022);
             $anio = $this->uri->segment(3,date("Y"));
             echo form_dropdown("anios",$anios,$anio,"id='anios'");
         ?>
@@ -85,6 +85,9 @@
     <div class="three columns">
         <input type="checkbox" name="PC1" value="PC1">Pachuca(PC1)</br>
     </div>
+    <div class="three columns">
+        <input type="checkbox" name="CP1" value="CP1">Coapa (CP1)</br>
+    </div>
 </div>
 <div class="row">
     <br>
@@ -111,6 +114,7 @@
         $("input[name='VF1']").prop('checked', $(this).prop("checked"));
         $("input[name='PC1']").prop('checked', $(this).prop("checked"));
         $("input[name='CO1']").prop('checked', $(this).prop("checked"));
+        $("input[name='CP1']").prop('checked', $(this).prop("checked"));
     });
 </script>
 <script>
@@ -131,6 +135,7 @@
         $("input[name='VM2']").prop('checked', $(this).prop("checked"));
         $("input[name='VF1']").prop('checked', $(this).prop("checked"));
         $("input[name='PC1']").prop('checked', $(this).prop("checked"));
+        $("input[name='CP1']").prop('checked', $(this).prop("checked"));
         $("input[name='CO1']").prop('checked', $(this).prop("checked"));
     });
 	$("#noGestionadas").change(function () {

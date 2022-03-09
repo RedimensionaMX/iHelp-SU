@@ -129,13 +129,13 @@
       $("input[name='XA1']").prop('checked', $(this).prop("checked"));
       $("input[name='XC1']").prop('checked', $(this).prop("checked"));
       $("input[name='XU1']").prop('checked', $(this).prop("checked"));
-	  $("input[name='CO1']").prop('checked', $(this).prop("checked"));
+      $("input[name='PR1']").prop('checked', $(this).prop("checked"));
+	  $("input[name='TX1']").prop('checked', $(this).prop("checked"));
   });
 
 	$("#gestionadas").change(function () {
-      $("input[name='PR1']").prop('checked', $(this).prop("checked"));
       $("input[name='CS1']").prop('checked', $(this).prop("checked"));
-	  $("input[name='TX1']").prop('checked', $(this).prop("checked"));
+	  $("input[name='CO1']").prop('checked', $(this).prop("checked"));
   });
 
 	$("#noGestionadas").change(function () {

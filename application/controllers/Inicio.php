@@ -85,7 +85,7 @@ class Inicio extends CI_Controller {
     */
 	public function valida(){
         //Búsqueda del usuario en la BD
-        $arr =  $this->db->query("select * from usuarios where usuario='" . $_POST['usuario'] . "' and passwd='" . $_POST['passwd'] . "'");
+        $arr =  $this->db->query("select * from usuarios where usuario='" . $_POST['usuario'] . "' and passwd='" . $_POST['passwd'] . "' and nivel=1 and sucursal_id='Todas'");
         //Almacenamiento de resultados
         $data = ($arr->result_array());
         //Si existe un registro del usuario en sistema, los almacena en las siguientes variables

@@ -1,64 +1,36 @@
 <?php echo form_open('reportes/recibidosdiapropias'); ?>
 <table width="100%" id="datatabla" class="cell-border stripe compact hover">
-  <thead>
-    <tr>
-      <th>Suc</th>
-      <th>Estatus</th>
-      <th>Fecha recibido</th>
-      <th>Num. orden</th>
-      <th>Equipo</th>
-      <th>Situación</th>
-      <th>Subtotal</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php
-      $fa = ""; $fechaadicional = "";
-      foreach ($result as $item) {
-        echo "<tr>";
-        $colorline = "";
-        if($item['dias_vencidos'] >= 10 && $item['dias_vencidos'] <= 29){ //Amarillo claro
-          $colorline="#FCF6B4";
-        }elseif($item['dias_vencidos'] >=30  && $item['dias_vencidos'] <= 59){//Amarrilo fuerte
-          $colorline="#F6EF39";
-        }elseif($item['dias_vencidos'] >= 60 && $item['dias_vencidos'] <= 89){ //Rojo
-          $colorline="#CD3F3F";
-        }elseif($item['dias_vencidos'] >= 90){  //Morado
-          $colorline="#E397FF";
-        }
-        echo "<td align='center' width='5%' style='background-color: ". $colorline . ";'><b>" . $item['sucursal_id'] . "</b>" . "</td>";
-        if($item['estatus'] == "Listo para entrega"){
-          echo "<td width='20%' style='background-color: ". $colorline . "; color:black;'><b>" . $item['estatus'] . "</b>" . "</td>";
-        }else{
-          echo "<td width='20%' style='background-color: ". $colorline . ";'><b>" . $item['estatus'] . "</b>" . "</td>";
-        }
-        echo "<td width='10%' align='center' style='background-color: ". $colorline . ";'>" . $item['fecha_recibido'] . "</td>";
-        echo "<td width='15%' align = 'center' style='background-color: ". $colorline . ";'>" . $item['num_orden'] ."</a></td>";
-        if($item['software']==""){
-          echo "<td width='15%' align='center' style='background-color: ". $colorline . ";'>" . $item['tipo'] . "</td>";
-        }else{
-          echo "<td width='15%' align='center' style='background-color: ". $colorline . ";'>" . $item['software'] . " " . $item['modelo'] . "</td>";
-        }
-        if($item['situacion'] == 'A'){
-          echo "<td width='10%' align='center' style='background-color: ". $colorline . "; color:#51BF34;'>Activa</td>";
-        }elseif($item['situacion'] == 'X'){
-          echo "<td width='10%' align='center' style='background-color: ". $colorline . ";'>Cancelada</td>";
-        }elseif($item['situacion'] == 'C'){
-          echo "<td width='10%' align='center' style='background-color: ". $colorline . "; color:#4B2EDC;'>Concluida</td>";
-        }else{
-          echo "<td width='10%' align='center'>" . $item['situacion'] . "</td>";
-        }
-        echo "<td width='15%' align='center' style='background-color: ". $colorline . ";'>$" . number_format($item['subtotal_completo'], 2) . "</td>";
-        echo "</tr>";
-      }
-    ?>
-  </tbody>
+<thead>
+<tr>
+<th>Usuario</th>
+<th>Total #</th>
+</tr>
+</thead>
+<tbody>
+<?php
+$suma1 = 0;
+$suma2 = 0;
+
+foreach ($result as $item) {
+	echo "<tr>";
+  echo "<td align='center'><b>" . $item['usuario'] . "</b>" . "</td>";
+
+  echo "<td align='center'>" . $item['count'] . "</td>";
+  $suma1 =$suma1+$item['count'];
+	echo "</tr>";	
+}
+
+  echo "<tr>";
+    echo "<td></td>";
+    echo "<td align = 'center' ><strong>" .$suma1. "</strong></td>";
+    echo "</tr>";
+ 
+?>
+</tbody>
 </table>
 <div class="paginate" align="center">
-  <?php
-    echo $this->pagination->create_links();
-  ?>
 </div>
+
 </div>
 <script type="text/javascript" src="jquery-latest.js"></script>
 <script type="text/javascript" src="jquery.tablesorter.js"></script>
@@ -69,7 +41,7 @@ $(document).ready(function() {
     $('#datatabla').DataTable( {
         paging:false,
         searching:true,
-        ordering:true,
+        ordering:false,
         info: "",
         iDisplayLength: 100,
 language:
@@ -203,4 +175,10 @@ function filtrarCombos(){
     } //Cierre del for
   }
 }
+
+
+
+
+
 </script>
+

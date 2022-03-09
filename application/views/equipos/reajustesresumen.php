@@ -1,55 +1,29 @@
-<script language="javascript">
-    $(function () {
-        $("#ddusuario").change(function() {
-            var str = window.location.href;
-            var name1 = str.split('/')[6];
-            var name2 = str.split('/')[7];
-            if (name2 === undefined && name === ""){
-                top.location.href='../equiposReajuste/' + $("#ddusuario").val();
-            }else{
-                top.location.href='../' + $("#ddusuario").val();
-            }
-        });
-    });
-</script>
-
-<div align="center">
-    <div align="center" style="height:50px">
-        Sucursal: <?php echo form_dropdown("usuario",$usuarios,$usuario,"id='ddusuario'"); ?>
-    </div>
-</div>
-
 
 <div class="row">
     <div align="center">
         <table width="100%" id="datatabla" class="cell-border stripe compact hover">
             <thead>
                 <tr>
-                    <th width='20%'>Fecha</th>
-                    <th width='20%'>Sucursal</th>
-                    <th width='20%'>No. Orden</th>
-                    <th width='20%'>Equipo</th>
+                    <th width='50%'>Sucursal</th>
+                    <th width='50%'>Total #</th>
                 </tr>
             </thead>
             <tbody>
             <?php
-                foreach ($bitacoras as $bitacora) {
-                    $id = substr($bitacora['num_orden'], 0,2);
+                $suma=0;
+                foreach ($reajustes as $reajuste) {
                     echo "<tr>";
-                    echo "<td align='center'>" . $bitacora['fecha'] . "</td>";
-                    if ($id == 'VM'){
-                        echo "<td align='center'>" . $id . "2</td>";
-                    }else{
-                        echo "<td align='center'>" . $id . "1</td>";
-                    }
-                    echo "<td align='center'>" . $bitacora['num_orden'] . "</td>";
-                    if($bitacora['software']==""){
-                        echo "<td align='center'>" . $bitacora['tipo'] . "</td>";
-                    }else{
-                        echo "<td align='center'>" . $bitacora['software'] . " - ".$bitacora['modelo']."</td>";
-                    }
+                    echo "<td align='center'>" . $reajuste['sucursal_id'] . "</td>";
+                    echo "<td align='center'>" . $reajuste['count'] . "</td>";
+                    $suma=$suma+$reajuste['count'];
+                    //echo "<td>" . $comunicado['mensaje_para_fecha_adicional'] . "<br>" . $comunicado['fecha_adicional'] . "</td>";
+                    // echo "<td>" . $comunicado['proceso'] . "</td>";
                     echo "</tr>";
                 }
+                echo "<tr>";
+                    echo "<td></td>";
+                    echo "<td align = 'center' ><strong>" .$suma. "</strong></td>";
+                echo "</tr>";
             ?>
             </tbody>
         </table>

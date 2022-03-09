@@ -31,40 +31,30 @@
           </thead>
           <tbody>
           <?php
-foreach ($cierredemes as $key=>$item) {
-  // $nota = array();
-  // $precio = array();
-  // $nota[$key] = $item['numero_remision'];
-  // $precio[$key] = $item['importe'];
-  //   if($key>0){
-  //     $valor = $key-1;
-  //     echo $valor;
-  //     print_r($nota[$key]);
-  //     if($nota[$key] = $nota[$key-1]){
-  //       echo "REPETIDO";
-  //       continue;
-  //     }else{
-        echo "<tr>";
-        if(substr($item['num_orden'], 0, 2) === "VM"){
-          echo "<td>VM2</td>";
-        }else{
-          echo "<td>" . substr($item['num_orden'], 0, 2) . 1 . "</td>";
-        }
-        echo "<td>" . $item['descripcion_tipo'] . "</td>";
-        echo "<td>" . $item['periodo'] . "</td>";
-        echo "<td>" . $item['fecha'] . "</td>";
-        echo "<td>" . $item['numero_remision'] . "</td>";
-        echo "<td>" . $item['num_orden'] . "</td>";
-        echo "<td style='text-align:right'>" . number_format($item['importe'],2) . "</td>";
-        //echo "<td>" . $item['descripcion_tipo'] . "</td>";
-        echo "<td>" . $item['descripcion_servicios'] . "</td>";
-        echo "<td>" . ucfirst(strtolower($item['forma_de_pago'])) . "</td>";    
-          echo "<td>" . $item['observaciones'] . "</td>";    
-        echo "</tr>";
-      
-    
-
-}
+  foreach ($cierredemes as $key=>$item) {
+    $arrt = ( $this->db->query("select modelo,software from equipos where id = '" .$item['equipo_id']. "'"));
+    $software = ($arrt->result_array());
+    echo "<tr>";
+    if(substr($item['num_orden'], 0, 2) === "VM"){
+      echo "<td>VM2</td>";
+    }else{
+      echo "<td>" . substr($item['num_orden'], 0, 2) . 1 . "</td>";
+    }
+    if($software[0]['software']==""){
+      echo "<td>" . $item['descripcion_tipo'] . "</td>";
+    }else{
+      echo "<td>" . $software[0]['software'] . " ".$software[0]['modelo']."</td>";
+    }
+    echo "<td>" . $item['periodo'] . "</td>";
+    echo "<td>" . $item['fecha'] . "</td>";
+    echo "<td>" . $item['numero_remision'] . "</td>";
+    echo "<td>" . $item['num_orden'] . "</td>";
+    echo "<td style='text-align:right'>" . number_format($item['importe'],2) . "</td>";
+    echo "<td>" . $item['descripcion_servicios'] . "</td>";
+    echo "<td>" . ucfirst(strtolower($item['forma_de_pago'])) . "</td>"; 
+    echo "<td>" . $item['observaciones'] . "</td>";
+    echo "</tr>";
+  }
 ?>
 </tbody>
 </table>
@@ -314,7 +304,7 @@ function prueba(){
              //alert("entra2");
             tr[i].style.display = "none";
           }
-        }
+        }       
       }
 
     }else{
