@@ -1191,46 +1191,30 @@ function guardar_modificaciones($p) { // !!!
 
 
   function get_accesorios_sucursales_mes($seleccionados,$anio,$mes) {
-
     $resultado = [];
-
     $q = $this->db->query("select distinct numero_remision from movimientos where Extract(Month From MOVIMIENTOS.FECHA) = 08 And Extract(Year From MOVIMIENTOS.FECHA) = 2021 and sucursal_id = 'XU1'");
     $a = $q->result_array();
-    //print_r($a);
-
-      for ($i=0; $i < sizeof($seleccionados); $i++) { 
-        
-         $qry =  " SELECT";
-         $qry .= " SERVICIOS.SUBTOTAL As Importe, EQUIPOS.SUCURSAL_ID, EQUIPOS.TIPO AS descripcion_tipo, ";
-         $qry .= "'" . $mes . "/" . $anio . "' as periodo, ";
-         $qry .= " SERVICIOS.FECHA, MOVIMIENTOS.NUMERO_REMISION As numero_remision, EQUIPOS.NUM_ORDEN AS num_orden, ";
-         $qry .= " SERVICIOS.DESCRIPCION as descripcion_servicios, ";
-         $qry .= " MOVIMIENTOS.SSCTA As forma_de_pago, MOVIMIENTOS.CONCEPTO As observaciones ";
-         $qry .= " FROM ";
-         $qry .= " SERVICIOS Inner Join EQUIPOS On EQUIPOS.ID = SERVICIOS.EQUIPO_ID ";
-         $qry .= " Inner Join MOVIMIENTOS On MOVIMIENTOS.EQUIPO_ID = EQUIPOS.ID ";
-         $qry .= " WHERE ";
-         $qry .= " EQUIPOS.SUCURSAL_ID = '" . $seleccionados[$i] . "' And EQUIPOS.TIPO = 'Accesorios' And ";
-         $qry .= " Extract(Month From SERVICIOS.FECHA) = " . $mes . " And ";
-         $qry .= " Extract(Year From SERVICIOS.FECHA) = " . $anio . " ";
-         $qry .= " Order By SERVICIOS.ID Desc ";
-         
-         /*
-          $qry = "SELECT * "; 
-          $qry .= "FROM R_CIERRE_DE_MES_INGRESOS('" . $seleccionados[$i] . "'," . $anio . "," . $mes . ") ";
-          $qry .= "WHERE DESCRIPCION_TIPO = 'Accesorios' ";
-          $qry .= "ORDER BY numero_remision desc ";
-         */ 
-          //print($qry);  
-
-          $q = $this->db->query($qry);
-
-              $a = $q->result_array();
-
-              $resultado  = array_merge($resultado, $a);
-      }
-        return $resultado;
+    for ($i=0; $i < sizeof($seleccionados); $i++) {
+      $qry =  " SELECT";
+      $qry .= " SERVICIOS.SUBTOTAL As Importe, EQUIPOS.SUCURSAL_ID, EQUIPOS.ID AS equipo_id, EQUIPOS.TIPO AS descripcion_tipo, ";
+      $qry .= "'" . $mes . "/" . $anio . "' as periodo, ";
+      $qry .= " SERVICIOS.FECHA, MOVIMIENTOS.NUMERO_REMISION As numero_remision, EQUIPOS.NUM_ORDEN AS num_orden, ";
+      $qry .= " SERVICIOS.DESCRIPCION as descripcion_servicios, ";
+      $qry .= " MOVIMIENTOS.SSCTA As forma_de_pago, MOVIMIENTOS.CONCEPTO As observaciones ";
+      $qry .= " FROM ";
+      $qry .= " SERVICIOS Inner Join EQUIPOS On EQUIPOS.ID = SERVICIOS.EQUIPO_ID ";
+      $qry .= " Inner Join MOVIMIENTOS On MOVIMIENTOS.EQUIPO_ID = EQUIPOS.ID ";
+      $qry .= " WHERE ";
+      $qry .= " EQUIPOS.SUCURSAL_ID = '" . $seleccionados[$i] . "' And EQUIPOS.TIPO = 'Accesorios' And ";
+      $qry .= " Extract(Month From SERVICIOS.FECHA) = " . $mes . " And ";
+      $qry .= " Extract(Year From SERVICIOS.FECHA) = " . $anio . " ";
+      $qry .= " Order By SERVICIOS.ID Desc ";
+      $q = $this->db->query($qry);
+      $a = $q->result_array();
+      $resultado  = array_merge($resultado, $a);
     }
+    return $resultado;
+  }
 
     function get_ventas_sucursales_dia_resumen($seleccionados,$anio,$mes,$dia) {
 
