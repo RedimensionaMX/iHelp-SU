@@ -563,10 +563,10 @@ class Reportes extends CI_Controller {
     $this->load->model("Comunicacionesmodel");
     $this->load->model("Registroaccionesmodel");
     $sucursales_seleccionadas = ['XA1', 'XC1', 'XU1', 'VA1', 'CZ2', 'CL1', 'OZ1', 'TX1','PR1'];
-    $usuario = $this->uri->segment(3,'11');
-    $usuarios = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod','hefziba', 'ivonnemtz', 'paulaortiz','victorelizondo','dianasanchez',''];
+    $usuario = $this->uri->segment(3,'15');
+    $usuarios = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod','hefziba', 'ivonnemtz', 'paulaortiz','victorelizondo','dianasanchez','juanD','jChris','alonsoramos','libni',''];
     $registro['comunicados'] = $this->Comunicacionesmodel->get_comunicados_sucursales($usuarios[$usuario],$sucursales_seleccionadas,$usuarios);
-    $registro['usuarios'] = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod','hefziba', 'ivonnemtz', 'paulaortiz','victorelizondo','dianasanchez'];
+    $registro['usuarios'] = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod','hefziba', 'ivonnemtz', 'paulaortiz','victorelizondo','dianasanchez','juanD','jChris','alonsoramos','libni'];
 		$registro['usuarios']['NE'] = "Seleccionar usuarios";
     $registro['usuario'] = $this->uri->segment(3,'NE');
     $this->load->view('inicio/top1');
@@ -578,10 +578,10 @@ class Reportes extends CI_Controller {
     $this->load->model("Comunicacionesmodel");
     $this->load->model("Registroaccionesmodel");
     $sucursales_seleccionadas = ['XA1', 'XC1', 'XU1', 'VA1', 'CZ2', 'CL1', 'OZ1', 'TX1','PR1'];
-    $usuario = $this->uri->segment(3,'12');
-    $usuarios = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod','hefziba', 'ivonnemtz', 'paulaortiz','victorelizondo','dianasanchez','yohali',''];
+    $usuario = $this->uri->segment(3,'16');
+    $usuarios = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod','hefziba', 'ivonnemtz', 'paulaortiz','victorelizondo','dianasanchez','yohali','juanD','jChris','alonsoramos','libni',''];
     $registro['comunicados'] = $this->Comunicacionesmodel->get_comunicados_sucursales_mes($usuarios[$usuario],$sucursales_seleccionadas,$usuarios);
-    $registro['usuarios'] = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod','hefziba', 'ivonnemtz', 'paulaortiz','victorelizondo','dianasanchez','yohali'];
+    $registro['usuarios'] = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod','hefziba', 'ivonnemtz', 'paulaortiz','victorelizondo','dianasanchez','yohali','juanD','jChris','alonsoramos','libni'];
 		$registro['usuarios']['NE'] = "Seleccionar usuarios";
     $registro['usuario'] = $this->uri->segment(3,'NE');
     $this->load->view('inicio/top1');
@@ -592,10 +592,10 @@ class Reportes extends CI_Controller {
     $this->load->model("Comunicacionesmodel");
     $this->load->model("Registroaccionesmodel");
     $sucursales_seleccionadas = ['XA1', 'XC1', 'XU1', 'VA1', 'CZ2', 'CL1', 'OZ1', 'TX1','PR1'];
-    $usuario = $this->uri->segment(3,'11');
-    $usuarios = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod','hefziba', 'ivonnemtz', 'paulaortiz','victorelizondo','dianasanchez','yohali',''];
+    $usuario = $this->uri->segment(3,'15');
+    $usuarios = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod','hefziba', 'ivonnemtz', 'paulaortiz','victorelizondo','dianasanchez','yohali','juanD','jChris','alonsoramos','libni',''];
     $registro['comunicados'] = $this->Comunicacionesmodel->get_comunicados_sucursales_mesdetalle($usuarios[$usuario],$sucursales_seleccionadas,$usuarios);
-    $registro['usuarios'] = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod','hefziba', 'ivonnemtz', 'paulaortiz','victorelizondo','dianasanchez','yohali'];
+    $registro['usuarios'] = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod','hefziba', 'ivonnemtz', 'paulaortiz','victorelizondo','dianasanchez','yohali','juanD','jChris','alonsoramos','libni'];
 		$registro['usuarios']['NE'] = "Seleccionar usuarios";
     $registro['usuario'] = $this->uri->segment(3,'NE');
     // print_r($registro['comunicados']);
@@ -607,10 +607,10 @@ class Reportes extends CI_Controller {
     $this->load->model("Comunicacionesmodel");
     $this->load->model("Registroaccionesmodel");
     $sucursales_seleccionadas = ['XA1', 'XC1', 'XU1', 'VA1', 'CZ2', 'CL1', 'OZ1', 'TX1','PR1'];
-    $usuario = $this->uri->segment(3,'12');
-    $usuarios = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod','hefziba', 'ivonnemtz', 'paulaortiz','victorelizondo','dianasanchez','yohali',''];
+    $usuario = $this->uri->segment(3,'16');
+    $usuarios = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod','hefziba', 'ivonnemtz', 'paulaortiz','victorelizondo','dianasanchez','yohali','juanD','jChris','alonsoramos','libni',''];
     $registro['comunicados'] = $this->Comunicacionesmodel->get_comunicados_sucursales_dia($usuarios[$usuario],$sucursales_seleccionadas,$usuarios);
-    $registro['usuarios'] = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod','hefziba', 'ivonnemtz', 'paulaortiz','victorelizondo','dianasanchez','yohali'];
+    $registro['usuarios'] = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod','hefziba', 'ivonnemtz', 'paulaortiz','victorelizondo','dianasanchez','yohali','juanD','jChris','alonsoramos','libni'];
 		$registro['usuarios']['NE'] = "Seleccionar usuarios";
     $registro['usuario'] = $this->uri->segment(3,'NE');
     $this->load->view('inicio/top1');
@@ -621,10 +621,10 @@ class Reportes extends CI_Controller {
     $this->load->model("Comunicacionesmodel");
     $this->load->model("Registroaccionesmodel");
     $sucursales_seleccionadas = ['XA1', 'XC1', 'XU1', 'VA1', 'CZ2', 'CL1', 'OZ1', 'TX1','PR1'];
-    $usuario = $this->uri->segment(3,'12');
-    $usuarios = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod','hefziba', 'ivonnemtz', 'paulaortiz','victorelizondo','dianasanchez','yohali',''];
+    $usuario = $this->uri->segment(3,'16');
+    $usuarios = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod','hefziba', 'ivonnemtz', 'paulaortiz','victorelizondo','dianasanchez','yohali','juanD','jChris','alonsoramos','libni',''];
     $registro['comunicados'] = $this->Comunicacionesmodel->get_comunicados_sucursales_diadetalle($usuarios[$usuario],$sucursales_seleccionadas,$usuarios);
-    $registro['usuarios'] = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod','hefziba', 'ivonnemtz', 'paulaortiz','victorelizondo','dianasanchez','yohali'];
+    $registro['usuarios'] = ['aarmas', 'abiojeda', 'anapaty', 'angelicaver', 'evacabrera', 'jacoborod','hefziba', 'ivonnemtz', 'paulaortiz','victorelizondo','dianasanchez','yohali','juanD','jChris','alonsoramos','libni'];
 		$registro['usuarios']['NE'] = "Seleccionar usuarios";
     $registro['usuario'] = $this->uri->segment(3,'NE');
     // print_r($registro['comunicados']);
@@ -672,18 +672,26 @@ class Reportes extends CI_Controller {
   }
 
   public function devolucionesPendientesPropias() {
+		//Carga de modelo
 		$this->load->model("equipos/Equiposmodel");
+		//Carga de la librería de paginación para los resultados
 		$this->load->library('pagination');
+		//Solo si el usuario se encuentra logueado
 		if ($this->session->userdata('nivel')==1) {
+		  //Variables de la sucursal por consultar
       $sucursales_seleccionadas = ['CZ1', 'CL1', 'OZ1', 'VA1', 'XA1', 'XC1', 'XU1','TX1','PR1'];
       if(empty($sucursales_seleccionadas)){
         $data['result'] = $this->Equiposmodel->get_registrosDevoluciones(0);
+        //Carga de las vistas
         $this->load->view('inicio/top1');
         $this->load->view("reportes/equiposrecibidos",$data);
         $this->load->view('inicio/bottom1');
       }else{
+        //Búsqueda de resultados en la consulta
         $data['result'] = $this->Equiposmodel->get_registrosDevoluciones($sucursales_seleccionadas);
+        //Carga de las vistas
         $this->load->view('inicio/top1');
+        //Carga de la vista y paso de datps (Vista, Datos)
         $this->load->view("reportes/equiposrecibidos",$data);
         $this->load->view('inicio/bottom1');
       }
@@ -1323,10 +1331,10 @@ class Reportes extends CI_Controller {
     $sucursales_seleccionadas[6] = "OZ1";
     $sucursales_seleccionadas[7] = "TX1";
     $sucursales_seleccionadas[8] = "PR1";
-    $usuario = $this->uri->segment(3,'13');
-    $usuarios = ['alonsoramos', 'armandoh', 'epifaniox', 'jonnareyes', 'marcosruiz', 'marioivan', 'yaquiperez','marcobueno','ricardorojo','ivonnemtz','angeln','sebastiana','jjperez',''];
+    $usuario = $this->uri->segment(3,'14');
+    $usuarios = ['alonsoramos', 'armandoh', 'epifaniox', 'jonnareyes', 'marcosruiz', 'marioivan', 'yaquiperez','marcobueno','ricardorojo','ivonnemtz','angeln','sebastiana','jjperez','jChris',''];
     $registro['bitacoras'] = $this->Bitacorasmodel->get_equiposreparadossucursalesmes($usuarios[$usuario],$sucursales_seleccionadas,$usuarios);
-    $registro['usuarios'] = ['alonsoramos', 'armandoh', 'epifaniox', 'jonnareyes', 'marcosruiz', 'marioivan', 'yaquiperez','marcobueno','ricardorojo','ivonnemtz','angeln','sebastiana','jjperez'];
+    $registro['usuarios'] = ['alonsoramos', 'armandoh', 'epifaniox', 'jonnareyes', 'marcosruiz', 'marioivan', 'yaquiperez','marcobueno','ricardorojo','ivonnemtz','angeln','sebastiana','jjperez','jChris'];
 		$registro['usuarios']['NE'] = "Seleccionar usuarios";
     $registro['usuario'] = $this->uri->segment(3,'NE');
     $this->load->view('inicio/top1');
@@ -1347,10 +1355,10 @@ class Reportes extends CI_Controller {
     $sucursales_seleccionadas[6] = "OZ1";
     $sucursales_seleccionadas[7] = "TX1";
     $sucursales_seleccionadas[8] = "PR1";
-    $usuario = $this->uri->segment(3,'13');
-    $usuarios = ['alonsoramos', 'armandoh', 'epifaniox', 'jonnareyes', 'marcosruiz', 'marioivan', 'yaquiperez','marcobueno','ricardorojo','ivonnemtz','angeln','sebastiana','jjperez',''];
+    $usuario = $this->uri->segment(3,'14');
+    $usuarios = ['alonsoramos', 'armandoh', 'epifaniox', 'jonnareyes', 'marcosruiz', 'marioivan', 'yaquiperez','marcobueno','ricardorojo','ivonnemtz','angeln','sebastiana','jjperez','jChris',''];
     $registro['bitacoras'] = $this->Bitacorasmodel->get_equiposreparadossucursalesdia($usuarios[$usuario],$sucursales_seleccionadas,$usuarios);
-    $registro['usuarios'] = ['alonsoramos', 'armandoh', 'epifaniox', 'jonnareyes', 'marcosruiz', 'marioivan', 'yaquiperez','marcobueno','ricardorojo','ivonnemtz','angeln','sebastiana','jjperez'];
+    $registro['usuarios'] = ['alonsoramos', 'armandoh', 'epifaniox', 'jonnareyes', 'marcosruiz', 'marioivan', 'yaquiperez','marcobueno','ricardorojo','ivonnemtz','angeln','sebastiana','jjperez','jChris'];
 		$registro['usuarios']['NE'] = "Seleccionar usuarios";
     $registro['usuario'] = $this->uri->segment(3,'NE');
     $this->load->view('inicio/top1');
@@ -1358,10 +1366,106 @@ class Reportes extends CI_Controller {
     $this->load->view('inicio/bottom1');
   }
 
+  public function comisionespropiasatdia(){
+    $this->load->model("Bitacorasmodel");
+    $this->load->model("Registroaccionesmodel");
+    $sucursales_seleccionadas = [];
+    $sucursales_seleccionadas[0] = "XA1";
+    $sucursales_seleccionadas[1] = "XC1";
+    $sucursales_seleccionadas[2] = "XU1";
+    $sucursales_seleccionadas[3] = "VA1";
+    $sucursales_seleccionadas[4] = "CZ1";
+    $sucursales_seleccionadas[5] = "CL1";
+    $sucursales_seleccionadas[6] = "OZ1";
+    $sucursales_seleccionadas[7] = "TX1";
+    $sucursales_seleccionadas[8] = "PR1";
+    $usuario = $this->uri->segment(3,'14');
+    $usuarios = ['alonsoramos', 'armandoh', 'epifaniox', 'jonnareyes', 'marcosruiz', 'marioivan', 'yaquiperez','marcobueno','ricardorojo','ivonnemtz','angeln','sebastiana','jjperez','jChris',''];
+    $registro['bitacoras'] = $this->Bitacorasmodel->get_comisionesatdia($usuarios[$usuario],$sucursales_seleccionadas,$usuarios);
+    $registro['usuarios'] = ['alonsoramos', 'armandoh', 'epifaniox', 'jonnareyes', 'marcosruiz', 'marioivan', 'yaquiperez','marcobueno','ricardorojo','ivonnemtz','angeln','sebastiana','jjperez','jChris'];
+		$registro['usuarios']['NE'] = "Seleccionar usuarios";
+    $registro['usuario'] = $this->uri->segment(3,'NE');
+    $this->load->view('inicio/top1');
+    $this->load->view('equipos/prueba',$registro);
+    $this->load->view('inicio/bottom1');
+  }
+
+  public function comisionespropiasatdiaresumen(){
+    $this->load->model("Bitacorasmodel");
+    $this->load->model("Registroaccionesmodel");
+    $sucursales_seleccionadas = [];
+    $sucursales_seleccionadas[0] = "XA1";
+    $sucursales_seleccionadas[1] = "XC1";
+    $sucursales_seleccionadas[2] = "XU1";
+    $sucursales_seleccionadas[3] = "VA1";
+    $sucursales_seleccionadas[4] = "CZ1";
+    $sucursales_seleccionadas[5] = "CL1";
+    $sucursales_seleccionadas[6] = "OZ1";
+    $sucursales_seleccionadas[7] = "TX1";
+    $sucursales_seleccionadas[8] = "PR1";
+    $usuario = $this->uri->segment(3,'14');
+    $usuarios = ['alonsoramos', 'armandoh', 'epifaniox', 'jonnareyes', 'marcosruiz', 'marioivan', 'yaquiperez','marcobueno','ricardorojo','ivonnemtz','angeln','sebastiana','jjperez','jChris',''];
+    $registro['bitacoras'] = $this->Bitacorasmodel->get_comisionesatdiaresumen($usuarios[$usuario],$sucursales_seleccionadas,$usuarios);
+    $registro['usuarios'] = ['alonsoramos', 'armandoh', 'epifaniox', 'jonnareyes', 'marcosruiz', 'marioivan', 'yaquiperez','marcobueno','ricardorojo','ivonnemtz','angeln','sebastiana','jjperez','jChris'];
+		$registro['usuarios']['NE'] = "Seleccionar usuarios";
+    $registro['usuario'] = $this->uri->segment(3,'NE');
+    $this->load->view('inicio/top1');
+    $this->load->view('equipos/prueba2',$registro);
+    $this->load->view('inicio/bottom1');
+  }
+
+  public function comisionespropiasatmes(){
+    $this->load->model("Bitacorasmodel");
+    $this->load->model("Registroaccionesmodel");
+    $sucursales_seleccionadas = [];
+    $sucursales_seleccionadas[0] = "XA1";
+    $sucursales_seleccionadas[1] = "XC1";
+    $sucursales_seleccionadas[2] = "XU1";
+    $sucursales_seleccionadas[3] = "VA1";
+    $sucursales_seleccionadas[4] = "CZ1";
+    $sucursales_seleccionadas[5] = "CL1";
+    $sucursales_seleccionadas[6] = "OZ1";
+    $sucursales_seleccionadas[7] = "TX1";
+    $sucursales_seleccionadas[8] = "PR1";
+    $usuario = $this->uri->segment(3,'14');
+    $usuarios = ['alonsoramos', 'armandoh', 'epifaniox', 'jonnareyes', 'marcosruiz', 'marioivan', 'yaquiperez','marcobueno','ricardorojo','ivonnemtz','angeln','sebastiana','jjperez','jChris',''];
+    $registro['bitacoras'] = $this->Bitacorasmodel->get_comisionesatmes($usuarios[$usuario],$sucursales_seleccionadas,$usuarios);
+    $registro['usuarios'] = ['alonsoramos', 'armandoh', 'epifaniox', 'jonnareyes', 'marcosruiz', 'marioivan', 'yaquiperez','marcobueno','ricardorojo','ivonnemtz','angeln','sebastiana','jjperez','jChris'];
+		$registro['usuarios']['NE'] = "Seleccionar usuarios";
+    $registro['usuario'] = $this->uri->segment(3,'NE');
+    $this->load->view('inicio/top1');
+    $this->load->view('equipos/prueba',$registro);
+    $this->load->view('inicio/bottom1');
+  }
+
+  public function comisionespropiasatmesresumen(){
+    $this->load->model("Bitacorasmodel");
+    $this->load->model("Registroaccionesmodel");
+    $sucursales_seleccionadas = [];
+    $sucursales_seleccionadas[0] = "XA1";
+    $sucursales_seleccionadas[1] = "XC1";
+    $sucursales_seleccionadas[2] = "XU1";
+    $sucursales_seleccionadas[3] = "VA1";
+    $sucursales_seleccionadas[4] = "CZ1";
+    $sucursales_seleccionadas[5] = "CL1";
+    $sucursales_seleccionadas[6] = "OZ1";
+    $sucursales_seleccionadas[7] = "TX1";
+    $sucursales_seleccionadas[8] = "PR1";
+    $usuario = $this->uri->segment(3,'14');
+    $usuarios = ['alonsoramos', 'armandoh', 'epifaniox', 'jonnareyes', 'marcosruiz', 'marioivan', 'yaquiperez','marcobueno','ricardorojo','ivonnemtz','angeln','sebastiana','jjperez','jChris',''];
+    $registro['bitacoras'] = $this->Bitacorasmodel->get_comisionesatmesresumen($usuarios[$usuario],$sucursales_seleccionadas,$usuarios);
+    $registro['usuarios'] = ['alonsoramos', 'armandoh', 'epifaniox', 'jonnareyes', 'marcosruiz', 'marioivan', 'yaquiperez','marcobueno','ricardorojo','ivonnemtz','angeln','sebastiana','jjperez','jChris'];
+		$registro['usuarios']['NE'] = "Seleccionar usuarios";
+    $registro['usuario'] = $this->uri->segment(3,'NE');
+    $this->load->view('inicio/top1');
+    $this->load->view('equipos/prueba2',$registro);
+    $this->load->view('inicio/bottom1');
+  }
+
   public function equiposreparadospropiasatdiaresumen(){
     $this->load->model("Bitacorasmodel");
     $this->load->model("Registroaccionesmodel");
-    $usuarios = ['alonsoramos', 'armandoh', 'epifaniox', 'jonnareyes', 'marcosruiz', 'marioivan', 'yaquiperez','marcobueno','ricardorojo','ivonnemtz','angeln','sebastiana','jjperez',''];
+    $usuarios = ['alonsoramos', 'armandoh', 'epifaniox', 'jonnareyes', 'marcosruiz', 'marioivan', 'yaquiperez','marcobueno','ricardorojo','ivonnemtz','angeln','sebastiana','jjperez','jChris',''];
     $registro['result'] = $this->Bitacorasmodel->get_equiposreparadossucursalesdiaresumen($usuarios);
     $this->load->view('inicio/top1');
     $this->load->view('reportes/reparadosresumen',$registro);
@@ -1371,7 +1475,7 @@ class Reportes extends CI_Controller {
   public function equiposreparadospropiasatmesresumen(){
     $this->load->model("Bitacorasmodel");
     $this->load->model("Registroaccionesmodel");
-    $usuarios = ['alonsoramos', 'armandoh', 'epifaniox', 'jonnareyes', 'marcosruiz', 'marioivan', 'yaquiperez','marcobueno','ricardorojo','ivonnemtz','angeln','sebastiana','jjperez',''];
+    $usuarios = ['alonsoramos', 'armandoh', 'epifaniox', 'jonnareyes', 'marcosruiz', 'marioivan', 'yaquiperez','marcobueno','ricardorojo','ivonnemtz','angeln','sebastiana','jjperez','jChris',''];
     $registro['result'] = $this->Bitacorasmodel->get_equiposreparadossucursalesmesresumen($usuarios);
     $this->load->view('inicio/top1');
     $this->load->view('reportes/reparadosresumen',$registro);

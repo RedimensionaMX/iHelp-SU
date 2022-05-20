@@ -161,7 +161,14 @@ if ($this->session->userdata('username')=="")
                             <li><a href="/catalogo/index.php/reportes/equiposEsperaRefaccionPropias" title="Equipos en Espera de Refaccion">Propias <b>Espera de Refaccion</b></a></li>
                             <li><a href="/catalogo/index.php/reportes/equiposLaboratorioPropias" title="Equipos En Laboratorio">Propias <b>En Laboratorio</b></a></li>
                             <li><a href="/catalogo/index.php/reportes/devolucionesPendientesPropias" title="Devoluciones Pendientes">Propias <b>Devoluciones Pendientes</b></a></li>
-                            <li><a href="/catalogo/index.php/reportes/seguimientopropias" title="Propias">Propias<b> Seguimiento Especial</b></a>
+                            <li><a href="/catalogo/index.php/reportes/seguimientopropias" title="Propias">Propias<b> Seguimiento Especial</b></a></li>
+                            <li><a href="#" title="Propias">Propias <b>Comisiones</b></a>
+                                <ul>
+                                <li><a href="/catalogo/index.php/reportes/comisionespropiasatdia" title="Comunicados de área comercial">Área Técnica <b>HOY DETALLE</b></a></li>
+                                <li><a href="/catalogo/index.php/reportes/comisionespropiasatdiaresumen" title="Comunicados de área comercial">Área Técnica <b>HOY RESUMEN</b></a></li>
+                                    <li><a href="/catalogo/index.php/reportes/comisionespropiasatmes" title="Comunicados de área comercial">Área Técnica <b>MES DETALLE</b></a></li>
+                                    <li><a href="/catalogo/index.php/reportes/comisionespropiasatmesresumen" title="Comunicados de área comercial">Área Técnica <b>MES RESUMEN</b></a></li>
+                                </ul>
                             </li>
                             <!-- <li><a href="#" title="Propias">Propias <b>Ventas</b> Buen Fin</a>
                                 <ul>

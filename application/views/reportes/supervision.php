@@ -20,6 +20,7 @@
           <th>Equipo</th>
           <th>Situación</th>
           <th>Subtotal</th>
+          <th>Resta</th>
         </tr>
       </thead>
       <tbody>
@@ -61,6 +62,9 @@
               echo "<td width='10%' align='center'>" . $item['situacion'] . "</td>";
             }
             echo "<td width='10%' align='center' style='background-color: ". $colorline . ";'>$" . number_format($item['subtotal_completo'], 2) . "</td>";
+            $arr2 = ( $this->db->query("select sum(importe) as pagos from movimientos where equipo_id = '" .$item['id']. "'"));
+            $pagos = ($arr2->result_array());
+            echo "<td align='center' style='background-color: " . $colorline .";'>$" . number_format($item['subtotal_completo'] - $pagos[0]['pagos'], 2) . "</td>";
             echo "</tr>";	
           }
         ?>
