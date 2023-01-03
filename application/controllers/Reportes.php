@@ -2745,7 +2745,7 @@ class Reportes extends CI_Controller {
   public function ventasmespropiasresumen() {
     $this->load->model("equipos/Equiposmodel");
     if ($this->session->userdata('nivel')==1) {
-    	$sucursales_seleccionadas = [];
+      $sucursales_seleccionadas = [];
 			$sucursales_seleccionadas[0] = "XA1";
 			$sucursales_seleccionadas[1] = "XC1";
 			$sucursales_seleccionadas[2] = "XU1";
